@@ -1,5 +1,11 @@
 name: AI HOUSE Pilot Render
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'studio/**'
+      - 'episodes/**'
+      - '.github/workflows/pilot.yml'
   workflow_dispatch:
 permissions:
   contents: read
