@@ -31,7 +31,6 @@ BEATS=[
 ("Max Is Banned From Decisions","WHY AM I ON PROBATION?!","You bought a second volcano.","It was on sale!","No more financial decisions.","What about emotional ones?","Also banned.","Vote A: forgive! B: extend!"),
 ("Luna Runs for President","I'M RUNNING THIS HOUSE!","You already do.","Now it's official.","What is your policy?","No fires. No debt. No Max.","That feels targeted.","Vote A: vote Luna! B: rebel!"),
 ("Dino Runs Against Luna","THE DINOSAUR IS RUNNING?!","His slogan is free pizza.","That's bribery!","It's working.","He just won the couch.","I demand a recount.","Vote A: Luna! B: Dino!"),
-("The Great House Debate","WHY IS THE PODIUM ON FIRE?!","Dino is passionate.","Max is moderating badly.","I'm doing amazing!","You ate the questions.","They looked delicious.","Vote A: debate! B: dance-off!"),
 ("Election Night Chaos","WHO STOLE THE BALLOT BOX?!","Dino thinks it's a lunchbox.","That's election interference.","It's also empty.","Because Max forgot the ballots.","Democracy is having a moment.","Vote A: recount! B: revote!"),
 ("Finale: Who Rules AI House?","WE HAVE A NEW PRESIDENT?!","The results are unbelievable.","Nobody voted for Max.","I voted for myself!","That was your pizza receipt.","The house just voted back.","Vote A: new rules! B: chaos!")
 ]
