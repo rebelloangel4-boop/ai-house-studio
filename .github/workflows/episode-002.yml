@@ -1,0 +1,42 @@
+name: AI HOUSE Episode 2 Review
+on:
+  push:
+    branches: [main]
+    paths: ['episodes/002.json', '.github/workflows/episode-002.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install CPU render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core espeak-ng
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install pillow==11.1.0 numpy==2.2.3 soundfile==0.13.1 kokoro==0.9.4
+      - name: Render Episode 2
+        run: python studio/render.py --episode 002
+      - name: Validate MP4, audio, motion and captions
+        run: python studio/verify.py output/002
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-episode-002-review
+          path: output/002/
+          retention-days: 8
+          if-no-files-found: error
+      - name: Quality summary
+        if: always()
+        run: |
+          echo '## Episode 2 review' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Publishing is disabled; approval pending.' >> "$GITHUB_STEP_SUMMARY"
+          if test -f output/002/qa.json; then cat output/002/qa.json >> "$GITHUB_STEP_SUMMARY"; fi
