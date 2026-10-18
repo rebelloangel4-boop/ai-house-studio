@@ -1,57 +1,72 @@
 {
-  "series": "AI HOUSE \u2014 You Decide",
+  "series": "AI HOUSE — You Decide",
   "episode": 3,
-  "title": "Our Robot Charged the Dinosaur Rent",
-  "production_status": "editorial draft; no viewer votes counted",
+  "title": "Our Dinosaur Got Promoted Before Max!",
+  "production_status": "25-second review cut; no viewer votes counted; do not publish",
+  "target_seconds": 25,
+  "description": "The dinosaur ate the interviewer. Somehow he got the job?! Vote A or B. #AIHOUSE #AnimatedComedy #Shorts",
   "scenes": [
     {
-      "speaker": "Zig",
-      "line": "I have calculated the new tenant fee.",
-      "visual": "bill",
-      "beat": "EVERYONE PAYS RENT",
-      "min_seconds": 4,
-      "prop_title": "TENANT FEE",
-      "prop_value": "$2 / DAY"
-    },
-    {
       "speaker": "Max",
-      "line": "He is literally two days old.",
-      "visual": "dino",
-      "beat": "A VERY SMALL TENANT",
-      "min_seconds": 4
+      "line": "WHY DID THE DINOSAUR GET MY JOB?!",
+      "visual": "meeting",
+      "beat": "DINO GOT HIRED?!",
+      "min_seconds": 3.4,
+      "lead": 0.05
     },
     {
       "speaker": "Zig",
-      "line": "Then he owes two days of rent.",
-      "visual": "bill",
-      "beat": "NO FREE TRIAL",
-      "min_seconds": 4,
-      "prop_title": "RENT DUE",
-      "prop_value": "$4"
+      "line": "Because he ate the competition.",
+      "visual": "chomp",
+      "beat": "PROMOTED: DINO",
+      "min_seconds": 3.2,
+      "lead": 0.05
     },
     {
       "speaker": "Luna",
-      "line": "Can he pay in warmth?",
-      "visual": "fire",
-      "beat": "UTILITIES INCLUDED?",
-      "min_seconds": 4,
-      "lead": 1.9
+      "line": "Wait. He's earning more than us?",
+      "visual": "bill",
+      "beat": "SALARY: SIX FIGURES",
+      "min_seconds": 3.4,
+      "lead": 0.05,
+      "prop_title": "PAYCHECK",
+      "prop_value": "$100,000"
     },
     {
       "speaker": "Max",
-      "line": "Great. Our heating bill is now our roommate.",
+      "line": "He can't even wear pants!",
       "visual": "dino",
-      "beat": "A HOT NEW DEAL",
-      "min_seconds": 4
+      "beat": "NO PANTS. BIG SALARY.",
+      "min_seconds": 3.2,
+      "lead": 0.05
+    },
+    {
+      "speaker": "Zig",
+      "line": "Neither can your bank account.",
+      "visual": "scan",
+      "beat": "MAX BALANCE: $0",
+      "min_seconds": 3.3,
+      "lead": 0.05
     },
     {
       "speaker": "Luna",
-      "line": "What is his job: tiny heater, or security guard?",
+      "line": "Uh oh. He's buying the house!",
+      "visual": "bill",
+      "beat": "NEW LANDLORD?!",
+      "min_seconds": 3.4,
+      "lead": 0.05,
+      "prop_title": "PROPERTY OWNER",
+      "prop_value": "DINO"
+    },
+    {
+      "speaker": "Max",
+      "line": "Vote A: stop him! B: make him CEO!",
       "visual": "vote",
-      "beat": "HIRE THE DINOSAUR",
-      "min_seconds": 6,
-      "choice_a": "A  TINY HEATER",
-      "choice_b": "B  SECURITY GUARD"
+      "beat": "YOU DECIDE!",
+      "min_seconds": 4.3,
+      "lead": 0.05,
+      "choice_a": "A  STOP DINO",
+      "choice_b": "B  DINO CEO"
     }
   ]
 }
