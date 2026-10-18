@@ -1,72 +1,67 @@
 {
-  "series": "AI HOUSE \u2014 You Decide",
+  "series": "AI HOUSE — You Decide",
   "episode": 1,
   "title": "He Spent Our Rent on WHAT?!",
-  "target_seconds": 45,
-  "format": "1080x1920 30fps",
+  "target_seconds": 25,
+  "production_status": "Episode 2-style review cut; approval pending",
   "scenes": [
     {
-      "time": "0-4",
-      "action": "Luna discovers an empty rent envelope; crash zoom",
       "speaker": "Luna",
-      "line": "Max. Where is the rent money?",
-      "sound": "dramatic sting",
-      "beat": "THE RENT IS GONE",
-      "visual": "rent",
-      "min_seconds": 4
-    },
-    {
-      "time": "4-11",
-      "action": "Max reveals a glowing egg in a shopping bag",
-      "speaker": "Max",
-      "line": "Relax. I made an investment.",
-      "sound": "magical shimmer",
-      "beat": "A VERY BAD INVESTMENT",
+      "line": "MAX! WHY IS OUR RENT MONEY MOVING?!",
       "visual": "egg",
-      "min_seconds": 4
+      "beat": "THE RENT IS ALIVE?!",
+      "min_seconds": 3.4,
+      "lead": 0.05
     },
     {
-      "time": "11-17",
-      "action": "Zig scans egg: UNKNOWN SPECIES",
-      "speaker": "Zig",
-      "line": "Your investment has a heartbeat. And teeth.",
-      "sound": "scanner beep",
-      "beat": "IT HAS TEETH",
-      "visual": "scan",
-      "min_seconds": 5
-    },
-    {
-      "time": "17-27",
-      "action": "Egg cracks and a tiny dinosaur emerges",
       "speaker": "Max",
-      "line": "See? Passive income!",
-      "sound": "cracking shell, chirp",
-      "beat": "PASSIVE INCOME?",
-      "visual": "hatch",
-      "min_seconds": 4,
-      "lead": 1.4
+      "line": "Relax. I invested in a dinosaur.",
+      "visual": "egg",
+      "beat": "WORST INVESTMENT EVER",
+      "min_seconds": 3.2,
+      "lead": 0.05
     },
     {
-      "time": "27-36",
-      "action": "Dinosaur sneezes fire; couch turns to ash",
       "speaker": "Zig",
-      "line": "Excellent. Now we also have passive furniture.",
-      "sound": "sneeze, fire whoosh",
-      "beat": "PASSIVE FURNITURE",
-      "visual": "fire",
-      "min_seconds": 5,
-      "lead": 1.9
+      "line": "Your investment has teeth. And debt.",
+      "visual": "scan",
+      "beat": "SCANNING BAD DECISIONS",
+      "min_seconds": 3.3,
+      "lead": 0.05
     },
     {
-      "time": "36-45",
-      "action": "Luna faces camera; choice A Keep / B Sell",
+      "speaker": "Max",
+      "line": "Look! He's hatching! We're parents!",
+      "visual": "hatch",
+      "beat": "SURPRISE BABY DINO",
+      "min_seconds": 3.4,
+      "lead": 0.05
+    },
+    {
       "speaker": "Luna",
-      "line": "You live with us now. Keep the dinosaur or sell it? Vote below.",
-      "sound": "music button",
-      "beat": "YOU LIVE HERE NOW",
+      "line": "Parents?! We can't afford cereal!",
+      "visual": "dino",
+      "beat": "BANK ACCOUNT: ZERO",
+      "min_seconds": 3.2,
+      "lead": 0.05
+    },
+    {
+      "speaker": "Zig",
+      "line": "Good news. He's heating the couch.",
+      "visual": "fire",
+      "beat": "COUCH: ON FIRE",
+      "min_seconds": 3.4,
+      "lead": 0.05
+    },
+    {
+      "speaker": "Luna",
+      "line": "Vote A: keep him! B: return him!",
       "visual": "vote",
-      "min_seconds": 7
+      "beat": "YOU DECIDE!",
+      "min_seconds": 4.2,
+      "lead": 0.05,
+      "choice_a": "A  KEEP DINO",
+      "choice_b": "B  RETURN DINO"
     }
-  ],
-  "production_status": "review render; publishing disabled"
+  ]
 }
