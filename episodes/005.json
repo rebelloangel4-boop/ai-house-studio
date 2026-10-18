@@ -23,14 +23,17 @@
       "line": "Exactly. No money, no money problems.",
       "visual": "bill",
       "beat": "MAX DOES FINANCE",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "BUDGET",
+      "prop_value": "$0"
     },
     {
       "speaker": "Zig",
       "line": "I am downloading a longer sigh.",
       "visual": "scan",
       "beat": "PROCESSING THAT LOGIC",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "scan_label": "SIGH: DOWNLOADING"
     },
     {
       "speaker": "Luna",

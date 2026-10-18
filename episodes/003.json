@@ -9,7 +9,9 @@
       "line": "I have calculated the new tenant fee.",
       "visual": "bill",
       "beat": "EVERYONE PAYS RENT",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "TENANT FEE",
+      "prop_value": "$2 / DAY"
     },
     {
       "speaker": "Max",
@@ -23,7 +25,9 @@
       "line": "Then he owes two days of rent.",
       "visual": "bill",
       "beat": "NO FREE TRIAL",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "RENT DUE",
+      "prop_value": "$4"
     },
     {
       "speaker": "Luna",

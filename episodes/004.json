@@ -9,14 +9,17 @@
       "line": "Your first performance review. Please do not eat it.",
       "visual": "bill",
       "beat": "EMPLOYEE OF THE WEEK",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "REVIEW",
+      "prop_value": "WEEK 1"
     },
     {
       "speaker": "Zig",
       "line": "Attendance: perfect. Furniture: missing.",
       "visual": "scan",
       "beat": "THE NUMBERS ARE IN",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "scan_label": "ATTENDANCE: 100%"
     },
     {
       "speaker": "Max",

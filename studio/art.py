@@ -147,8 +147,11 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
         d.box((73,235,267,291),INK,12);d.text('BALANCE: $0',170,263,19,'#ffd080')
     elif kind=='egg':egg(d,382,612,t)
     elif kind=='scan':
-        egg(d,390,619,t);scan=565+(t*65)%105;d.line([(330,scan),(450,scan)],'#72e5db',3)
-        d.box((261,249,498,302),INK,12);d.text('HEARTBEAT DETECTED',380,276,15,'#96edd3')
+        
+        if episode==1:egg(d,390,619,t)
+        else:dinosaur(d,390,619,t)
+        scan=565+(t*65)%105;d.line([(330,scan),(450,scan)],'#72e5db',3)
+        d.box((261,249,498,302),INK,12);d.text(scene.get('scan_label','HEARTBEAT DETECTED'),380,276,15,'#96edd3')
     elif kind=='hatch':
         if t<1.2:egg(d,386,612,t,True)
         else:
@@ -160,7 +163,7 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
         d.box((65,650,475,703),INK,16);d.text(scene.get('choice_a','A  KEEP HIM'),270,677,23,'#a2ead3')
         d.box((65,712,475,765),INK,16);d.text(scene.get('choice_b','B  SELL HIM'),270,739,23,'#ffc59a')
     elif kind=='bill':
-        d.box((321,522,454,651),CREAM,8,INK);d.text('REPAIR BILL',388,550,14);d.text('$900',388,591,29,'#bf5c4d')
+        d.box((321,522,454,651),CREAM,8,INK);d.text(scene.get('prop_title','REPAIR BILL'),388,550,14);d.text(scene.get('prop_value','$900'),388,591,25,'#bf5c4d')
     # Clean brand safe area; captions avoid Shorts bottom and right-hand UI.
     d.box((28,43,172,78),INK,11);d.text('AI HOUSE',100,61,20,CREAM)
     d.text(f'{episode:02d} / YOU DECIDE',474,61,11,INK,'rm')

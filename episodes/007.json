@@ -9,7 +9,9 @@
       "line": "One week. Two cushions. Zero rent.",
       "visual": "bill",
       "beat": "THE FIRST WEEK REPORT",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "WEEK 1",
+      "prop_value": "-$900"
     },
     {
       "speaker": "Zig",
@@ -38,7 +40,9 @@
       "line": "The sofa never ate the bills.",
       "visual": "bill",
       "beat": "ONE POINT TO DINOSAUR",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "UNPAID",
+      "prop_value": "BILLS"
     },
     {
       "speaker": "Luna",

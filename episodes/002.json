@@ -24,7 +24,9 @@
       "line": "He added a personal touch.",
       "visual": "bill",
       "beat": "EXPERIENCE: FIRE",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "RESUME",
+      "prop_value": "MAX"
     },
     {
       "speaker": "Zig",

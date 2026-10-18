@@ -38,7 +38,9 @@
       "line": "The ceiling was very loud about it.",
       "visual": "bill",
       "beat": "THE REPAIR ESTIMATE",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "REPAIR BILL",
+      "prop_value": "$900"
     },
     {
       "speaker": "Max",

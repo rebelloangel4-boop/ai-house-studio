@@ -16,21 +16,26 @@
       "line": "Next, Max tried to get a job. We needed the income.",
       "visual": "bill",
       "beat": "DAY TWO / JOB INTERVIEW",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "RESUME",
+      "prop_value": "MAX"
     },
     {
       "speaker": "Luna",
       "line": "With the job situation unclear, Zig tried collecting rent.",
       "visual": "bill",
       "beat": "DAY THREE / THE TENANT FEE",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "TENANT FEE",
+      "prop_value": "$2 / DAY"
     },
     {
       "speaker": "Zig",
       "line": "A performance review followed. Results were mixed.",
       "visual": "scan",
       "beat": "DAY FOUR / PERFORMANCE REVIEW",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "scan_label": "REVIEW COMPLETE"
     },
     {
       "speaker": "Luna",
@@ -51,7 +56,9 @@
       "line": "Finally, we added up the damage. And the benefits.",
       "visual": "bill",
       "beat": "DAY SEVEN / THE VERDICT",
-      "min_seconds": 4
+      "min_seconds": 4,
+      "prop_title": "WEEK 1",
+      "prop_value": "-$900"
     },
     {
       "speaker": "Luna",

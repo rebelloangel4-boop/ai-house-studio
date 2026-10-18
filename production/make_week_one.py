@@ -65,3 +65,21 @@ bridges=[
 story={'series':'AI HOUSE','episode':8,'title':'A Dinosaur Ate Our Rent: The Complete First Week','production_status':'compilation connective scenes','scenes':[{'speaker':sp,'line':line,'visual':v,'beat':b,'min_seconds':4} for sp,line,v,b in bridges]}
 (ROOT/'episodes/008.json').write_text(json.dumps(story,indent=2)+'\n')
 (ROOT/'packs/week-001.json').write_text(json.dumps({'id':'week-001','launch_date':'2026-10-19','episodes':[f'{i:03}' for i in range(1,8)],'bridges':'008','editorial_status':'draft, awaiting pilot review','votes_counted':False,'publishing_enabled':False},indent=2)+'\n')
+
+# Props carry each scene's meaning rather than reusing the pilot's labels.
+prop_map={
+ 2:{2:('RESUME','MAX')},
+ 3:{0:('TENANT FEE','$2 / DAY'),2:('RENT DUE','$4')},
+ 4:{0:('REVIEW','WEEK 1')},
+ 5:{2:('BUDGET','$0')},
+ 6:{4:('REPAIR BILL','$900')},
+ 7:{0:('WEEK 1','-$900'),4:('UNPAID','BILLS')},
+ 8:{1:('RESUME','MAX'),2:('TENANT FEE','$2 / DAY'),6:('WEEK 1','-$900')}
+}
+scans={4:{1:'ATTENDANCE: 100%'},5:{3:'SIGH: DOWNLOADING'},8:{3:'REVIEW COMPLETE'}}
+for number in range(2,9):
+ path=ROOT/'episodes'/f'{number:03}.json';story=json.loads(path.read_text())
+ for index,(title,value) in prop_map.get(number,{}).items():
+  story['scenes'][index].update(prop_title=title,prop_value=value)
+ for index,label in scans.get(number,{}).items():story['scenes'][index]['scan_label']=label
+ path.write_text(json.dumps(story,indent=2)+'\n')
