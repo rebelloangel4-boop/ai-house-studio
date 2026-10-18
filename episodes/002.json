@@ -1,67 +1,66 @@
 {
   "series": "AI HOUSE — You Decide",
   "episode": 2,
-  "title": "My Dinosaur Just Ruined My Job Interview",
-  "production_status": "review cut; viewer votes not yet counted",
-  "description": "Max has one chance to pay rent. His dinosaur has other plans. Vote A or B! #AIHOUSE #AnimatedComedy #Shorts",
+  "title": "My Dinosaur Ate My Job Interview! (25-Second Cut)",
+  "production_status": "experimental 25-second storyboard; publishing approval pending",
+  "description": "My dinosaur became my BOSS?! Vote A or B for what happens next. #AIHOUSE #Shorts #AnimatedComedy",
+  "target_seconds": 25,
   "scenes": [
     {
       "speaker": "Luna",
-      "line": "MAX! WHY IS YOUR RESUME ON FIRE?!",
+      "line": "MAX! YOUR RESUME IS ON FIRE!",
       "visual": "fire",
-      "beat": "JOB INTERVIEW IN 30 SECONDS",
-      "min_seconds": 3.3,
-      "lead": 0.12
+      "beat": "YOUR RESUME IS ON FIRE!",
+      "min_seconds": 3.1,
+      "lead": 0.05
     },
     {
       "speaker": "Max",
-      "line": "It's fine! The dinosaur just gave it a glowing review.",
+      "line": "Relax. He gave it a glowing review.",
       "visual": "dino",
-      "beat": "FIVE STARS. ACTUAL FIRE.",
-      "min_seconds": 4.2,
-      "lead": 0.1
+      "beat": "GLOWING REVIEW",
+      "min_seconds": 3.4,
+      "lead": 0.05
     },
     {
       "speaker": "Zig",
-      "line": "Correction. Your qualifications are now medium rare.",
+      "line": "Correction. Your qualifications are ashes.",
       "visual": "scan",
-      "beat": "SKILLS: FLAMMABLE",
-      "min_seconds": 4.1,
-      "lead": 0.08
+      "beat": "QUALIFICATIONS: ASHES",
+      "min_seconds": 3.4,
+      "lead": 0.05
     },
     {
       "speaker": "Luna",
-      "line": "The interview is on video. Hide the dinosaur!",
+      "line": "HIDE HIM! YOUR INTERVIEW STARTS NOW!",
       "visual": "dino",
-      "beat": "HIDE HIM. NOW.",
-      "min_seconds": 4,
-      "lead": 0.1
+      "beat": "HIDE THE DINO!",
+      "min_seconds": 3.5,
+      "lead": 0.05
     },
     {
       "speaker": "Max",
-      "line": "Too late. He joined the meeting as my manager.",
-      "visual": "bill",
-      "beat": "MEET THE NEW BOSS",
-      "min_seconds": 4.1,
-      "lead": 0.08,
-      "prop_title": "VIDEO CALL",
-      "prop_value": "DINO — MANAGER"
+      "line": "Too late. He's my manager.",
+      "visual": "meeting",
+      "beat": "OFFICIAL MANAGER",
+      "min_seconds": 3.4,
+      "lead": 0.05
     },
     {
       "speaker": "Zig",
-      "line": "Great. Your boss has eaten the hiring manager.",
-      "visual": "fire",
-      "beat": "PROMOTION DENIED",
-      "min_seconds": 4,
-      "lead": 0.1
+      "line": "Your boss just ate the interviewer.",
+      "visual": "chomp",
+      "beat": "INTERVIEWER: DELETED",
+      "min_seconds": 3.5,
+      "lead": 0.05
     },
     {
       "speaker": "Luna",
-      "line": "Quick! Do we blame the Wi-Fi, or let him interview?",
+      "line": "Vote A: blame Wi-Fi! B: let Dino talk!",
       "visual": "vote",
-      "beat": "YOU DECIDE TOMORROW",
-      "min_seconds": 5.5,
-      "lead": 0.08,
+      "beat": "YOU DECIDE!",
+      "min_seconds": 4.1,
+      "lead": 0.05,
       "choice_a": "A  BLAME WI-FI",
       "choice_b": "B  LET DINO TALK"
     }
