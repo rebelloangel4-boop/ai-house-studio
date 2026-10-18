@@ -108,7 +108,9 @@ def main():
                '-c:a','aac','-b:a','192k','-ar','48000',vid)
             clips.append(vid)
         concat=tmp/'concat.txt'
-        concat.write_text(''.join("file '"+str(c)+"'\\n" for c in clips))
+        concat.write_text(''.join("file '"+str(clip)+"'"+chr(10) for clip in clips))
+        if len(clips)!=len(story['scenes']) or any(not clip.exists() or clip.stat().st_size==0 for clip in clips):
+            raise RuntimeError('Missing or empty rendered scene before assembly')
         ff('-f','concat','-safe','0','-i',concat,'-c','copy',OUT/'episode_001.mp4')
     print('Rendered',OUT/'episode_001.mp4')
 if __name__=='__main__':main()
