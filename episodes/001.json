@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE — You Decide",
+  "episode": 1,
+  "title": "He Spent Our Rent on WHAT?!",
+  "target_seconds": 45,
+  "format": "1080x1920 30fps",
+  "scenes": [
+    {
+      "time": "0-4",
+      "action": "Luna discovers an empty rent envelope; crash zoom",
+      "speaker": "Luna",
+      "line": "Max. Where is the rent money?",
+      "sound": "dramatic sting"
+    },
+    {
+      "time": "4-11",
+      "action": "Max reveals a glowing egg in a shopping bag",
+      "speaker": "Max",
+      "line": "Relax. I made an investment.",
+      "sound": "magical shimmer"
+    },
+    {
+      "time": "11-17",
+      "action": "Zig scans egg: UNKNOWN SPECIES",
+      "speaker": "Zig",
+      "line": "Your investment has a heartbeat. And teeth.",
+      "sound": "scanner beep"
+    },
+    {
+      "time": "17-27",
+      "action": "Egg cracks and a tiny dinosaur emerges",
+      "speaker": "Max",
+      "line": "See? Passive income!",
+      "sound": "cracking shell, chirp"
+    },
+    {
+      "time": "27-36",
+      "action": "Dinosaur sneezes fire; couch turns to ash",
+      "speaker": "Zig",
+      "line": "Excellent. Now we also have passive furniture.",
+      "sound": "sneeze, fire whoosh"
+    },
+    {
+      "time": "36-45",
+      "action": "Luna faces camera; choice A Keep / B Sell",
+      "speaker": "Luna",
+      "line": "You live with us now. Keep the dinosaur or sell it? Vote below.",
+      "sound": "music button"
+    }
+  ],
+  "production_status": "preproduction only"
+}
