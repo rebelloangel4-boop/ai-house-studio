@@ -1,0 +1,17 @@
+{
+  "id": "week-001",
+  "launch_date": "2026-10-19",
+  "episodes": [
+    "001",
+    "002",
+    "003",
+    "004",
+    "005",
+    "006",
+    "007"
+  ],
+  "bridges": "008",
+  "editorial_status": "draft, awaiting pilot review",
+  "votes_counted": false,
+  "publishing_enabled": false
+}

@@ -1,0 +1,53 @@
+{
+  "series": "AI HOUSE \u2014 You Decide",
+  "episode": 7,
+  "title": "One Week With the Worlds Worst Roommate",
+  "production_status": "editorial draft; no viewer votes counted",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "One week. Two cushions. Zero rent.",
+      "visual": "bill",
+      "beat": "THE FIRST WEEK REPORT",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "And one surprisingly warm apartment.",
+      "visual": "fire",
+      "beat": "LOOK ON THE BRIGHT SIDE",
+      "min_seconds": 4,
+      "lead": 1.9
+    },
+    {
+      "speaker": "Max",
+      "line": "Admit it. You would miss him.",
+      "visual": "dino",
+      "beat": "THE FINAL ARGUMENT",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "I would miss the sofa more.",
+      "visual": "dino",
+      "beat": "SOMEONE HAD TO SAY IT",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "The sofa never ate the bills.",
+      "visual": "bill",
+      "beat": "ONE POINT TO DINOSAUR",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "Final vote. Keep our tiny disaster, or find him a new home?",
+      "visual": "vote",
+      "beat": "YOU DECIDE WHAT IS NEXT",
+      "min_seconds": 6,
+      "choice_a": "A  KEEP HIM",
+      "choice_b": "B  NEW HOME"
+    }
+  ]
+}

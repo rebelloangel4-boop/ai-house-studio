@@ -1,0 +1,53 @@
+{
+  "series": "AI HOUSE \u2014 You Decide",
+  "episode": 4,
+  "title": "We Gave a Dinosaur a Performance Review",
+  "production_status": "editorial draft; no viewer votes counted",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Your first performance review. Please do not eat it.",
+      "visual": "bill",
+      "beat": "EMPLOYEE OF THE WEEK",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "Attendance: perfect. Furniture: missing.",
+      "visual": "scan",
+      "beat": "THE NUMBERS ARE IN",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Max",
+      "line": "He is a creative problem solver.",
+      "visual": "dino",
+      "beat": "A STRONG REFERENCE",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "The problem was a cushion.",
+      "visual": "fire",
+      "beat": "ONE SMALL INCIDENT",
+      "min_seconds": 4,
+      "lead": 1.9
+    },
+    {
+      "speaker": "Zig",
+      "line": "And he solved it permanently.",
+      "visual": "dino",
+      "beat": "NO REPEAT PROBLEMS",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Max",
+      "line": "Does he deserve a promotion, or a very tiny warning?",
+      "visual": "vote",
+      "beat": "YOU ARE THE MANAGER",
+      "min_seconds": 6,
+      "choice_a": "A  PROMOTE HIM",
+      "choice_b": "B  TINY WARNING"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE \u2014 You Decide",
+  "episode": 5,
+  "title": "The Dinosaur Found Our Emergency Fund",
+  "production_status": "editorial draft; no viewer votes counted",
+  "scenes": [
+    {
+      "speaker": "Max",
+      "line": "Good news. I found our emergency fund.",
+      "visual": "rent",
+      "beat": "FINALLY, SOME MONEY",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "That is an empty envelope.",
+      "visual": "rent",
+      "beat": "PLEASE LOOK INSIDE",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Max",
+      "line": "Exactly. No money, no money problems.",
+      "visual": "bill",
+      "beat": "MAX DOES FINANCE",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "I am downloading a longer sigh.",
+      "visual": "scan",
+      "beat": "PROCESSING THAT LOGIC",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "The dinosaur has better financial instincts. He eats the bills.",
+      "visual": "dino",
+      "beat": "DEBT MANAGEMENT",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "Who should control the budget: Luna, or a locked box?",
+      "visual": "vote",
+      "beat": "CHOOSE OUR TREASURER",
+      "min_seconds": 6,
+      "choice_a": "A  LUNA",
+      "choice_b": "B  LOCKED BOX"
+    }
+  ]
+}

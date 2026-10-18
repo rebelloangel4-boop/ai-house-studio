@@ -1,0 +1,53 @@
+{
+  "series": "AI HOUSE \u2014 You Decide",
+  "episode": 6,
+  "title": "Our Dinosaur Failed the Quiet Test",
+  "production_status": "editorial draft; no viewer votes counted",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "One minute of silence. That is all I ask.",
+      "visual": "dino",
+      "beat": "THE QUIET CHALLENGE",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Max",
+      "line": "He has been practicing all morning.",
+      "visual": "dino",
+      "beat": "FULLY PREPARED",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "The smoke alarm disagrees.",
+      "visual": "fire",
+      "beat": "A SMALL INTERRUPTION",
+      "min_seconds": 4,
+      "lead": 1.9
+    },
+    {
+      "speaker": "Max",
+      "line": "That was a silent sneeze.",
+      "visual": "dino",
+      "beat": "TECHNICALLY CORRECT",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "The ceiling was very loud about it.",
+      "visual": "bill",
+      "beat": "THE REPAIR ESTIMATE",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Max",
+      "line": "What should we try next: bedtime stories, or dinosaur yoga?",
+      "visual": "vote",
+      "beat": "HELP US GET SOME SLEEP",
+      "min_seconds": 6,
+      "choice_a": "A  BEDTIME STORY",
+      "choice_b": "B  DINOSAUR YOGA"
+    }
+  ]
+}

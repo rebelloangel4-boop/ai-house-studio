@@ -1,20 +1,29 @@
 # AI HOUSE — You Decide
 
-Original interactive animated sitcom. Production target: seven vertical Shorts weekly, followed by one re-edited weekly story compilation. **No automatic publishing until the pilot is reviewed.**
+Original 2D interactive roommate comedy with Luna, Max, Zig and one expensive dinosaur.
 
-## Characters
-- **Luna** — calm, sharp alien; dry comedic delivery.
-- **Max** — impulsive, overconfident human roommate.
-- **Zig** — precise robot with sarcastic observations.
+## What works
+- 1080×1920 / 30 fps animated review MP4s, native-resolution character art, expression changes, gestures, blinks and story actions.
+- Three Kokoro voices with per-character delivery rates, word-timed captions, approximate phoneme mouth shapes, and silence-aware mouths.
+- Original stereo score and effects, dialogue ducking, loudness mastering, SRT and shot previews.
+- Technical gates: dimensions, frame rate, codecs, stereo, duration, complete speech, audio clipping, animation changes and full decode.
+- Pilot renders on renderer changes. Weekly Studio renders all seven drafts plus connective scenes on production-workflow changes or manual dispatch.
+- Daily schedule: 12:47 PM Asia/Kolkata. First prepared week: 19–25 October 2026. Sunday compiles all seven verified daily artifacts into a re-edited story with eight new connective scenes and only one final CTA.
 
-## Production milestones
-1. Script and shot plan — drafted.
-2. Consistent character designs and licensed assets — pending.
-3. Three differentiated natural voices and lip sync — pending.
-4. Animation, music, effects, subtitles and 1080×1920 MP4 — pending.
-5. Human review and quality gate — required before uploads.
+## Publishing is disabled
+No YouTube token is read and no upload/publish operation exists. Technical PASS is not creative approval. The owner must approve the actual MP4 before any publishing integration is added.
 
-## Story rules
-Original jokes, character continuity, and real A/B viewer votes; never claim audience choices were counted without data. Weekly recaps need new connective scenes and an original opening/ending. Track asset licensing and YouTube monetization compliance.
+## Audience choices and continuity
+Week one is an editorial draft. No votes have been collected or counted. The six follow-up scripts explore the dinosaur's trial week without claiming a winning poll result. Before preparing the next pack, record real viewer decisions with source video/comment IDs and a cutoff; never invent a result. The current schedule stops producing after 25 October rather than recycling the same seven episodes. A new pack and its editorial review are required for future weeks.
 
-This repository currently holds preproduction assets, **not a completed or tested video pipeline**.
+## Zero-budget boundary
+Uses standard Ubuntu runners on this public repository and free local inference; no paid services, larger runners or paid TTS. Individual artifacts are capped at 20 MB, compilation at 80 MB; retention is eight days (pilot two days). Actual account-wide storage and GitHub service policies still govern billing. Do not enable paid spending or change to a paid runner. No model cache is retained in Actions.
+
+## Commands
+- `python studio/render.py --episode 001` then `python studio/verify.py output/001`
+- `python studio/render.py --episode 001 --preview` for still layout review
+- `python production/schedule_pack.py --batch` for first-week render matrix
+- `python production/collect.py` with the job-scoped GitHub token to fetch this pack's verified source artifacts
+- `python production/compile_week.py` to re-edit the weekly MP4
+
+See LICENSES.md for provenance. Video exports and model caches are excluded from Git.

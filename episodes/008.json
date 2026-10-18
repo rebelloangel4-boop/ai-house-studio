@@ -1,0 +1,64 @@
+{
+  "series": "AI HOUSE",
+  "episode": 8,
+  "title": "A Dinosaur Ate Our Rent: The Complete First Week",
+  "production_status": "compilation connective scenes",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Welcome to our first week with a dinosaur. The rent money did not survive.",
+      "visual": "rent",
+      "beat": "AI HOUSE / WEEK ONE",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "Next, Max tried to get a job. We needed the income.",
+      "visual": "bill",
+      "beat": "DAY TWO / JOB INTERVIEW",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "With the job situation unclear, Zig tried collecting rent.",
+      "visual": "bill",
+      "beat": "DAY THREE / THE TENANT FEE",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "A performance review followed. Results were mixed.",
+      "visual": "scan",
+      "beat": "DAY FOUR / PERFORMANCE REVIEW",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "Then Max discovered accounting. We are still recovering.",
+      "visual": "rent",
+      "beat": "DAY FIVE / THE BUDGET",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Zig",
+      "line": "By day six, everyone needed some quiet.",
+      "visual": "dino",
+      "beat": "DAY SIX / THE QUIET TEST",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "Finally, we added up the damage. And the benefits.",
+      "visual": "bill",
+      "beat": "DAY SEVEN / THE VERDICT",
+      "min_seconds": 4
+    },
+    {
+      "speaker": "Luna",
+      "line": "That was our first week. Tell us: keep the dinosaur, or find him a new home? Your decision can shape the next chapter.",
+      "visual": "vote",
+      "beat": "THE NEXT CHAPTER IS YOURS",
+      "min_seconds": 4
+    }
+  ]
+}

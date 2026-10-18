@@ -58,7 +58,7 @@ def actor(d,who,x,y,t,mouth='rest',energy=0,scale=1,emotion='neutral',gesture=Fa
         box((-59,44,59,151),skin,19);box((-42,62,42,130),'#b999d4',10)
         oval((-14,81,14,109),'#f2e3ff',INK);d.text('Z',*p((0,95)),size=15*scale)
         line([(-55,68),(-78,97),(-71,126)],'#a68abd',12);oval((-83,115,-60,140),skin,INK)
-        hand=(90,39 if gesture else 123);line([(55,69),(78,90),hand],'#a68abd',12);oval((hand[0]-11,hand[1]-10,hand[0]+11,hand[1]+11),skin,INK)
+        hand=(90,123-84*gesture);line([(55,69),(78,90),hand],'#a68abd',12);oval((hand[0]-11,hand[1]-10,hand[0]+11,hand[1]+11),skin,INK)
         box((-70,-93,70,40),skin,23);box((-59,-80,59,24),INK,18)
         line([(0,-93),(0,-118)],INK,4);oval((-9,-132,9,-114),'#ffce74',INK)
         box((-83,-47,-69,-8),'#a78bbb',5);box((69,-47,83,-8),'#a78bbb',5)
@@ -71,7 +71,7 @@ def actor(d,who,x,y,t,mouth='rest',energy=0,scale=1,emotion='neutral',gesture=Fa
         box((-55,174,-6,195),CREAM,9);box((7,174,56,195),CREAM,9)
         box((-60,34,60,139),shirt,23)
         line([(-51,55),(-77,91),(-62,126)],shirt,24);oval((-73,115,-48,139),skin,INK)
-        hand=(91,15 if gesture else 112);line([(51,55),(78,76),hand],shirt,24);oval((hand[0]-12,hand[1]-12,hand[0]+12,hand[1]+12),skin,INK)
+        hand=(91,112-97*gesture);line([(51,55),(78,76),hand],shirt,24);oval((hand[0]-12,hand[1]-12,hand[0]+12,hand[1]+12),skin,INK)
         if who=='Max':
             line([(-30,43),(0,61),(30,43)],'#f5b18c',6);line([(-12,54),(-14,86)],CREAM,2);line([(12,54),(14,86)],CREAM,2)
             box((-31,96,31,122),'#d6714d',8,None)
@@ -136,7 +136,7 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
         for j in range(8):
             yy=640-(t*22+j*33)%180;xx=110+j*45;d.oval((xx,yy,xx+29,yy+36),'#a89498')
     hero_x=185 if kind in ('egg','scan','hatch','fire') else 270
-    actor(d,who,hero_x,485,t,mouth,energy,1.1,'worried' if kind=='rent' else 'neutral',kind in ('egg','vote') and math.sin(t*2)>-.3)
+    actor(d,who,hero_x,430,t,mouth,energy,1.4,'worried' if kind=='rent' else 'neutral',(.5+.5*math.sin(t*2)) if kind in ('egg','vote') else 0)
     if kind=='rent':
         d.box((318,551,432,615),CREAM,5,INK);d.line([(320,554),(375,589),(430,554)],'#b6a79a',2);d.text('RENT',375,602,12)
         d.box((73,235,267,291),INK,12);d.text('BALANCE: $0',170,263,19,'#ffd080')

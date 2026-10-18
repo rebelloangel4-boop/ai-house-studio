@@ -1,0 +1,106 @@
+name: AI HOUSE Weekly Studio
+on:
+  push:
+    branches: [main]
+    paths: ['production/**', 'packs/**', '.github/workflows/weekly.yml']
+  schedule:
+    - cron: '17 7 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: ai-house-weekly
+  cancel-in-progress: false
+jobs:
+  select:
+    runs-on: ubuntu-24.04
+    outputs:
+      episodes: ${{ steps.pick.outputs.episodes }}
+      active: ${{ steps.pick.outputs.active }}
+      compile: ${{ steps.pick.outputs.compile }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: pick
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" = schedule ]; then
+            python production/schedule_pack.py >> "$GITHUB_OUTPUT"
+          else
+            python production/schedule_pack.py --batch >> "$GITHUB_OUTPUT"
+          fi
+  render:
+    needs: select
+    if: needs.select.outputs.active == 'true'
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        episode: ${{ fromJSON(needs.select.outputs.episodes) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      EPISODE: ${{ matrix.episode }}
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install free CPU dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core espeak-ng
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install pillow==11.1.0 numpy==2.2.3 soundfile==0.13.1 kokoro==0.9.4
+      - name: Render and verify
+        run: |
+          python studio/render.py --episode "$EPISODE"
+          python studio/verify.py "output/$EPISODE"
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          ep=os.environ['EPISODE'];folder=Path('output')/ep
+          assert sum(p.stat().st_size for p in folder.iterdir())<20_000_000, 'Artifact exceeds storage budget'
+          (folder/'source.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'script_sha256':hashlib.sha256((Path('episodes')/(ep+'.json')).read_bytes()).hexdigest(),'publishing_enabled':False}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-week-001-${{ matrix.episode }}
+          path: output/${{ matrix.episode }}/
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
+      - name: Test report
+        if: always()
+        run: |
+          echo "## Episode $EPISODE" >> "$GITHUB_STEP_SUMMARY"
+          if test -f "output/$EPISODE/qa.json"; then cat "output/$EPISODE/qa.json" >> "$GITHUB_STEP_SUMMARY"; fi
+          echo 'Publishing disabled. Creative approval pending.' >> "$GITHUB_STEP_SUMMARY"
+  compile:
+    needs: [select, render]
+    if: needs.select.outputs.compile == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect exact first-week sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python production/collect.py
+      - name: Re-edit weekly story
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python production/compile_week.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-week-001-compilation
+          path: output/week-001/
+          retention-days: 8
+          overwrite: true
+          if-no-files-found: error
+      - name: Compilation report
+        run: cat output/week-001/qa.json >> "$GITHUB_STEP_SUMMARY"

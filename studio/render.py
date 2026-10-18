@@ -1,5 +1,5 @@
 """AI HOUSE production renderer. Generates review files only; never uploads to YouTube."""
-import argparse, hashlib, json, math, os, subprocess, wave
+import argparse, hashlib, json, math, os, re, subprocess, wave
 from pathlib import Path
 import numpy as np
 from art import render
@@ -44,10 +44,14 @@ def viseme(audio,tokens,t):
     ps=tk['phonemes'];ratio=(t-tk['start'])/max(.001,tk['end']-tk['start']);ch=ps[min(len(ps)-1,int(ratio*len(ps)))] if ps else 'a'
     return ('closed' if ch in 'pbm' else 'round' if ch in 'uʊoɔw' else 'wide'),min(1,rms*9)
 
+def caption_text(chunk):
+    return re.sub(r'\s+([,.!?;:])', r'\1', ' '.join(q['text'] for q in chunk))
+
 def caption_at(tokens,t):
     for i in range(0,len(tokens),5):
         chunk=tokens[i:i+5]
-        if chunk[0]['start']-.05<=t<=chunk[-1]['end']+.12:return ' '.join(q['text'] for q in chunk)
+        end=tokens[i+5]['start'] if i+5<len(tokens) else chunk[-1]['end']+.2
+        if chunk[0]['start']-.05<=t<end:return caption_text(chunk)
     return ''
 
 def mix(audio,duration,kind,lead):
@@ -110,7 +114,7 @@ def main():
             if process.poll() is None:process.kill();process.wait()
         clips.append(clip)
         for j in range(0,len(tokens),5):
-            chunk=tokens[j:j+5];subtitle.append((offset+lead+chunk[0]['start'],offset+lead+chunk[-1]['end'],' '.join(q['text'] for q in chunk)))
+            chunk=tokens[j:j+5];subtitle.append((offset+lead+chunk[0]['start'],offset+lead+chunk[-1]['end'],caption_text(chunk)))
         timeline.append({'scene':i,'start':offset,'duration':duration,'lead':lead,'speech_seconds':len(data)/SR,'speaker':s['speaker'],'tokens':tokens,'visual':kind})
         offset+=duration
         print(f'Scene {i+1}/{len(story["scenes"])} complete: {duration:.2f}s',flush=True)
