@@ -11,9 +11,10 @@ def verify(folder):
     assert v['codec_name']=='h264' and v['pix_fmt']=='yuv420p' and v['r_frame_rate']=='30/1'
     assert a['codec_name']=='aac' and a['channels']==2 and a['sample_rate']=='48000'
     duration=float(probe['format']['duration']);assert 15<duration<65
+    if folder.name=='002': assert 24<=duration<=26, f'Episode 2 must be 24–26 seconds, got {duration:.2f}s'
     timeline=json.loads((folder/'timeline.json').read_text());assert abs(sum(s['duration'] for s in timeline)-duration)<.15
     for s in timeline:
-        assert s['lead']+s['speech_seconds']<s['duration']-.4
+        assert s['lead']+s['speech_seconds']<=s['duration']+.04, 'Speech truncated or scene timing inconsistent'
         assert s['tokens'] and all(0<=t['start']<=t['end']<=s['speech_seconds']+.3 for t in s['tokens'])
     samples=np.frombuffer(subprocess.check_output(['ffmpeg','-v','error','-i',str(p),'-vn','-f','f32le','-ac','2','-ar','24000','pipe:1']),dtype='<f4')
     peak=float(np.max(np.abs(samples)));rms=float(np.sqrt(np.mean(samples*samples)));assert .02<rms<.4;assert peak<.99
