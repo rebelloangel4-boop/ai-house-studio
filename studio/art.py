@@ -162,6 +162,16 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
     elif kind=='vote':
         d.box((65,650,475,703),INK,16);d.text(scene.get('choice_a','A  KEEP HIM'),270,677,23,'#a2ead3')
         d.box((65,712,475,765),INK,16);d.text(scene.get('choice_b','B  SELL HIM'),270,739,23,'#ffc59a')
+    elif kind in ('meeting','chomp'):
+        d.box((266,405,519,683),'#273047',13,INK,3)
+        d.box((278,428,507,647),'#b2e3f0',8)
+        d.box((286,440,388,533),'#f8d6b3',6);d.text('MAX',338,454,12)
+        d.box((397,440,500,533),'#e7b7c7',6);d.text('HR',448,454,12)
+        d.box((286,543,500,632),'#c7edc7',6);d.text('DINO - MANAGER',393,555,12)
+        dinosaur(d,390,615,t,False)
+        if kind=='chomp':
+            d.box((397,440,500,533),'#343446',6);d.text('SIGNAL LOST',449,485,10,'#ffffff')
+            for j in range(5):d.line([(400,465+j*12),(498,460+j*12)],'#f3a5b5',2)
     elif kind=='bill':
         d.box((321,522,454,651),CREAM,8,INK);d.text(scene.get('prop_title','REPAIR BILL'),388,550,14);d.text(scene.get('prop_value','$900'),388,591,25,'#bf5c4d')
     # Clean brand safe area; captions avoid Shorts bottom and right-hand UI.
@@ -175,7 +185,7 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
             if font(42).getlength(test)>850 and line:lines.append(line);line=word
             else:line=test
         if line:lines.append(line)
-        lines=lines[:3];top=791
+        lines=lines[:3];top=315
         d.box((36,top-13,486,top+len(lines)*29+14),INK,14)
-        for j,line in enumerate(lines):d.text(line,261,top+14+j*29,21,CREAM)
+        for j,line in enumerate(lines):d.text(line,261,top+14+j*29,21,'#ffe078')
     return im
