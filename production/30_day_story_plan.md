@@ -62,3 +62,7 @@ Track per episode: impressions, viewed-vs-swiped-away, average percentage viewed
 - Publishing remains disabled pending approval; monitor first 3 seconds, average viewed percentage, rewatches, votes, follows at 24h and 7d
 
 **Next production checkpoint:** Episode 3 review MP4 and QA before rolling out Episodes 4–30. Avoid auto-publishing unreviewed episodes.
+
+## Continuous creative improvement policy
+
+Preserve Episode 2's approved voice speeds, core character identities, 2D visual style, 24–26 second timing, and bottom-quarter safe area. For each new episode, review: (1) visual hook within first 2 seconds, (2) one physical gag that works on mute, (3) one distinctive emotional reaction per character, (4) escalation that changes the situation, (5) a specific A/B poll, (6) continuity with prior episodes, (7) no clipped words or unnatural gaps. Change one variable at a time when testing audience performance; retain improvements only when creative review or retention data supports them. Weekly landscape recap must be 1920x1080 with story bridges and without repeated daily poll segments. Do not automatically publish or claim viewer-vote outcomes without data.
