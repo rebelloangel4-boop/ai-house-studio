@@ -1,0 +1,29 @@
+name: AI HOUSE Pilot Render
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install --upgrade pip
+          pip install pillow numpy soundfile kokoro>=0.9.4
+      - name: Render pilot (no publishing)
+        run: python studio/render.py
+      - name: Verify output
+        run: |
+          test -s output/episode_001.mp4
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 output/episode_001.mp4 | grep -qx '1080,1920'
+          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 output/episode_001.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-pilot-001
+          path: output/episode_001.mp4
+          retention-days: 7
