@@ -1,0 +1,4 @@
+output/
+.voice-cache/
+__pycache__/
+*.pyc

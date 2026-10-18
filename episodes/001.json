@@ -1,5 +1,5 @@
 {
-  "series": "AI HOUSE — You Decide",
+  "series": "AI HOUSE \u2014 You Decide",
   "episode": 1,
   "title": "He Spent Our Rent on WHAT?!",
   "target_seconds": 45,
@@ -10,43 +10,63 @@
       "action": "Luna discovers an empty rent envelope; crash zoom",
       "speaker": "Luna",
       "line": "Max. Where is the rent money?",
-      "sound": "dramatic sting"
+      "sound": "dramatic sting",
+      "beat": "THE RENT IS GONE",
+      "visual": "rent",
+      "min_seconds": 4
     },
     {
       "time": "4-11",
       "action": "Max reveals a glowing egg in a shopping bag",
       "speaker": "Max",
       "line": "Relax. I made an investment.",
-      "sound": "magical shimmer"
+      "sound": "magical shimmer",
+      "beat": "A VERY BAD INVESTMENT",
+      "visual": "egg",
+      "min_seconds": 4
     },
     {
       "time": "11-17",
       "action": "Zig scans egg: UNKNOWN SPECIES",
       "speaker": "Zig",
       "line": "Your investment has a heartbeat. And teeth.",
-      "sound": "scanner beep"
+      "sound": "scanner beep",
+      "beat": "IT HAS TEETH",
+      "visual": "scan",
+      "min_seconds": 5
     },
     {
       "time": "17-27",
       "action": "Egg cracks and a tiny dinosaur emerges",
       "speaker": "Max",
       "line": "See? Passive income!",
-      "sound": "cracking shell, chirp"
+      "sound": "cracking shell, chirp",
+      "beat": "PASSIVE INCOME?",
+      "visual": "hatch",
+      "min_seconds": 4,
+      "lead": 1.4
     },
     {
       "time": "27-36",
       "action": "Dinosaur sneezes fire; couch turns to ash",
       "speaker": "Zig",
       "line": "Excellent. Now we also have passive furniture.",
-      "sound": "sneeze, fire whoosh"
+      "sound": "sneeze, fire whoosh",
+      "beat": "PASSIVE FURNITURE",
+      "visual": "fire",
+      "min_seconds": 5,
+      "lead": 1.9
     },
     {
       "time": "36-45",
       "action": "Luna faces camera; choice A Keep / B Sell",
       "speaker": "Luna",
       "line": "You live with us now. Keep the dinosaur or sell it? Vote below.",
-      "sound": "music button"
+      "sound": "music button",
+      "beat": "YOU LIVE HERE NOW",
+      "visual": "vote",
+      "min_seconds": 7
     }
   ],
-  "production_status": "preproduction only"
+  "production_status": "review render; publishing disabled"
 }
