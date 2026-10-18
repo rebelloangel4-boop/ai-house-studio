@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 from art import render
 ROOT=Path(__file__).resolve().parents[1]; SR=24000; FPS=30
-VOICES={'Luna':('af_heart',.98),'Max':('am_michael',1.08),'Zig':('am_fenrir',.94)}
+VOICES={'Luna':('af_heart',1.15),'Max':('am_michael',1.17),'Zig':('am_fenrir',1.12)}
 def ff(*args):subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y',*map(str,args)],check=True)
 def wavwrite(path,data):
     with wave.open(str(path),'wb') as f:
@@ -60,8 +60,8 @@ def mix(audio,duration,kind,lead):
     notes=[146.83,220,293.66,349.23,293.66,220,164.81,220]
     for i,start in enumerate(np.arange(0,duration,.48)):
         u=t-start;mask=(u>=0)&(u<.65);v=u[mask]
-        music[mask]+=.020*np.sin(2*np.pi*notes[i%8]*v)*np.exp(-v*9)
-        music[mask]+=.008*np.sin(2*np.pi*notes[i%8]*2*v)*np.exp(-v*13)
+        music[mask]+=.013*np.sin(2*np.pi*notes[i%8]*v)*np.exp(-v*9)
+        music[mask]+=.005*np.sin(2*np.pi*notes[i%8]*2*v)*np.exp(-v*13)
     rng=np.random.default_rng(76)
     def tone(start,length,freq,amp=.09,sweep=0):
         a=int(start*SR);b=min(n,a+int(length*SR));u=np.arange(b-a)/SR
@@ -69,9 +69,9 @@ def mix(audio,duration,kind,lead):
     if kind=='rent':tone(.05,.45,110,.11,-55)
     if kind in ('egg','scan'):
         for i in range(4):tone(.2+i*.12,.17,660+i*170,.045)
-    if kind=='hatch':
+    if kind in ('hatch','meeting'):
         a=int(1.1*SR);b=min(n,a+int(.17*SR));sfx[a:b]+=.08*rng.standard_normal(b-a)*np.exp(-np.arange(b-a)/(SR*.035));tone(1.38,.25,900,.07,1300)
-    if kind=='fire':
+    if kind in ('fire','chomp'):
         a=int(.65*SR);b=min(n,int(1.75*SR));noise=rng.standard_normal(b-a);noise=np.convolve(noise,np.ones(25)/25,mode='same')
         sfx[a:b]+=.19*noise*np.sin(np.linspace(0,np.pi,b-a))**2;tone(1.75,.22,95,.12,-120)
     speechtrack=np.zeros(n);a=int(lead*SR);b=min(n,a+len(audio));speechtrack[a:b]=audio[:b-a]
@@ -96,7 +96,7 @@ def main():
     pipeline=KPipeline(lang_code='a',repo_id='hexgrad/Kokoro-82M',device='cpu')
     timeline=[];subtitle=[];offset=0;clips=[]
     for i,s in enumerate(story['scenes']):
-        data,tokens=speech(pipeline,s['line'],s['speaker'],cache);lead=float(s.get('lead',.3));duration=max(float(s.get('min_seconds',4)),len(data)/SR+lead+.65)
+        data,tokens=speech(pipeline,s['line'],s['speaker'],cache);lead=float(s.get('lead',.3));duration=max(float(s.get('min_seconds',4)),len(data)/SR+lead+.10)
         count=math.ceil(duration*FPS);duration=count/FPS
         kind=s.get('visual',['rent','egg','scan','hatch','fire','vote'][min(i,5)])
         sound=out/f'scene_{i}.wav';wavwrite(sound,mix(data,duration,kind,lead));clip=out/f'scene_{i}.mp4'
@@ -118,6 +118,7 @@ def main():
         timeline.append({'scene':i,'start':offset,'duration':duration,'lead':lead,'speech_seconds':len(data)/SR,'speaker':s['speaker'],'tokens':tokens,'visual':kind})
         offset+=duration
         print(f'Scene {i+1}/{len(story["scenes"])} complete: {duration:.2f}s',flush=True)
+    if story.get('target_seconds') and not 24 <= offset <= 26: print(f'WARNING: Target 24–26s, actual {offset:.2f}s',flush=True)
     playlist=out/'concat.txt';playlist.write_text(''.join(f"file '{c.name}'\n" for c in clips))
     raw=out/'assembled.mp4';final=out/f'episode_{args.episode}.mp4'
     ff('-f','concat','-safe','0','-i',playlist,'-c','copy',raw)
