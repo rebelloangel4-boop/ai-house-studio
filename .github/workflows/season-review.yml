@@ -1,0 +1,49 @@
+name: AI HOUSE Season 1 Review Render
+on:
+  push:
+    branches: [main]
+    paths: ['production/generate_season.py', '.github/workflows/season-review.yml']
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: 'Episode number 004–030 (one review at a time)'
+        required: true
+        default: '004'
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate connected season scripts
+        run: python production/generate_season.py
+      - name: Install free CPU dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core espeak-ng
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install pillow==11.1.0 numpy==2.2.3 soundfile==0.13.1 kokoro==0.9.4
+      - name: Render and verify selected episode
+        env:
+          SELECTED_EPISODE: ${{ inputs.episode || '004' }}
+        run: |
+          case "$SELECTED_EPISODE" in
+            0[0-2][0-9]|030) ;;
+            *) echo 'Episode must be 004–030'; exit 1 ;;
+          esac
+          python studio/render.py --episode "$SELECTED_EPISODE"
+          python studio/verify.py "output/$SELECTED_EPISODE"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-season-review-${{ inputs.episode || '004' }}
+          path: output/${{ inputs.episode || '004' }}/
+          retention-days: 8
+          if-no-files-found: error
