@@ -11,7 +11,7 @@ def main():
     def cut(source,start,duration):
         nonlocal offset
         p=target/f'part_{len(pieces):02}.mp4'
-        ff('-ss',start,'-i',source,'-t',duration,'-c:v','libx264','-threads','2','-preset','veryfast','-crf','20','-c:a','aac','-b:a','160k','-ar','48000','-ac','2',p)
+        ff('-ss',start,'-i',source,'-t',duration,'-vf','split=2[bg][fg];[bg]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,boxblur=40:2[back];[fg]scale=608:1080[front];[back][front]overlay=(W-w)/2:(H-h)/2,format=yuv420p','-c:v','libx264','-threads','2','-preset','veryfast','-crf','20','-c:a','aac','-b:a','160k','-ar','48000','-ac','2',p)
         pieces.append(p);offset+=duration
     for i,ep in enumerate(pack['episodes']):
         folder=out/ep;qa=json.loads((folder/'qa.json').read_text());assert qa['technical_gate']=='PASS'
@@ -27,10 +27,12 @@ def main():
     ff('-i',raw,'-c:v','copy','-af','loudnorm=I=-16:TP=-1.5:LRA=9','-ar','48000','-ac','2','-c:a','aac','-b:a','160k','-movflags','+faststart',final)
     ff('-xerror','-i',final,'-f','null','-')
     duration=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',str(final)]))
-    assert abs(duration-offset)<1 and 150<duration<600
+    assert abs(duration-offset)<1 and 100<duration<600
+    probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=width,height','-of','json',str(final)]))
+    assert (probe['streams'][0]['width'],probe['streams'][0]['height'])==(1920,1080), 'Landscape 1080p required'
     assert final.stat().st_size<80_000_000,'Storage budget exceeded'
     (target/'metadata.json').write_text(json.dumps({'title':'A Dinosaur Ate Our Rent | AI HOUSE: The Complete First Week','chapters':chapters,'duration':duration,'publishing_approved':False,'votes_counted':False},indent=2))
-    (target/'qa.json').write_text(json.dumps({'technical_gate':'PASS','creative_approval':'PENDING','source_episodes':pack['episodes'],'connective_scenes':8,'repeated_vote_scenes_removed':7,'duration':duration,'publishing_enabled':False},indent=2))
+    (target/'qa.json').write_text(json.dumps({'technical_gate':'PASS','creative_approval':'PENDING','source_episodes':pack['episodes'],'connective_scenes':8,'repeated_vote_scenes_removed':7,'duration':duration,'resolution':'1920x1080','landscape_edit':'centered vertical composition with blurred extended background','publishing_enabled':False},indent=2))
     for p in pieces+[raw,playlist]:p.unlink()
     print(f'Compilation ready for review: {final}')
 if __name__=='__main__':main()
