@@ -131,10 +131,15 @@ def dinosaur(d,x,y,t,fire=False):
 def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080):
     im=room(width).copy();d=Canvas(im);kind=scene.get('visual',['rent','egg','scan','hatch','fire','vote'][min(index,5)])
     # Story action and staging change between shots, not just camera movement.
-    if kind=='fire' and t>1.7:
-        d.box((35,530,508,727),'#bc8c83');d.oval((62,660,482,723),'#665c68')
-        for j in range(8):
-            yy=640-(t*22+j*33)%180;xx=110+j*45;d.oval((xx,yy,xx+29,yy+36),'#a89498')
+    burned=(episode>1 or (episode==1 and index>=5) or (kind=='fire' and t>1.7))
+    if burned:
+        d.box((35,530,508,620),'#e8c9b5');d.box((35,620,508,727),'#bc8c83')
+        d.line([(35,621),(508,621)],'#9c6e6f',5)
+        d.oval((62,660,482,723),'#665c68')
+        d.line([(91,687),(211,665),(330,701),(443,681)],'#4f4959',7)
+        if kind=='fire' and t>1.7:
+            for j in range(5):
+                yy=640-(t*22+j*33)%140;xx=110+j*65;d.oval((xx,yy,xx+21,yy+28),'#a89498')
     hero_x=185 if kind in ('egg','scan','hatch','fire') else 270
     actor(d,who,hero_x,430,t,mouth,energy,1.4,'worried' if kind=='rent' else 'neutral',(.5+.5*math.sin(t*2)) if kind in ('egg','vote') else 0)
     if kind=='rent':

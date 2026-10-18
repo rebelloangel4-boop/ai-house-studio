@@ -11,7 +11,7 @@ permissions:
   actions: read
 concurrency:
   group: ai-house-weekly
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   select:
     runs-on: ubuntu-24.04
