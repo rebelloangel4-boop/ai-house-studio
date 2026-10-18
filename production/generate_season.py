@@ -41,7 +41,13 @@ def make(i,beat):
     scenes=[]
     for j,(speaker,line,visual) in enumerate(zip(speakers,lines,visuals)):
         scene={'speaker':speaker,'line':line,'visual':visual,'beat':(['WHAT JUST HAPPENED?!','MAX HAS A PLAN','ZIG DISAPPROVES','IT GETS WORSE','LUNA PANICS','ABSOLUTE CHAOS','YOU DECIDE!'][j]),'min_seconds':(4.1 if j==6 else 3.4 if j%2==0 else 3.2),'lead':0.05}
-        if j==6:scene.update(choice_a='A  OPTION ONE',choice_b='B  OPTION TWO')
+        if j==6:
+            import re
+            options=re.search(r'Vote A:\\s*(.*?)!\\s*B:\\s*(.*?)!',line,re.I)
+            if options:
+                scene.update(choice_a='A  '+options.group(1).upper(),choice_b='B  '+options.group(2).upper())
+            else:
+                scene.update(choice_a='A  OPTION ONE',choice_b='B  OPTION TWO')
         scenes.append(scene)
     return {'series':'AI HOUSE — You Decide','episode':i,'title':title,'target_seconds':25,'production_status':'generated review draft; creative approval pending','scenes':scenes}
 def main():
