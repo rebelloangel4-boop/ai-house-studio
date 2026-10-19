@@ -19,7 +19,7 @@ def speech(pipeline,line,who,cache):
     wav=cache/f'{key}.wav';meta=cache/f'{key}.json'
     if wav.exists() and meta.exists():return wavread(wav),json.loads(meta.read_text())
     parts=[];tokens=[];offset=0
-    for result in pipeline(line,voice=voice,speed=speed,split_pattern=r'(?<=[.!?])\\s+') :
+    for result in pipeline(line,voice=voice,speed=speed) :
         a=np.asarray(result.audio,dtype=np.float32);parts.append(a)
         for token in result.tokens or []:
             start=getattr(token,'start_ts',None);end=getattr(token,'end_ts',None)
