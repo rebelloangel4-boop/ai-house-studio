@@ -1,142 +1,177 @@
-name: AI HOUSE Weekly Studio - MP4 Review Only
-# Voice-pacing refresh: regenerate seven episodes for review; publishing remains disabled.
+name: AI HOUSE Week 1 Voice Review
 on:
   push:
     branches: [main]
-    paths: ['production/**', 'packs/**', 'studio/**', 'episodes/**', '.github/workflows/weekly.yml']
-  schedule:
-    - cron: '17 7 * * *'
+    paths: ['studio/**', 'episodes/**', 'production/**', '.github/workflows/weekly.yml']
   workflow_dispatch:
-    # MP4 review artifacts only; no Google Drive or publishing
+    inputs:
+      episodes:
+        description: 'all or comma-separated episode numbers; 001 is always tested first'
+        default: '001'
 permissions:
   contents: write
   actions: read
 concurrency:
   group: ai-house-weekly
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   select:
     runs-on: ubuntu-24.04
     outputs:
-      episodes: ${{ steps.pick.outputs.episodes }}
-      active: ${{ steps.pick.outputs.active }}
+      remaining: ${{ steps.pick.outputs.remaining }}
       compile: ${{ steps.pick.outputs.compile }}
     steps:
       - uses: actions/checkout@v4
       - id: pick
         env:
-          EVENT: ${{ github.event_name }}
+          REQUEST: ${{ inputs.episodes }}
         run: |
-          if [ "$EVENT" = schedule ]; then
-            python production/schedule_pack.py >> "$GITHUB_OUTPUT"
-          else
-            python production/schedule_pack.py --batch >> "$GITHUB_OUTPUT"
-          fi
-  render:
+          python - <<'PYCODE'
+          import json,os
+          request=os.environ.get('REQUEST','')
+          eps=([f'{i:03}' for i in range(1,9)] if request=='all' else [x.strip().zfill(3) for x in request.split(',')]) if request else json.load(open('production/review-request.json'))['episodes']
+          assert eps and all(e in [f'{i:03}' for i in range(1,9)] for e in eps)
+          eps=sorted(set(['001']+eps))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('remaining='+json.dumps([e for e in eps if e!='001'])+'\n')
+              f.write('compile='+str(len(eps)==8).lower()+'\n')
+          PYCODE
+      - name: Create draft review destination
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="voice-review-${GITHUB_RUN_ID}"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "AI HOUSE Week 1 voice review ${GITHUB_RUN_NUMBER}" --notes "Technical checks only. Naturalness and performance await owner listening approval. No social publishing. Voices: Luna/alba, Max/marius, Zig/javert. See LICENSES.md."
+  pilot:
     needs: select
-    if: needs.select.outputs.active == 'true'
-    strategy:
-      fail-fast: false
-      max-parallel: 3
-      matrix:
-        episode: ${{ fromJSON(needs.select.outputs.episodes) }}
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
-      EPISODE: ${{ matrix.episode }}
+      GH_TOKEN: ${{ github.token }}
+      EPISODE: '001'
       OMP_NUM_THREADS: '2'
       MKL_NUM_THREADS: '2'
     steps:
       - uses: actions/checkout@v4
+      - id: reuse
+        run: python production/review_source.py reuse "$EPISODE"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Install free CPU dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-dejavu-core espeak-ng
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
           pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
-          pip install pillow==11.1.0 numpy==2.2.3 soundfile==0.13.1 kokoro==0.9.4
-      - name: Render and verify
+          pip install -r production/voice-requirements.txt
+      - name: Generate and test dialogue, render approved visuals
+        if: steps.reuse.outputs.reused != 'true'
+        run: python studio/render.py --episode "$EPISODE"
+      - name: Verify streams, speech and timing
         run: |
-          python studio/render.py --episode "$EPISODE"
           python studio/verify.py "output/$EPISODE"
-          python - <<'PY'
-          import hashlib,json,os
-          from pathlib import Path
-          ep=os.environ['EPISODE'];folder=Path('output')/ep
-          assert sum(p.stat().st_size for p in folder.iterdir())<20_000_000, 'Artifact exceeds storage budget'
-          (folder/'source.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'script_sha256':hashlib.sha256((Path('episodes')/(ep+'.json')).read_bytes()).hexdigest(),'publishing_enabled':False}))
-          PY
+          python production/review_source.py stamp "$EPISODE"
       - uses: actions/upload-artifact@v4
         with:
-          name: ai-house-week-001-${{ matrix.episode }}
-          path: output/${{ matrix.episode }}/
+          name: ai-house-voice-v1-${{ env.EPISODE }}
+          path: output/${{ env.EPISODE }}/
           retention-days: 8
           if-no-files-found: error
           overwrite: true
-      - name: Test report
+      - name: Attach this MP4 independently to draft review
+        if: env.EPISODE != '008'
+        run: gh release upload "voice-review-${GITHUB_RUN_ID}" "output/$EPISODE/episode_$EPISODE.mp4" --clobber
+      - name: Report actual status
         if: always()
         run: |
           echo "## Episode $EPISODE" >> "$GITHUB_STEP_SUMMARY"
           if test -f "output/$EPISODE/qa.json"; then cat "output/$EPISODE/qa.json" >> "$GITHUB_STEP_SUMMARY"; fi
-          echo 'Publishing disabled. Creative approval pending.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Listening approval remains pending.' >> "$GITHUB_STEP_SUMMARY"
+  remaining:
+    needs: [select, pilot]
+    if: needs.select.outputs.remaining != '[]'
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        episode: ${{ fromJSON(needs.select.outputs.remaining) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+      EPISODE: ${{ matrix.episode }}
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - id: reuse
+        run: python production/review_source.py reuse "$EPISODE"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install free CPU dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r production/voice-requirements.txt
+      - name: Generate and test dialogue, render approved visuals
+        if: steps.reuse.outputs.reused != 'true'
+        run: python studio/render.py --episode "$EPISODE"
+      - name: Verify streams, speech and timing
+        run: |
+          python studio/verify.py "output/$EPISODE"
+          python production/review_source.py stamp "$EPISODE"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-voice-v1-${{ env.EPISODE }}
+          path: output/${{ env.EPISODE }}/
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
+      - name: Attach this MP4 independently to draft review
+        if: env.EPISODE != '008'
+        run: gh release upload "voice-review-${GITHUB_RUN_ID}" "output/$EPISODE/episode_$EPISODE.mp4" --clobber
+      - name: Report actual status
+        if: always()
+        run: |
+          echo "## Episode $EPISODE" >> "$GITHUB_STEP_SUMMARY"
+          if test -f "output/$EPISODE/qa.json"; then cat "output/$EPISODE/qa.json" >> "$GITHUB_STEP_SUMMARY"; fi
+          echo 'Listening approval remains pending.' >> "$GITHUB_STEP_SUMMARY"
   compile:
-    needs: [select, render]
+    needs: [select, pilot, remaining]
     if: needs.select.outputs.compile == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
-      - name: Collect exact first-week sources
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python production/collect.py
-      - name: Re-edit weekly story
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: ai-house-voice-v1-*
+          path: sources
+      - name: Require all eight verified matching sources
+        run: |
+          python - <<'PYCODE'
+          import json,shutil
+          from pathlib import Path
+          for i in range(1,9):
+              ep=f'{i:03}';src=Path('sources')/f'ai-house-voice-v1-{ep}'
+              assert json.loads((src/'qa.json').read_text())['technical_gate']=='PASS'
+              shutil.copytree(src,Path('output')/ep,dirs_exist_ok=True)
+          PYCODE
+      - name: Compile and decode-check final MP4
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg
           python production/compile_week.py
       - uses: actions/upload-artifact@v4
         with:
-          name: ai-house-week-001-compilation
+          name: ai-house-week-01-full-voice-v1
           path: output/week-001/
           retention-days: 8
           overwrite: true
           if-no-files-found: error
-      - name: Compilation report
-        run: cat output/week-001/qa.json >> "$GITHUB_STEP_SUMMARY"
-
-  direct-mp4-downloads:
-    name: Direct MP4 downloads (review only)
-    needs: [select, render]
-    if: ${{ needs.select.outputs.active == 'true' }}
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Download episode render artifacts
-        uses: actions/download-artifact@v4
-        with:
-          pattern: ai-house-week-001-*
-          path: review-artifacts
-          merge-multiple: false
-      - name: Prepare direct-download MP4s
-        shell: bash
-        run: |
-          mkdir -p review-mp4
-          find review-artifacts -type f -name 'episode_*.mp4' -exec cp -v '{}' review-mp4/ \;
-          test "$(find review-mp4 -maxdepth 1 -type f -name '*.mp4' | wc -l)" -eq 7
-          ls -lh review-mp4/
-      - name: Create private review release with direct MP4 links
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          TAG: ai-house-review-${{ github.run_id }}
-        shell: bash
-        run: |
-          gh release create "$TAG" review-mp4/*.mp4 \
-            --target "$GITHUB_SHA" \
-            --title "AI HOUSE seven-episode MP4 review ($GITHUB_RUN_NUMBER)" \
-            --notes "Seven direct MP4 downloads for private creative review. Natural voice quality is NOT yet approved. No YouTube publishing." \
-            --prerelease
-          echo "## Direct MP4 downloads" >> "$GITHUB_STEP_SUMMARY"
-          gh release view "$TAG" --json url --jq .url >> "$GITHUB_STEP_SUMMARY"
+      - name: Attach finished compilation
+        run: gh release upload "voice-review-${GITHUB_RUN_ID}" output/week-001/AI_HOUSE_WEEK_01_FULL.mp4 --clobber

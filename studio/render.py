@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 from art import render
 ROOT=Path(__file__).resolve().parents[1]; SR=24000; FPS=30
-VOICES={'Luna':('af_heart',0.97),'Max':('am_michael',1.00),'Zig':('am_fenrir',0.96)}
+from voices import VoicePipeline, speech, VOICES
 def ff(*args):subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y',*map(str,args)],check=True)
 def wavwrite(path,data):
     with wave.open(str(path),'wb') as f:
@@ -13,25 +13,6 @@ def wavread(path):
     with wave.open(str(path),'rb') as f:
         assert f.getframerate()==SR
         return np.frombuffer(f.readframes(f.getnframes()),dtype='<i2').astype(np.float32)/32768
-
-def speech(pipeline,line,who,cache):
-    voice,speed=VOICES[who];key=hashlib.sha256(f'v3-natural|{line}|{voice}|{speed}'.encode()).hexdigest()[:20]
-    wav=cache/f'{key}.wav';meta=cache/f'{key}.json'
-    if wav.exists() and meta.exists():return wavread(wav),json.loads(meta.read_text())
-    parts=[];tokens=[];offset=0
-    for result in pipeline(line,voice=voice,speed=speed) :
-        a=np.asarray(result.audio,dtype=np.float32);parts.append(a)
-        for token in result.tokens or []:
-            start=getattr(token,'start_ts',None);end=getattr(token,'end_ts',None)
-            if start is not None and end is not None:
-                tokens.append({'text':token.text,'phonemes':token.phonemes or '', 'start':offset+float(start),'end':offset+float(end)})
-        offset+=len(a)/SR
-    if not parts or not tokens:raise RuntimeError('Speech or word alignment missing; refusing unsynchronised render')
-    audio=np.concatenate(parts)
-    peak=float(np.max(np.abs(audio)))
-    if peak<.001:raise RuntimeError('Silent speech')
-    audio=audio*(.66/peak);wavwrite(wav,audio);meta.write_text(json.dumps(tokens))
-    return audio,tokens
 
 def viseme(audio,tokens,t):
     n=int(t*SR)
@@ -90,13 +71,11 @@ def main():
     if args.preview:
         for i,s in enumerate(story['scenes']):render(s,i,2,5,s['speaker'],'wide',.4,s['line'],story['episode']).save(out/f'shot_{i}.jpg')
         return
-    from kokoro import KPipeline
-    import torch
-    torch.set_num_threads(2)
-    pipeline=KPipeline(lang_code='a',repo_id='hexgrad/Kokoro-82M',device='cpu')
+    pipeline=VoicePipeline()
     timeline=[];subtitle=[];offset=0;clips=[]
     for i,s in enumerate(story['scenes']):
         data,tokens=speech(pipeline,s['line'],s['speaker'],cache);lead=float(s.get('lead',.3));duration=max(float(s.get('min_seconds',4)),len(data)/SR+lead+.10)
+        wavwrite(out/f'dialogue_{i:02}_{s["speaker"]}.wav',data)
         count=math.ceil(duration*FPS);duration=count/FPS
         kind=s.get('visual',['rent','egg','scan','hatch','fire','vote'][min(i,5)])
         sound=out/f'scene_{i}.wav';wavwrite(sound,mix(data,duration,kind,lead));clip=out/f'scene_{i}.mp4'
@@ -115,7 +94,7 @@ def main():
         clips.append(clip)
         for j in range(0,len(tokens),5):
             chunk=tokens[j:j+5];subtitle.append((offset+lead+chunk[0]['start'],offset+lead+chunk[-1]['end'],caption_text(chunk)))
-        timeline.append({'scene':i,'start':offset,'duration':duration,'lead':lead,'speech_seconds':len(data)/SR,'speaker':s['speaker'],'tokens':tokens,'visual':kind})
+        timeline.append({'scene':i,'start':offset,'duration':duration,'lead':lead,'speech_seconds':len(data)/SR,'speaker':s['speaker'],'voice':VOICES[s['speaker']],'tokens':tokens,'visual':kind})
         offset+=duration
         print(f'Scene {i+1}/{len(story["scenes"])} complete: {duration:.2f}s',flush=True)
     if story.get('target_seconds') and not 24 <= offset <= 26: print(f'WARNING: Target 24–26s, actual {offset:.2f}s',flush=True)
@@ -124,9 +103,10 @@ def main():
     ff('-f','concat','-safe','0','-i',playlist,'-c','copy',raw)
     # Loudness normalization with a conservative true-peak ceiling; stereo stays stereo.
     ff('-i',raw,'-c:v','copy','-af','loudnorm=I=-16:TP=-1.5:LRA=9','-ar','48000','-ac','2','-c:a','aac','-b:a','192k','-movflags','+faststart',final)
+    (out/'voice_qa.json').write_text(json.dumps({'voices':VOICES,'segments':pipeline.records,'listening_approval':'PENDING'},indent=2))
     (out/'captions.srt').write_text('\n\n'.join(f'{i+1}\n{srt_time(a)} --> {srt_time(b)}\n{text}' for i,(a,b,text) in enumerate(subtitle))+'\n')
     (out/'timeline.json').write_text(json.dumps(timeline,indent=2))
-    (out/'metadata.json').write_text(json.dumps({'title':story['title'],'description':story.get('description','Three roommates. One terrible decision. Choose A or B in the comments. #AIHOUSE #AnimatedComedy #Shorts'),'tags':['AI HOUSE','animated comedy','interactive story'],'publishing_approved':False,'alignment':'Kokoro word timestamps; within-word visemes are approximate','duration':offset},indent=2))
+    (out/'metadata.json').write_text(json.dumps({'title':story['title'],'description':story.get('description','Three roommates. One terrible decision. Choose A or B in the comments. #AIHOUSE #AnimatedComedy #Shorts'),'tags':['AI HOUSE','animated comedy','interactive story'],'publishing_approved':False,'alignment':'Whisper word timestamps mapped to original script; mouth shapes approximate', 'voice_engine':'pocket-tts-3.3.0', 'listening_approval':'PENDING','duration':offset},indent=2))
     for p in clips+[out/f'scene_{i}.wav' for i in range(len(clips))]+[raw,playlist]:p.unlink()
     print(f'RENDERED FOR REVIEW: {final}',flush=True)
 if __name__=='__main__':main()

@@ -1,13 +1,5 @@
 name: AI HOUSE Automatic Google Drive Delivery
 on:
-  workflow_run:
-    workflows:
-      - AI HOUSE Weekly Studio
-      - AI HOUSE Season 1 Review Render
-      - AI HOUSE Episode 2 Review
-      - AI HOUSE Episode 3 Review
-      - AI HOUSE Pilot Render
-    types: [completed]
   workflow_dispatch:
     inputs:
       source_run_id:
@@ -18,7 +10,7 @@ permissions:
   actions: read
 jobs:
   deliver:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: ${{ false }} # Drive delivery disabled by owner request
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:

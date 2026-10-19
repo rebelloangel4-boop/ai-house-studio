@@ -22,7 +22,7 @@ def main():
         # Remove repeated CTAs, preserving each story and its punchline.
         cut(folder/f'episode_{ep}.mp4',0,timeline[-1]['start'])
     cut(bridge/f'episode_{pack["bridges"]}.mp4',bt[-1]['start'],bt[-1]['duration'])
-    playlist=target/'concat.txt';playlist.write_text(''.join(f"file '{p.name}'\n" for p in pieces));raw=target/'raw.mp4';final=target/'AI_HOUSE_Week_01.mp4'
+    playlist=target/'concat.txt';playlist.write_text(''.join(f"file '{p.name}'\n" for p in pieces));raw=target/'raw.mp4';final=target/'AI_HOUSE_WEEK_01_FULL.mp4'
     ff('-f','concat','-safe','0','-i',playlist,'-c','copy',raw)
     ff('-i',raw,'-c:v','copy','-af','loudnorm=I=-16:TP=-1.5:LRA=9','-ar','48000','-ac','2','-c:a','aac','-b:a','160k','-movflags','+faststart',final)
     ff('-xerror','-i',final,'-f','null','-')
