@@ -8,7 +8,7 @@ from scipy.signal import resample_poly
 
 SR = 24000
 VOICES = {'Luna': 'alba', 'Max': 'marius', 'Zig': 'javert'}
-ENGINE = 'pocket-tts-3.3.0-v2'
+ENGINE = 'pocket-tts-3.3.0-v3'
 
 def normal(word):
     return re.sub(r'[^a-z0-9]', '', word.lower())
@@ -23,6 +23,7 @@ class VoicePipeline:
         self.states = {who: self.tts.get_state_for_audio_prompt(v) for who, v in VOICES.items()}
         self.asr = WhisperModel('base.en', device='cpu', compute_type='int8', cpu_threads=2)
         self.records = []
+        self.precise_asr = None
 
     def generate(self, line, who, seed):
         import torch
@@ -42,14 +43,24 @@ class VoicePipeline:
         # Retain intra-line dynamics; conservative gain, no pitch shift or speed-up.
         a *= min(1.5, .66/peak)
         padded = np.pad(resample_poly(a, 2, 3), (8000, 8000))
-        segments, _ = self.asr.transcribe(padded, language='en', beam_size=5,
-            word_timestamps=True, condition_on_previous_text=False, temperature=0)
-        heard = [w for s in segments for w in s.words or [] if normal(w.word)]
         words = line.split()
-        ref = [normal(w) for w in words]; hyp = [normal(w.word) for w in heard]
-        matcher = SequenceMatcher(None, ref, hyp, autojunk=False)
-        matches = sum(b.size for b in matcher.get_matching_blocks())
-        coverage = matches/max(len(ref), len(hyp), 1)
+        ref = [normal(w) for w in words]
+        for asr_pass in range(2):
+            if asr_pass:
+                from faster_whisper import WhisperModel
+                if self.precise_asr is None:
+                    self.precise_asr = WhisperModel('small.en',device='cpu',compute_type='int8',cpu_threads=2)
+                asr = self.precise_asr
+            else:
+                asr = self.asr
+            segments, _ = asr.transcribe(padded, language='en', beam_size=5,
+                word_timestamps=True, condition_on_previous_text=False, temperature=0)
+            heard = [w for segment in segments for w in segment.words or [] if normal(w.word)]
+            hyp = [normal(w.word) for w in heard]
+            matcher = SequenceMatcher(None, ref, hyp, autojunk=False)
+            matches = sum(b.size for b in matcher.get_matching_blocks())
+            coverage = matches/max(len(ref), len(hyp), 1)
+            if coverage >= .95 and heard:break
         if coverage < .95 or not heard:
             raise ValueError(f'Transcript mismatch ({coverage:.2f}): {" ".join(w.word for w in heard)}')
         # Preserve original captions. Exact matching words anchor timing; minor ASR
@@ -70,7 +81,7 @@ class VoicePipeline:
         return a, tokens, {'speaker':who, 'voice':VOICES[who], 'script':line,
             'transcript':' '.join(w.word.strip() for w in heard), 'word_match':round(coverage,3),
             'duration':len(a)/SR, 'source_peak':peak, 'seed':seed,
-            'automated_validation':'PASS', 'naturalness_listening':'NOT_AUDITIONED'}
+            'asr_model':'small.en' if asr_pass else 'base.en', 'automated_validation':'PASS', 'naturalness_listening':'NOT_AUDITIONED'}
 
 def speech(pipeline, line, who, cache):
     key = hashlib.sha256(f'{ENGINE}|{line}|{VOICES[who]}'.encode()).hexdigest()[:20]
@@ -80,15 +91,15 @@ def speech(pipeline, line, who, cache):
         assert sr == SR
     else:
         errors = []
-        for attempt in range(3):
+        for attempt in range(5):
             try:
-                a, tokens, report = pipeline.generate(line, who, int(key[:7],16)+attempt)
+                a, tokens, report = pipeline.generate(line, who, int(hashlib.sha256(f'pocket-tts-3.3.0-v1|{line}|{VOICES[who]}'.encode()).hexdigest()[:7],16)+attempt)
                 payload = {'tokens':tokens, 'report':report}
                 sf.write(wav, a, SR, subtype='PCM_16'); meta.write_text(json.dumps(payload,indent=2))
                 break
             except Exception as e:
-                errors.append(str(e)); print(f'Voice retry {who} {attempt+1}/3: {e}', flush=True)
-                if attempt == 2: raise RuntimeError(f'No acceptable speech; no fallback: {errors}') from e
+                errors.append(str(e)); print(f'Voice retry {who} {attempt+1}/5: {e}', flush=True)
+                if attempt == 4: raise RuntimeError(f'No acceptable speech; no fallback: {errors}') from e
                 time.sleep(1)
     pipeline.records.append(payload['report'])
     # Keep dry dialogue for independent review, without music masking it.
