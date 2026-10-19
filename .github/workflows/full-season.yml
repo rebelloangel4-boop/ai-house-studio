@@ -1,0 +1,41 @@
+name: AI HOUSE Complete Season Render (Review Only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        episode: ['009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','024','025','026','027','028','029','030']
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install free render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core espeak-ng
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install pillow==11.1.0 numpy==2.2.3 soundfile==0.13.1 kokoro==0.9.4
+      - name: Render and technically verify
+        run: |
+          python production/generate_season.py
+          python studio/render.py --episode "${{ matrix.episode }}"
+          python studio/verify.py "output/${{ matrix.episode }}"
+      - name: Save video pending creative approval
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-season-${{ matrix.episode }}
+          path: output/${{ matrix.episode }}/
+          retention-days: 8
+          if-no-files-found: error
