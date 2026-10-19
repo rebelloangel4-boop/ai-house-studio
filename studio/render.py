@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 from art import render
 ROOT=Path(__file__).resolve().parents[1]; SR=24000; FPS=30
-VOICES={'Luna':('af_heart',1.15),'Max':('am_michael',1.17),'Zig':('am_fenrir',1.12)}
+VOICES={'Luna':('af_heart',0.97),'Max':('am_michael',1.00),'Zig':('am_fenrir',0.96)}
 def ff(*args):subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y',*map(str,args)],check=True)
 def wavwrite(path,data):
     with wave.open(str(path),'wb') as f:
@@ -15,11 +15,11 @@ def wavread(path):
         return np.frombuffer(f.readframes(f.getnframes()),dtype='<i2').astype(np.float32)/32768
 
 def speech(pipeline,line,who,cache):
-    voice,speed=VOICES[who];key=hashlib.sha256(f'v2|{line}|{voice}|{speed}'.encode()).hexdigest()[:20]
+    voice,speed=VOICES[who];key=hashlib.sha256(f'v3-natural|{line}|{voice}|{speed}'.encode()).hexdigest()[:20]
     wav=cache/f'{key}.wav';meta=cache/f'{key}.json'
     if wav.exists() and meta.exists():return wavread(wav),json.loads(meta.read_text())
     parts=[];tokens=[];offset=0
-    for result in pipeline(line,voice=voice,speed=speed):
+    for result in pipeline(line,voice=voice,speed=speed,split_pattern=r'(?<=[.!?])\\s+') :
         a=np.asarray(result.audio,dtype=np.float32);parts.append(a)
         for token in result.tokens or []:
             start=getattr(token,'start_ts',None);end=getattr(token,'end_ts',None)
