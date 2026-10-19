@@ -50,5 +50,16 @@ def main():
                 body=(f'--{boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n').encode()+metadata+(f'\r\n--{boundary}\r\nContent-Type: video/mp4\r\n\r\n').encode()+data+(f'\r\n--{boundary}--\r\n').encode()
                 result=json.loads(req('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name',body,{**auth,'Content-Type':f'multipart/related; boundary={boundary}'}))
                 copied.append(result['name'])
+    # Deliver the 30-day ready-to-copy publishing metadata alongside the videos.
+    sheet=Path('production/AI_HOUSE_30_DAY_UPLOAD_METADATA.csv')
+    if sheet.exists():
+        filename='AI_HOUSE_30_DAY_UPLOAD_METADATA.csv'
+        query=urllib.parse.urlencode({'q':f"name = '{filename}' and '{folder}' in parents and trashed = false",'fields':'files(id,name)'})
+        if not json.loads(req('https://www.googleapis.com/drive/v3/files?'+query,headers=auth)).get('files'):
+            boundary='ai_house_csv_boundary'
+            meta=json.dumps({'name':filename,'parents':[folder],'mimeType':'text/csv'}).encode()
+            body=(f'--{boundary}\\r\\nContent-Type: application/json; charset=UTF-8\\r\\n\\r\\n').encode()+meta+(f'\\r\\n--{boundary}\\r\\nContent-Type: text/csv\\r\\n\\r\\n').encode()+sheet.read_bytes()+(f'\\r\\n--{boundary}--\\r\\n').encode()
+            req('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',body,{**auth,'Content-Type':f'multipart/related; boundary={boundary}'})
+            copied.append(filename)
     print(json.dumps({'source_run':run,'uploaded':copied,'already_present':skipped,'publishing_enabled':False},indent=2))
 if __name__=='__main__':main()
