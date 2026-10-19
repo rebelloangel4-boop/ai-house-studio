@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     # MP4 review artifacts only; no Google Drive or publishing
 permissions:
-  contents: read
+  contents: write
   actions: read
 concurrency:
   group: ai-house-weekly
@@ -106,3 +106,37 @@ jobs:
           if-no-files-found: error
       - name: Compilation report
         run: cat output/week-001/qa.json >> "$GITHUB_STEP_SUMMARY"
+
+  direct-mp4-downloads:
+    name: Direct MP4 downloads (review only)
+    needs: [select, render]
+    if: ${{ needs.select.outputs.active == 'true' }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download episode render artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: ai-house-week-001-*
+          path: review-artifacts
+          merge-multiple: false
+      - name: Prepare direct-download MP4s
+        shell: bash
+        run: |
+          mkdir -p review-mp4
+          find review-artifacts -type f -name 'episode_*.mp4' -exec cp -v '{}' review-mp4/ \;
+          test "$(find review-mp4 -maxdepth 1 -type f -name '*.mp4' | wc -l)" -eq 7
+          ls -lh review-mp4/
+      - name: Create private review release with direct MP4 links
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ai-house-review-${{ github.run_id }}
+        shell: bash
+        run: |
+          gh release create "$TAG" review-mp4/*.mp4 \
+            --target "$GITHUB_SHA" \
+            --title "AI HOUSE seven-episode MP4 review ($GITHUB_RUN_NUMBER)" \
+            --notes "Seven direct MP4 downloads for private creative review. Natural voice quality is NOT yet approved. No YouTube publishing." \
+            --prerelease
+          echo "## Direct MP4 downloads" >> "$GITHUB_STEP_SUMMARY"
+          gh release view "$TAG" --json url --jq .url >> "$GITHUB_STEP_SUMMARY"
