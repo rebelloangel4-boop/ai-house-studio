@@ -1,12 +1,13 @@
-name: AI HOUSE Weekly Studio
+name: AI HOUSE Weekly Studio - MP4 Review Only
 # Voice-pacing refresh: regenerate seven episodes for review; publishing remains disabled.
 on:
   push:
     branches: [main]
-    paths: ['production/**', 'packs/**', '.github/workflows/weekly.yml']
+    paths: ['production/**', 'packs/**', 'studio/**', 'episodes/**', '.github/workflows/weekly.yml']
   schedule:
     - cron: '17 7 * * *'
   workflow_dispatch:
+    # MP4 review artifacts only; no Google Drive or publishing
 permissions:
   contents: read
   actions: read
