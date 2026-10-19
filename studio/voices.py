@@ -8,7 +8,7 @@ from scipy.signal import resample_poly
 
 SR = 24000
 VOICES = {'Luna': 'alba', 'Max': 'marius', 'Zig': 'javert'}
-ENGINE = 'pocket-tts-3.3.0-v1'
+ENGINE = 'pocket-tts-3.3.0-v2'
 
 def normal(word):
     return re.sub(r'[^a-z0-9]', '', word.lower())
@@ -41,7 +41,8 @@ class VoicePipeline:
             raise ValueError('Silent or clipped source speech')
         # Retain intra-line dynamics; conservative gain, no pitch shift or speed-up.
         a *= min(1.5, .66/peak)
-        segments, _ = self.asr.transcribe(resample_poly(a, 2, 3), language='en', beam_size=5,
+        padded = np.pad(resample_poly(a, 2, 3), (8000, 8000))
+        segments, _ = self.asr.transcribe(padded, language='en', beam_size=5,
             word_timestamps=True, condition_on_previous_text=False, temperature=0)
         heard = [w for s in segments for w in s.words or [] if normal(w.word)]
         words = line.split()
@@ -49,7 +50,7 @@ class VoicePipeline:
         matcher = SequenceMatcher(None, ref, hyp, autojunk=False)
         matches = sum(b.size for b in matcher.get_matching_blocks())
         coverage = matches/max(len(ref), len(hyp), 1)
-        if coverage < .8 or not heard:
+        if coverage < .95 or not heard:
             raise ValueError(f'Transcript mismatch ({coverage:.2f}): {" ".join(w.word for w in heard)}')
         # Preserve original captions. Exact matching words anchor timing; minor ASR
         # spelling differences interpolate only inside the neighboring word interval.
@@ -58,10 +59,10 @@ class VoicePipeline:
             if tag == 'equal':
                 for x, y in zip(range(i,j), range(k,l)):
                     tokens[x] = {'text': words[x], 'phonemes': words[x].lower(),
-                                 'start': heard[y].start, 'end': heard[y].end}
+                                 'start': max(0.,heard[y].start-.5), 'end': min(len(a)/SR,max(0.,heard[y].end-.5))}
             elif j > i:
-                start = heard[k].start if k < len(heard) else heard[-1].end
-                end = heard[l-1].end if l > k else (heard[k].start if k < len(heard) else len(a)/SR)
+                start = max(0.,(heard[k].start if k < len(heard) else heard[-1].end)-.5)
+                end = min(len(a)/SR,max(start,(heard[l-1].end if l > k else (heard[k].start if k < len(heard) else len(a)/SR+.5))-.5))
                 for x in range(i,j):
                     tokens[x] = {'text':words[x], 'phonemes':words[x].lower(),
                         'start':start+(end-start)*(x-i)/(j-i), 'end':start+(end-start)*(x-i+1)/(j-i)}
