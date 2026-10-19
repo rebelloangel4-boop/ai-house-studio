@@ -1,0 +1,45 @@
+name: AI HOUSE Automatic Google Drive Delivery
+on:
+  workflow_run:
+    workflows:
+      - AI HOUSE Weekly Studio
+      - AI HOUSE Season 1 Review Render
+      - AI HOUSE Episode 2 Review
+      - AI HOUSE Episode 3 Review
+      - AI HOUSE Pilot Render
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: 'Successful GitHub Actions run ID to deliver'
+        required: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  deliver:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify one-time Drive credentials are connected
+        env:
+          DRIVE_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
+          DRIVE_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
+          DRIVE_REFRESH: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
+          DRIVE_FOLDER: ${{ secrets.GDRIVE_FOLDER_ID }}
+        run: |
+          if [ -z "$DRIVE_ID" ] || [ -z "$DRIVE_SECRET" ] || [ -z "$DRIVE_REFRESH" ] || [ -z "$DRIVE_FOLDER" ]; then
+            echo 'Google Drive authorization is not configured. Set GDRIVE_CLIENT_ID, GDRIVE_CLIENT_SECRET, GDRIVE_REFRESH_TOKEN, GDRIVE_FOLDER_ID once in repository Actions secrets.'
+            exit 1
+          fi
+      - name: Copy verified MP4s to Google Drive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
+          GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
+          GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
+          GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
+          SOURCE_RUN_ID: ${{ github.event.inputs.source_run_id || github.event.workflow_run.id }}
+        run: python production/deliver_to_drive.py
