@@ -60,10 +60,14 @@ jobs:
           retention-days: 8
           if-no-files-found: error
       - name: Upload direct MP4 and matching metadata to Google Drive
-        if: ${{ env.GDRIVE_CLIENT_ID != '' && env.GDRIVE_CLIENT_SECRET != '' && env.GDRIVE_REFRESH_TOKEN != '' }}
         env:
           GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
           GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
           GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
           GDRIVE_FOLDER_ID: '1Uf-geoBfWQPpRCqLfQdbGnx74DDdhb4o'
-        run: python production/upload_direct_mp4.py "output/${{ matrix.episode }}"
+        run: |
+          if [ -n "$GDRIVE_CLIENT_ID" ] && [ -n "$GDRIVE_CLIENT_SECRET" ] && [ -n "$GDRIVE_REFRESH_TOKEN" ]; then
+            python production/upload_direct_mp4.py "output/${{ matrix.episode }}"
+          else
+            echo "::warning::Drive OAuth secrets missing; MP4 is retained in GitHub artifact but not delivered to Drive."
+          fi
