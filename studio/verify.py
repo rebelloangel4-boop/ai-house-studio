@@ -10,9 +10,14 @@ def verify(folder):
     assert (v['width'],v['height'])==(1080,1920)
     assert v['codec_name']=='h264' and v['pix_fmt']=='yuv420p' and v['r_frame_rate']=='30/1'
     assert a['codec_name']=='aac' and a['channels']==2 and a['sample_rate']=='48000'
-    duration=float(probe['format']['duration']);assert 15<duration<65
-    # Voice delivery may extend scenes; do not accelerate speech to meet an old 25s target.
+    duration=float(probe['format']['duration']);assert 10<duration<65
+    # Dialogue-led cuts can be shorter than 15s; require every scripted word instead of padding.
     timeline=json.loads((folder/'timeline.json').read_text());assert abs(sum(s['duration'] for s in timeline)-duration)<.15
+    story=json.loads((Path(__file__).resolve().parents[1]/'episodes'/f'{folder.name}.json').read_text())
+    assert len(timeline)==len(story['scenes']),'Missing scene'
+    for scene,shot in zip(story['scenes'],timeline):
+        assert [t['text'] for t in shot['tokens']]==scene['line'].split(),'Missing or changed dialogue'
+        assert shot['speaker']==scene['speaker']
     for s in timeline:
         assert s['lead']+s['speech_seconds']<=s['duration']+.04, 'Speech truncated or scene timing inconsistent'
         assert s['tokens'] and all(0<=t['start']<=t['end']<=s['speech_seconds']+.3 for t in s['tokens'])

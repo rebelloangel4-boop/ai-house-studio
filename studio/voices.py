@@ -3,7 +3,6 @@ import hashlib, json, re, time
 from difflib import SequenceMatcher
 from pathlib import Path
 import numpy as np
-import soundfile as sf
 from scipy.signal import resample_poly
 
 SR = 24000
@@ -84,6 +83,7 @@ class VoicePipeline:
             'asr_model':'small.en' if asr_pass else 'base.en', 'automated_validation':'PASS', 'naturalness_listening':'NOT_AUDITIONED'}
 
 def speech(pipeline, line, who, cache):
+    import soundfile as sf
     key = hashlib.sha256(f'{ENGINE}|{line}|{VOICES[who]}'.encode()).hexdigest()[:20]
     wav = cache/f'{key}.wav'; meta = cache/f'{key}.json'
     if wav.exists() and meta.exists():

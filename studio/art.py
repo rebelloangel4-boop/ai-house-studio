@@ -160,8 +160,8 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
             d.poly([(407,667),(413,640),(428,652),(443,638),(445,670)],'#c5f1db')
     elif kind in ('fire','dino'):dinosaur(d,392,608,t,kind=='fire' and .65<t<1.8)
     elif kind=='vote':
-        d.box((65,650,475,703),INK,16);d.text(scene.get('choice_a','A  KEEP HIM'),270,677,23,'#a2ead3')
-        d.box((65,712,475,765),INK,16);d.text(scene.get('choice_b','B  SELL HIM'),270,739,23,'#ffc59a')
+        d.box((46,168,474,205),INK,12);d.text(scene.get('choice_a','A  KEEP HIM'),260,187,19,'#a2ead3')
+        d.box((46,213,474,250),INK,12);d.text(scene.get('choice_b','B  SELL HIM'),260,232,19,'#ffc59a')
     elif kind in ('meeting','chomp'):
         d.box((266,405,519,683),'#273047',13,INK,3)
         d.box((278,428,507,647),'#b2e3f0',8)
@@ -182,10 +182,10 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
         words=caption.split();lines=[];line=''
         for word in words:
             test=(line+' '+word).strip()
-            if font(42).getlength(test)>850 and line:lines.append(line);line=word
+            if font(46).getlength(test)>800 and line:lines.append(line);line=word
             else:line=test
         if line:lines.append(line)
-        lines=lines[:3];top=315
-        d.box((36,top-13,486,top+len(lines)*29+14),INK,14)
-        for j,line in enumerate(lines):d.text(line,261,top+14+j*29,21,'#ffe078')
+        lines=lines[:2];top=720
+        d.box((36,top-12,472,top+len(lines)*29+12),INK,12)
+        for j,line in enumerate(lines):d.text(line,254,top+14+j*29,23,'#fff4df')
     return im

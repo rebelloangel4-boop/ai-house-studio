@@ -4,7 +4,7 @@ Original 2D interactive roommate comedy with Luna, Max, Zig and one expensive di
 
 ## What works
 - 1080×1920 / 30 fps animated review MP4s, native-resolution character art, expression changes, gestures, blinks and story actions.
-- Three Pocket TTS voices (Luna/alba, Max/marius, Zig/javert) without pitch shifting or speed-up, word-timed captions, approximate phoneme mouth shapes, and silence-aware mouths.
+- Three Pocket TTS voices (Luna/alba, Max/marius, Zig/javert) with pitch-preserving 4–8% dialogue pacing, word-timed captions, approximate phoneme mouth shapes, and silence-aware mouths.
 - Original stereo score and effects, dialogue ducking, loudness mastering, SRT and shot previews.
 - Technical gates: dimensions, frame rate, codecs, stereo, duration, complete speech, audio clipping, animation changes and full decode.
 - Week 1 review renders on relevant source changes or manual dispatch. Verified unchanged sources are reused; episodes retry independently, and all eight sources are required before compilation.
@@ -29,3 +29,10 @@ Uses standard Ubuntu runners on this public repository and free local inference;
 - `python production/compile_week.py` to re-edit the weekly MP4
 
 See LICENSES.md for provenance. Video exports and model caches are excluded from Git.
+
+## Readability and pacing polish
+- Captions use four-word phrases, 46 px type at 1080p, a dark backing and a lower-screen position, with room below and to the right for player UI. A/B choices sit above the character.
+- Quiet voice edges are trimmed with breath/phoneme margins. Scene length follows dialogue instead of fixed four-second holds; action beats retain a minimum duration and final choices retain a short reading pause.
+- Original character presets are retained. A 65 Hz high-pass removes low rumble; modest pitch-preserving tempo adjustments are 1.04 for Luna, 1.06 for Max and 1.08 for Zig. Word timing and mouth animation are retimed together.
+- `python studio/render.py --episode 001 --dialogue-source /path/to/original/001` reuses verified original dry dialogue without loading a voice model. Already processed dialogue is rejected to prevent repeated acceleration.
+- Verification requires every scene and every original scripted word, in addition to stream, clipping, timing and full-decode checks. Shorter edits are permitted without artificial padding.
