@@ -3,3 +3,4 @@ numpy==2.2.3
 soundfile==0.13.1
 pocket-tts==3.3.0
 faster-whisper==1.2.1
+scipy==1.17.1

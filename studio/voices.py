@@ -8,10 +8,9 @@ from scipy.signal import resample_poly
 
 SR = 24000
 VOICES = {'Luna': 'alba', 'Max': 'marius', 'Zig': 'javert'}
-ENGINE = 'pocket-tts-3.3.0-v3'
+ENGINE = 'pocket-tts-3.3.0-v4'
 
-def normal(word):
-    return re.sub(r'[^a-z0-9]', '', word.lower())
+from alignment import normal, merge_asr_words
 
 class VoicePipeline:
     def __init__(self):
@@ -56,6 +55,7 @@ class VoicePipeline:
             segments, _ = asr.transcribe(padded, language='en', beam_size=5,
                 word_timestamps=True, condition_on_previous_text=False, temperature=0)
             heard = [w for segment in segments for w in segment.words or [] if normal(w.word)]
+            heard = merge_asr_words(heard, words)
             hyp = [normal(w.word) for w in heard]
             matcher = SequenceMatcher(None, ref, hyp, autojunk=False)
             matches = sum(b.size for b in matcher.get_matching_blocks())
