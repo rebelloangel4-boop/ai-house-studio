@@ -1,7 +1,5 @@
-name: AI HOUSE Four-Day Season Production
+name: AI HOUSE Controlled Season Production
 on:
-  schedule:
-    - cron: '30 2 20-23 10 *'
   workflow_dispatch:
     inputs:
       batch_date:
@@ -29,7 +27,7 @@ jobs:
     timeout-minutes: 50
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 2
       matrix:
         episode: ${{ fromJSON(needs.select.outputs.episodes) }}
     env:
