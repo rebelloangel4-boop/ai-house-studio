@@ -8,7 +8,7 @@ on:
         description: 'IST batch date (2026-10-20, 21, 22, or 23)'
         required: false
 permissions:
-  contents: read
+  contents: write
   actions: read
 jobs:
   select:
@@ -59,15 +59,11 @@ jobs:
           path: output/${{ matrix.episode }}/
           retention-days: 8
           if-no-files-found: error
-      - name: Upload direct MP4 and matching metadata to Google Drive
+      - name: Retain individual MP4 in private draft review
         env:
-          GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
-          GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
-          GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
-          GDRIVE_FOLDER_ID: '1Uf-geoBfWQPpRCqLfQdbGnx74DDdhb4o'
+          GH_TOKEN: ${{ github.token }}
+          EPISODE: ${{ matrix.episode }}
         run: |
-          if [ -n "$GDRIVE_CLIENT_ID" ] && [ -n "$GDRIVE_CLIENT_SECRET" ] && [ -n "$GDRIVE_REFRESH_TOKEN" ]; then
-            python production/upload_direct_mp4.py "output/${{ matrix.episode }}"
-          else
-            echo "::warning::Drive OAuth secrets missing; MP4 is retained in GitHub artifact but not delivered to Drive."
-          fi
+          TAG="season-review-${GITHUB_RUN_ID}-${EPISODE}"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "AI HOUSE Episode ${EPISODE} review" --notes "Technical verification passed. Voice listening and creative approval pending. No social publishing or Drive delivery."
+          gh release upload "$TAG" "output/$EPISODE/episode_$EPISODE.mp4" "output/$EPISODE/episode_${EPISODE}_upload.txt" --clobber
