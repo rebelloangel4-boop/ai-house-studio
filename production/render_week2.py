@@ -10,6 +10,8 @@ for ep in ('010','011','012','013','014','015','032'):
     stamp=folder/'final.checkpoint.json'
     try:
         if not (stamp.exists() and json.loads(stamp.read_text())['signature']==signature and (folder/f'episode_{ep}.mp4').exists()):
+            if ep!='032':(folder/f'AI_HOUSE_SHORT_{int(ep)-1:03}.mp4').unlink(missing_ok=True)
+            (folder/'qa.json').unlink(missing_ok=True)
             run('studio/render.py','--episode',ep)
         run('studio/verify.py',str(folder))
         stamp.write_text(json.dumps({'signature':signature}))

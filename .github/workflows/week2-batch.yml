@@ -49,3 +49,5 @@ jobs:
           include-hidden-files: true
           retention-days: 8
           if-no-files-found: warn
+
+# Revision 2: repair two ASR wording failures; tighten pet registration delivery.
