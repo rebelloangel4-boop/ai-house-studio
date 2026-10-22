@@ -5,7 +5,7 @@
     "compilations": 4
   },
   "approved_style_commit": "6633ced28e38550dd6b0ba8bf44ea6a6eab64d56",
-  "last_verified_date": "2026-10-22",
+  "last_verified_date": "2026-10-23",
   "shorts": [
     {
       "short_number": 1,
@@ -61,49 +61,76 @@
       "asset_id": "009",
       "week": 2,
       "status": "technical_pass_review_pending",
-      "evidence": "GitHub run 39716830023; final MP4 exists; full decode, 300 frames, all words, audio gate passed"
+      "evidence": "Run 39742187732; actual MP4 retrieved and QA read",
+      "duration_seconds": 10,
+      "sha256": "0f0bde6c2262747f1660bf597c27e39ba5c1421870e2fdea152cce703ce3fedf",
+      "draft_release_tag": "week2-review-39742187732"
     },
     {
       "short_number": 9,
       "asset_id": "010",
       "week": 2,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 39742187732; actual MP4 retrieved and QA read",
+      "duration_seconds": 14.61,
+      "sha256": "2cc31e0a9c7cf4c95bd2ceda0b851c392df17edd3362e1ae7576b83e83c0f0ce",
+      "draft_release_tag": "week2-review-39742187732",
+      "library_file_id": "libfile_ddba5cebbdd88191af682efd28195a34"
     },
     {
       "short_number": 10,
       "asset_id": "011",
       "week": 2,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 39742187732; actual MP4 retrieved and QA read",
+      "duration_seconds": 13.645,
+      "sha256": "d518fdbfff16e69c343de8d4bd94e83edd9d5372e70791b49cee83c7ec7e2897",
+      "draft_release_tag": "week2-review-39742187732",
+      "library_file_id": "libfile_694f177543b48191ac05f51ce5efcbd9"
     },
     {
       "short_number": 11,
       "asset_id": "012",
       "week": 2,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 39742187732; actual MP4 retrieved and QA read",
+      "duration_seconds": 15.31,
+      "sha256": "8e24aca51b141db9b4854663c13bfb3866c1b37860a24127ec0c13b392785759",
+      "draft_release_tag": "week2-review-39742187732",
+      "library_file_id": "libfile_e025e5b096f88191890f71a091717caa"
     },
     {
       "short_number": 12,
       "asset_id": "013",
       "week": 2,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 39742187732; actual MP4 retrieved and QA read",
+      "duration_seconds": 13.688,
+      "sha256": "4bbfeb6df12f3f1f08e81a654f2aea65f4b3c0dd92022d94c5842b7047a261fb",
+      "draft_release_tag": "week2-review-39742187732",
+      "library_file_id": "libfile_ccf7015ced2081918af965951c9741c9"
     },
     {
       "short_number": 13,
       "asset_id": "014",
       "week": 2,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 39742187732; actual MP4 retrieved and QA read",
+      "duration_seconds": 15.39,
+      "sha256": "d00f44fca6249a77483891f95eaea1c7f150f1c60aac4a1ff88b4c669a5fe3c0",
+      "draft_release_tag": "week2-review-39742187732",
+      "library_file_id": "libfile_acaacebafbb88191bf7bf65b6cb1876b"
     },
     {
       "short_number": 14,
       "asset_id": "015",
       "week": 2,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 39742187732; actual MP4 retrieved and QA read",
+      "duration_seconds": 14.242,
+      "sha256": "cb9012d89749518217261f9bf37f09b74edec95be73940b0682159533a8077f9",
+      "draft_release_tag": "week2-review-39742187732",
+      "library_file_id": "libfile_38d2d520e2c48191909b831d20d6d7d8"
     },
     {
       "short_number": 15,
@@ -227,7 +254,11 @@
     {
       "week": 2,
       "bridge_asset": "032",
-      "status": "bridges_authored_render_pending"
+      "status": "technical_pass_review_pending",
+      "duration_seconds": 136.654362,
+      "evidence": "Run 39742187732; full decode and landscape checks passed",
+      "draft_release_tag": "week2-review-39742187732",
+      "library_file_id": "libfile_49fb36ae7bf881919a96a0c59a4d8fe9"
     },
     {
       "week": 3,
@@ -257,14 +288,22 @@
   },
   "limitations": [
     "Original polished local MP4s were removed by workspace maintenance; approved baseline is documented in conversation.",
-    "Week 3\u20134 scripts and bridges remain to be authored.",
+    "Week 3–4 scripts and bridges remain to be authored.",
     "Technical QA is separate from listening approval."
   ],
   "current_attempt": {
-    "result": "Week 2 batch prepared",
+    "run_id": 39742187732,
+    "result": "success",
     "active_jobs": 0,
-    "policy": "Sequential render; no automatic retries of failed episodes"
+    "previous_failed_run": 39741283214,
+    "repairs": [
+      "Short 9 warmth wording",
+      "Short 13 inspection wording",
+      "Short 11 long registration beat shortened"
+    ],
+    "retry_policy": "Successful files reused from checkpoints; no remaining failed assets"
   },
-  "additional_review_candidates": 1,
-  "next_milestone": "Review pilot rhythm and loop; author shot-specific Shorts 9\u201314 and Week 2 bridges, then render bounded batches and compilation."
+  "additional_review_candidates": 8,
+  "next_milestone": "Week 2 listening/creative review; Week 3 shot-specific scripts and production. Do not duplicate Week 2 renders unless correcting a verified issue.",
+  "produced_technically_verified_deliverables": 16
 }

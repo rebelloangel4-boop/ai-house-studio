@@ -1,0 +1,165 @@
+{
+  "8": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 10.0,
+    "exact_video_seconds": 10,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.5,
+    "rms_dbfs": -20.3,
+    "motion_difference": 10.077,
+    "size_mb": 1.12,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ]
+  },
+  "9": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 14.61,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.82,
+    "rms_dbfs": -20.71,
+    "motion_difference": 4.613,
+    "size_mb": 1.61,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ]
+  },
+  "10": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 13.645,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.51,
+    "rms_dbfs": -20.07,
+    "motion_difference": 3.579,
+    "size_mb": 1.54,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ]
+  },
+  "11": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 15.31,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.51,
+    "rms_dbfs": -20.42,
+    "motion_difference": 4.513,
+    "size_mb": 1.68,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ]
+  },
+  "12": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 13.688,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -3.44,
+    "rms_dbfs": -20.3,
+    "motion_difference": 4.712,
+    "size_mb": 1.52,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ]
+  },
+  "13": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 15.39,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.5,
+    "rms_dbfs": -19.21,
+    "motion_difference": 3.609,
+    "size_mb": 1.68,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ]
+  },
+  "14": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 14.242,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.44,
+    "rms_dbfs": -19.96,
+    "motion_difference": 4.425,
+    "size_mb": 1.56,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ]
+  },
+  "compilation": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "source_episodes": [
+      "009",
+      "010",
+      "011",
+      "012",
+      "013",
+      "014",
+      "015"
+    ],
+    "connective_scenes": 8,
+    "repeated_vote_scenes_removed": 0,
+    "duration": 136.654362,
+    "resolution": "1920x1080",
+    "landscape_edit": "centered vertical composition with blurred extended background",
+    "publishing_enabled": false,
+    "sample_peak_dbfs": -1.5,
+    "mean_volume_dbfs": -19.4,
+    "listening_approval": "PENDING",
+    "visual_review": "Representative actual Shorts and landscape frames inspected; lower captions legible, faces unobscured."
+  }
+}
