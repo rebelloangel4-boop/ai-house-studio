@@ -1,0 +1,20 @@
+{
+  "technical_gate": "PASS",
+  "creative_approval": "PENDING",
+  "duration_seconds": 10.0,
+  "exact_video_seconds": 10,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "stereo": true,
+  "sample_peak_dbfs": -1.5,
+  "rms_dbfs": -20.3,
+  "motion_difference": 10.077,
+  "size_mb": 1.12,
+  "publishing_enabled": false,
+  "listening_approval": "PENDING",
+  "voice_identities": [
+    "alba",
+    "javert",
+    "marius"
+  ]
+}

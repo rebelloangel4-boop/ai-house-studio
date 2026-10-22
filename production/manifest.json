@@ -60,161 +60,161 @@
       "short_number": 8,
       "asset_id": "009",
       "week": 2,
-      "status": "script_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "GitHub run 39716830023; final MP4 exists; full decode, 300 frames, all words, audio gate passed"
     },
     {
       "short_number": 9,
       "asset_id": "010",
       "week": 2,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 10,
       "asset_id": "011",
       "week": 2,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 11,
       "asset_id": "012",
       "week": 2,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 12,
       "asset_id": "013",
       "week": 2,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 13,
       "asset_id": "014",
       "week": 2,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 14,
       "asset_id": "015",
       "week": 2,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 15,
       "asset_id": "016",
       "week": 3,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 16,
       "asset_id": "017",
       "week": 3,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 17,
       "asset_id": "018",
       "week": 3,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 18,
       "asset_id": "019",
       "week": 3,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 19,
       "asset_id": "020",
       "week": 3,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 20,
       "asset_id": "021",
       "week": 3,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 21,
       "asset_id": "022",
       "week": 3,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 22,
       "asset_id": "023",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 23,
       "asset_id": "024",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 24,
       "asset_id": "025",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 25,
       "asset_id": "026",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 26,
       "asset_id": "027",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 27,
       "asset_id": "028",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 28,
       "asset_id": "029",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 29,
       "asset_id": "030",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     },
     {
       "short_number": 30,
       "asset_id": "031",
       "week": 4,
-      "status": "outline_pending",
+      "status": "outline_ready_script_pending",
       "evidence": null
     }
   ],
@@ -243,8 +243,17 @@
   "finished_deliverables": 8,
   "pilot": {
     "asset_id": "009",
-    "status": "not_rendered",
-    "exact_seconds": 10
+    "status": "technical_pass_review_pending",
+    "exact_seconds": 10,
+    "run_id": 39716830023,
+    "frames": 300,
+    "spoken_words": 19,
+    "final_filename": "AI_HOUSE_SHORT_008.mp4",
+    "library_file_id": "libfile_3b79741f19c88191b9ecb29b0d069272",
+    "draft_release_tag": "week2-pilot-39716830023",
+    "sha256": "0f0bde6c2262747f1660bf597c27e39ba5c1421870e2fdea152cce703ce3fedf",
+    "listening_approval": "PENDING",
+    "visual_review": "Opening caption and punchline frames inspected: caption in lower region, readable and clear of faces; final motion not yet creatively approved"
   },
   "limitations": [
     "Original polished local MP4s were removed by workspace maintenance; approved baseline is documented in conversation.",
@@ -252,9 +261,14 @@
     "Technical QA is separate from listening approval."
   ],
   "current_attempt": {
-    "run_id": 39716510725,
-    "result": "failed before rendering",
-    "reason": "ASR expanded Why\u2019s to Why is; five bounded voice attempts rejected",
-    "retry": "Simplified opening and Max line; one corrected production retry"
-  }
+    "run_id": 39716830023,
+    "result": "success",
+    "production_attempts": 2,
+    "previous_run": 39716510725,
+    "failure": "Initial contraction ASR mismatch; five bounded synthesis retries failed",
+    "resolution": "Simplified wording; corrected run succeeded",
+    "active_jobs": 0
+  },
+  "additional_review_candidates": 1,
+  "next_milestone": "Review pilot rhythm and loop; author shot-specific Shorts 9\u201314 and Week 2 bridges, then render bounded batches and compilation."
 }
