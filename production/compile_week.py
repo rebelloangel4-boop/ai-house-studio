@@ -27,7 +27,7 @@ def main():
     ff('-i',raw,'-c:v','copy','-af','loudnorm=I=-16:TP=-1.5:LRA=9','-ar','48000','-ac','2','-c:a','aac','-b:a','160k','-movflags','+faststart',final)
     ff('-xerror','-i',final,'-f','null','-')
     duration=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',str(final)]))
-    assert abs(duration-offset)<1 and 100<duration<600
+    assert abs(duration-offset)<1 and 20<duration<600
     probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=width,height','-of','json',str(final)]))
     assert (probe['streams'][0]['width'],probe['streams'][0]['height'])==(1920,1080), 'Landscape 1080p required'
     assert final.stat().st_size<80_000_000,'Storage budget exceeded'

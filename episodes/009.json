@@ -11,7 +11,7 @@
   "scenes": [
     {
       "speaker": "Luna",
-      "line": "Why's the couch charging rent?",
+      "line": "The couch wants rent!",
       "visual": "couch_rent",
       "phase": "invoice",
       "beat": "THE COUCH CHARGES RENT?!",
@@ -25,7 +25,7 @@
     },
     {
       "speaker": "Max",
-      "line": "Dino bought it. We're tenants.",
+      "line": "Dino owns it. Pay up.",
       "visual": "couch_rent",
       "phase": "owner",
       "beat": "THE COUCH CHARGES RENT?!",

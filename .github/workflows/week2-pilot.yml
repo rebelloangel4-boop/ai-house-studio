@@ -28,6 +28,8 @@ jobs:
           sudo apt-get install -y ffmpeg fonts-dejavu-core
           pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -r production/voice-requirements.txt
+      - name: Restore previous dialogue and scene checkpoints
+        run: python production/restore_checkpoint.py
       - name: Render exact ten-second pilot
         run: python studio/render.py --episode 009
       - name: Verify all words and exactly 300 frames

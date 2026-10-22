@@ -250,5 +250,11 @@
     "Original polished local MP4s were removed by workspace maintenance; approved baseline is documented in conversation.",
     "Week 2\u20134 bridges and remaining staged scripts are not yet authored.",
     "Technical QA is separate from listening approval."
-  ]
+  ],
+  "current_attempt": {
+    "run_id": 39716510725,
+    "result": "failed before rendering",
+    "reason": "ASR expanded Why\u2019s to Why is; five bounded voice attempts rejected",
+    "retry": "Simplified opening and Max line; one corrected production retry"
+  }
 }
