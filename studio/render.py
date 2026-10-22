@@ -114,28 +114,43 @@ def main():
             tokens=source_timeline[i]['tokens'];records.append(dict(record))
         else:
             data,tokens=speech(pipeline,s['line'],s['speaker'],cache);records.append(dict(pipeline.records[-1]))
+        original=out/'original_dialogue';original.mkdir(exist_ok=True)
+        wavwrite(original/f'dialogue_{i:02}_{s["speaker"]}.wav',data)
+        (original/f'scene_{i}.json').write_text(json.dumps({'tokens':tokens,'report':records[-1]},indent=2))
         data,tokens,polish=polish_dialogue(data,tokens,s['speaker'])
         records[-1].update(post_processing=polish,duration=len(data)/SR)
         lead=.04 if i==0 else .06
         tail=.45 if s.get('visual')=='vote' else .14
         action_min={'hatch':1.65,'fire':2.05,'chomp':2.05}.get(s.get('visual'),1.25)
         duration=max(action_min,len(data)/SR+lead+tail)
+        if 'seconds' in s:
+            duration=float(s['seconds'])
+            if lead+len(data)/SR+.08>duration:
+                raise ValueError(f'Scene {i}: natural dialogue needs {lead+len(data)/SR+.08:.2f}s, slot is {duration:.2f}s; rewrite rather than truncate')
         wavwrite(out/f'dialogue_{i:02}_{s["speaker"]}.wav',data)
         count=math.ceil(duration*FPS);duration=count/FPS
         kind=s.get('visual',['rent','egg','scan','hatch','fire','vote'][min(i,5)])
         sound=out/f'scene_{i}.wav';wavwrite(sound,mix(data,duration,kind,lead));clip=out/f'scene_{i}.mp4'
         command=['ffmpeg','-hide_banner','-loglevel','error','-y','-f','rawvideo','-pix_fmt','rgb24','-s','1080x1920','-r',str(FPS),'-i','pipe:0','-i',str(sound),'-map','0:v','-map','1:a','-c:v','libx264','-threads','2','-preset','veryfast','-crf','19','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-ar','48000','-t',str(duration),str(clip)]
-        process=subprocess.Popen(command,stdin=subprocess.PIPE)
-        try:
-            for frame_no in range(count):
-                t=frame_no/FPS;mouth,energy=viseme(data,tokens,t-lead);caption=caption_at(tokens,t-lead)
-                im=render(s,i,t,duration,s['speaker'],mouth,energy,caption,story['episode'])
-                if frame_no==min(count-1,60):im.save(out/f'shot_{i}.jpg',quality=92)
-                process.stdin.write(im.tobytes())
-            process.stdin.close()
-            if process.wait()!=0:raise RuntimeError(f'Encoder failed on scene {i}')
-        finally:
-            if process.poll() is None:process.kill();process.wait()
+        checkpoint=out/f'scene_{i}.checkpoint.json'
+        signature=hashlib.sha256(data.tobytes()+json.dumps([s,tokens,duration],sort_keys=True).encode()+(ROOT/'studio/art.py').read_bytes()+(ROOT/'studio/render.py').read_bytes()).hexdigest()
+        reusable=False
+        if clip.exists() and checkpoint.exists() and json.loads(checkpoint.read_text()).get('signature')==signature:
+            check=subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(clip),'-f','null','-'],capture_output=True)
+            reusable=check.returncode==0
+        if not reusable:
+            process=subprocess.Popen(command,stdin=subprocess.PIPE)
+            try:
+                for frame_no in range(count):
+                    t=frame_no/FPS;mouth,energy=viseme(data,tokens,t-lead);caption=caption_at(tokens,t-lead)
+                    im=render(s,i,t,duration,s['speaker'],mouth,energy,caption,story['episode'])
+                    if frame_no==min(count-1,60):im.save(out/f'shot_{i}.jpg',quality=92)
+                    process.stdin.write(im.tobytes())
+                process.stdin.close()
+                if process.wait()!=0:raise RuntimeError(f'Encoder failed on scene {i}')
+            finally:
+                if process.poll() is None:process.kill();process.wait()
+            checkpoint.write_text(json.dumps({'signature':signature,'frames':count}))
         clips.append(clip)
         for j in range(0,len(tokens),4):
             chunk=tokens[j:j+4];subtitle.append((offset+lead+chunk[0]['start'],offset+lead+chunk[-1]['end'],caption_text(chunk)))
@@ -147,11 +162,15 @@ def main():
     raw=out/'assembled.mp4';final=out/f'episode_{args.episode}.mp4'
     ff('-f','concat','-safe','0','-i',playlist,'-c','copy',raw)
     # Loudness normalization with a conservative true-peak ceiling; stereo stays stereo.
-    ff('-i',raw,'-c:v','copy','-af','loudnorm=I=-16:TP=-1.5:LRA=9','-ar','48000','-ac','2','-c:a','aac','-b:a','192k','-movflags','+faststart',final)
+    video_args=['-c:v','copy']
+    if story.get('exact_seconds'):
+        # Drop accumulated AAC packet padding from the video time base; never drop frames.
+        video_args=['-vf','setpts=N/(30*TB)','-c:v','libx264','-preset','veryfast','-crf','19','-threads','2','-t',str(story['exact_seconds'])]
+    ff('-i',raw,*video_args,'-af','loudnorm=I=-16:TP=-1.5:LRA=9','-ar','48000','-ac','2','-c:a','aac','-b:a','192k','-movflags','+faststart',final)
     (out/'voice_qa.json').write_text(json.dumps({'voices':VOICES,'segments':records,'listening_approval':'PENDING'},indent=2))
     (out/'captions.srt').write_text('\n\n'.join(f'{i+1}\n{srt_time(a)} --> {srt_time(b)}\n{text}' for i,(a,b,text) in enumerate(subtitle))+'\n')
     (out/'timeline.json').write_text(json.dumps(timeline,indent=2))
     (out/'metadata.json').write_text(json.dumps({'title':story['title'],'description':story.get('description','Three roommates. One terrible decision. Choose A or B in the comments. #AIHOUSE #AnimatedComedy #Shorts'),'tags':['AI HOUSE','animated comedy','interactive story'],'publishing_approved':False,'alignment':'Whisper word timestamps mapped to original script; mouth shapes approximate', 'voice_engine':'pocket-tts-3.3.0', 'listening_approval':'PENDING','duration':offset},indent=2))
-    for p in clips+[out/f'scene_{i}.wav' for i in range(len(clips))]+[raw,playlist]:p.unlink()
+    for p in [raw,playlist]:p.unlink()
     print(f'RENDERED FOR REVIEW: {final}',flush=True)
 if __name__=='__main__':main()

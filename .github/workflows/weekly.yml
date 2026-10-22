@@ -1,8 +1,5 @@
 name: AI HOUSE Week 1 Voice Review
 on:
-  push:
-    branches: [main]
-    paths: ['studio/**', 'episodes/**', 'production/**', '.github/workflows/weekly.yml']
   workflow_dispatch:
     inputs:
       episodes:
@@ -92,7 +89,7 @@ jobs:
     if: needs.select.outputs.remaining != '[]'
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 2
       matrix:
         episode: ${{ fromJSON(needs.select.outputs.remaining) }}
     runs-on: ubuntu-24.04

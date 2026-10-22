@@ -1,0 +1,52 @@
+name: AI HOUSE Week 2 Ten Second Pilot
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/week2-pilot.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ai-house-controlled-production
+  cancel-in-progress: false
+jobs:
+  pilot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install free CPU dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r production/voice-requirements.txt
+      - name: Render exact ten-second pilot
+        run: python studio/render.py --episode 009
+      - name: Verify all words and exactly 300 frames
+        run: |
+          python studio/verify.py output/009
+          cp output/009/episode_009.mp4 output/009/AI_HOUSE_SHORT_008.mp4
+      - name: Retain verified direct MP4 privately
+        run: |
+          TAG="week2-pilot-${GITHUB_RUN_ID}"
+          gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "AI HOUSE Short 8 — ten-second pilot" --notes "Technical QA passed, exactly 300 frames. Listening and creative review pending. No public publishing."
+          gh release upload "$TAG" output/009/AI_HOUSE_SHORT_008.mp4 output/009/qa.json
+      - name: Preserve bounded recovery data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-short008-pilot-checkpoint
+          path: |
+            output/009/
+            .voice-cache/
+          include-hidden-files: true
+          retention-days: 8
+          if-no-files-found: warn

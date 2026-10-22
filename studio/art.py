@@ -131,7 +131,7 @@ def dinosaur(d,x,y,t,fire=False):
 def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080):
     im=room(width).copy();d=Canvas(im);kind=scene.get('visual',['rent','egg','scan','hatch','fire','vote'][min(index,5)])
     # Story action and staging change between shots, not just camera movement.
-    burned=(episode>1 or (episode==1 and index>=5) or (kind=='fire' and t>1.7))
+    burned=kind!='couch_rent' and (episode>1 or (episode==1 and index>=5) or (kind=='fire' and t>1.7))
     if burned:
         d.box((35,530,508,620),'#e8c9b5');d.box((35,620,508,727),'#bc8c83')
         d.line([(35,621),(508,621)],'#9c6e6f',5)
@@ -141,7 +141,26 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
             for j in range(5):
                 yy=640-(t*22+j*33)%140;xx=110+j*65;d.oval((xx,yy,xx+21,yy+28),'#a89498')
     hero_x=185 if kind in ('egg','scan','hatch','fire') else 270
-    actor(d,who,hero_x,430,t,mouth,energy,1.4,'worried' if kind=='rent' else 'neutral',(.5+.5*math.sin(t*2)) if kind in ('egg','vote') else 0)
+    if kind=='couch_rent':
+        phase=scene.get('phase','invoice')
+        if phase=='eviction' and t>1.1:
+            # Move the existing couch artwork away, preserving its approved design.
+            k=width/540;crop=room(width).crop(tuple(round(v*k) for v in (35,530,510,727)))
+            d.box((35,530,510,620),'#e8c9b5');d.box((35,620,510,727),'#bc8c83')
+            d.line([(35,621),(510,621)],'#9c6e6f',5)
+            im.paste(crop,(round((35+min(550,(t-1.1)*370))*k),round(530*k)))
+            d=Canvas(im)
+        for person,x in [('Luna',105),('Max',240),('Zig',370)]:
+            actor(d,person,x,505,t,mouth if person==who else 'rest',energy if person==who else 0,.76,'worried',person==who)
+        dinosaur(d,426,655,t,False)
+        sign='RENT DUE: $900' if phase in ('invoice','owner') else 'NO EATING THE ASSETS' if phase=='warning' else 'COUCH: EVICTED!'
+        d.box((42,185,478,243),INK,12);d.text(sign,260,214,21,'#ffe078')
+        if phase=='owner':
+            d.box((355,565,484,600),CREAM,6,INK);d.text('LANDLORD',419,582,13)
+        if phase=='eviction':
+            d.box((350,565,485,605),CREAM,6,INK);d.text('EVICTED',417,585,17,'#bf5c4d')
+    else:
+        actor(d,who,hero_x,430,t,mouth,energy,1.4,'worried' if kind=='rent' else 'neutral',(.5+.5*math.sin(t*2)) if kind in ('egg','vote') else 0)
     if kind=='rent':
         d.box((318,551,432,615),CREAM,5,INK);d.line([(320,554),(375,589),(430,554)],'#b6a79a',2);d.text('RENT',375,602,12)
         d.box((73,235,267,291),INK,12);d.text('BALANCE: $0',170,263,19,'#ffd080')

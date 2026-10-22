@@ -1,0 +1,69 @@
+{
+  "series": "AI HOUSE \u2014 You Decide",
+  "episode": 8,
+  "asset_id": "009",
+  "kind": "short",
+  "title": "Dino Evicts the Couch",
+  "exact_seconds": 10,
+  "production_status": "pilot awaiting render and creative review",
+  "description": "Dino became the landlord. Even the couch is not safe. #AIHOUSE #AnimatedComedy #Shorts",
+  "loop_note": "Final RENT DUE sign matches opening invoice; hard cut back to opening tableau. No invented audience vote.",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Why's the couch charging rent?",
+      "visual": "couch_rent",
+      "phase": "invoice",
+      "beat": "THE COUCH CHARGES RENT?!",
+      "seconds": 2,
+      "timestamp": [
+        0,
+        2
+      ],
+      "tone": "outraged",
+      "framing": "Wide living-room tableau: all three established roommates, Dino and couch visible; speaker gestures, others react."
+    },
+    {
+      "speaker": "Max",
+      "line": "Dino bought it. We're tenants.",
+      "visual": "couch_rent",
+      "phase": "owner",
+      "beat": "THE COUCH CHARGES RENT?!",
+      "seconds": 2.2,
+      "timestamp": [
+        2,
+        4.2
+      ],
+      "tone": "proud, then worried",
+      "framing": "Wide living-room tableau: all three established roommates, Dino and couch visible; speaker gestures, others react."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Our landlord eats the furniture.",
+      "visual": "couch_rent",
+      "phase": "warning",
+      "beat": "THE COUCH CHARGES RENT?!",
+      "seconds": 2.5,
+      "timestamp": [
+        4.2,
+        6.7
+      ],
+      "tone": "dry disbelief",
+      "framing": "Wide living-room tableau: all three established roommates, Dino and couch visible; speaker gestures, others react."
+    },
+    {
+      "speaker": "Luna",
+      "line": "He just evicted the couch.",
+      "visual": "couch_rent",
+      "phase": "eviction",
+      "beat": "LANDLORD OF THE YEAR",
+      "seconds": 3.3,
+      "timestamp": [
+        6.7,
+        10
+      ],
+      "tone": "stunned",
+      "framing": "Wide living-room tableau: all three established roommates, Dino and couch visible; speaker gestures, others react."
+    }
+  ]
+}
