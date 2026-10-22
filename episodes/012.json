@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 11,
+  "asset_id": "012",
+  "kind": "short",
+  "title": "The No-Pets Rule",
+  "production_status": "authored awaiting render and review",
+  "description": "The No-Pets Rule: Dino takes being a landlord far too seriously. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Our dinosaur landlord just posted a strict no pets rule.",
+      "visual": "pets",
+      "phase": "shock",
+      "beat": "THE NO-PETS RULE",
+      "tone": "incredulous",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Finally, a sensible policy. Wait. Why are these collars personalized?",
+      "visual": "pets",
+      "phase": "explain",
+      "beat": "THE NO-PETS RULE",
+      "tone": "relief to alarm",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Three registrations. Luna, Max, Zig. He listed us as pets.",
+      "visual": "pets",
+      "phase": "escalate",
+      "beat": "THE NO-PETS RULE",
+      "tone": "dry realization",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "He approved himself as our emotional support landlord. Absolutely not.",
+      "visual": "pets",
+      "phase": "payoff",
+      "beat": "THE NO-PETS RULE",
+      "tone": "furious disbelief",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    }
+  ]
+}

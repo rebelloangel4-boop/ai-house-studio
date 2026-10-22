@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 9,
+  "asset_id": "010",
+  "kind": "short",
+  "title": "The Thermostat Tax",
+  "production_status": "authored awaiting render and review",
+  "description": "The Thermostat Tax: Dino takes being a landlord far too seriously. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Why does our thermostat have a card reader? I am freezing.",
+      "visual": "thermostat",
+      "phase": "shock",
+      "beat": "THE THERMOSTAT TAX",
+      "tone": "outraged",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Dino charges extra for warmth. Breathing on your hands is premium.",
+      "visual": "thermostat",
+      "phase": "explain",
+      "beat": "THE THERMOSTAT TAX",
+      "tone": "confident absurdity",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "I opened the curtains. Sunlight remains outside his jurisdiction.",
+      "visual": "thermostat",
+      "phase": "escalate",
+      "beat": "THE THERMOSTAT TAX",
+      "tone": "dry triumph",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "He sent the sun an invoice. It is already overdue.",
+      "visual": "thermostat",
+      "phase": "payoff",
+      "beat": "THE THERMOSTAT TAX",
+      "tone": "stunned",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    }
+  ]
+}

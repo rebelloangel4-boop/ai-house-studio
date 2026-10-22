@@ -79,6 +79,8 @@ def mix(audio,duration,kind,lead):
     if kind in ('fire','chomp'):
         a=int(.65*SR);b=min(n,int(1.75*SR));noise=rng.standard_normal(b-a);noise=np.convolve(noise,np.ones(25)/25,mode='same')
         sfx[a:b]+=.19*noise*np.sin(np.linspace(0,np.pi,b-a))**2;tone(1.75,.22,95,.12,-120)
+    if kind in ('thermostat','deposit','pets','meter','inspection','ceiling'):
+        tone(.08,.12,740,.025);tone(max(.25,duration-.22),.12,370,.025)
     speechtrack=np.zeros(n);a=int(lead*SR);b=min(n,a+len(audio));speechtrack[a:b]=audio[:b-a]
     duck=np.ones(n);duck[max(0,a-int(.12*SR)):min(n,b+int(.15*SR))]=.28
     music*=duck;fade=np.minimum(1,t/.025)*np.minimum(1,(duration-t)/.12)
@@ -133,7 +135,7 @@ def main():
         sound=out/f'scene_{i}.wav';wavwrite(sound,mix(data,duration,kind,lead));clip=out/f'scene_{i}.mp4'
         command=['ffmpeg','-hide_banner','-loglevel','error','-y','-f','rawvideo','-pix_fmt','rgb24','-s','1080x1920','-r',str(FPS),'-i','pipe:0','-i',str(sound),'-map','0:v','-map','1:a','-c:v','libx264','-threads','2','-preset','veryfast','-crf','19','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-ar','48000','-t',str(duration),str(clip)]
         checkpoint=out/f'scene_{i}.checkpoint.json'
-        signature=hashlib.sha256(data.tobytes()+json.dumps([s,tokens,duration],sort_keys=True).encode()+(ROOT/'studio/art.py').read_bytes()+(ROOT/'studio/render.py').read_bytes()).hexdigest()
+        signature=hashlib.sha256(data.tobytes()+json.dumps([s,tokens,duration],sort_keys=True).encode()+(ROOT/'studio/art.py').read_bytes()+(ROOT/'studio/landlord_art.py').read_bytes()+(ROOT/'studio/render.py').read_bytes()).hexdigest()
         reusable=False
         if clip.exists() and checkpoint.exists() and json.loads(checkpoint.read_text()).get('signature')==signature:
             check=subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(clip),'-f','null','-'],capture_output=True)

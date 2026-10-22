@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 13,
+  "asset_id": "014",
+  "kind": "short",
+  "title": "Rent Inspection",
+  "production_status": "authored awaiting render and review",
+  "description": "Rent Inspection: Dino takes being a landlord far too seriously. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Inspection in ten seconds. Max, hide everything in the cupboard!",
+      "visual": "inspection",
+      "phase": "shock",
+      "beat": "RENT INSPECTION",
+      "tone": "urgent whisper",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Everything fits. Except the door. And possibly basic physics.",
+      "visual": "inspection",
+      "phase": "explain",
+      "beat": "RENT INSPECTION",
+      "tone": "strained optimism",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Dino has ignored the mess. He is measuring the cupboard.",
+      "visual": "inspection",
+      "phase": "escalate",
+      "beat": "RENT INSPECTION",
+      "tone": "suspicious",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "He listed it as a studio apartment. We need a deposit.",
+      "visual": "inspection",
+      "phase": "payoff",
+      "beat": "RENT INSPECTION",
+      "tone": "defeated disbelief",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    }
+  ]
+}

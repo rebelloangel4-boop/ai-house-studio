@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 10,
+  "asset_id": "011",
+  "kind": "short",
+  "title": "Tiny Security Deposit",
+  "production_status": "authored awaiting render and review",
+  "description": "Tiny Security Deposit: Dino takes being a landlord far too seriously. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Max",
+      "line": "I paid our entire security deposit in coins. Genius, right?",
+      "visual": "deposit",
+      "phase": "shock",
+      "beat": "TINY SECURITY DEPOSIT",
+      "tone": "proud",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "That was our laundry money. Now our socks need investors.",
+      "visual": "deposit",
+      "phase": "explain",
+      "beat": "TINY SECURITY DEPOSIT",
+      "tone": "irritated",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Dino is checking every coin for damage. With his teeth.",
+      "visual": "deposit",
+      "phase": "escalate",
+      "beat": "TINY SECURITY DEPOSIT",
+      "tone": "clinical alarm",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "He returned half a coin. Apparently that is the receipt.",
+      "visual": "deposit",
+      "phase": "payoff",
+      "beat": "TINY SECURITY DEPOSIT",
+      "tone": "deflated",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    }
+  ]
+}

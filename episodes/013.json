@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 12,
+  "asset_id": "013",
+  "kind": "short",
+  "title": "Maintenance Request",
+  "production_status": "authored awaiting render and review",
+  "description": "Maintenance Request: Dino takes being a landlord far too seriously. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "The ceiling is leaking directly into our emergency snack bowl.",
+      "visual": "meter",
+      "phase": "shock",
+      "beat": "MAINTENANCE REQUEST",
+      "tone": "urgent",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Leak repaired. I have saved the house and the crisps.",
+      "visual": "meter",
+      "phase": "explain",
+      "beat": "MAINTENANCE REQUEST",
+      "tone": "satisfied",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Dino installed a meter. Apparently we used premium emergency water.",
+      "visual": "meter",
+      "phase": "escalate",
+      "beat": "MAINTENANCE REQUEST",
+      "tone": "bewildered",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "Now he charges for the drops we stopped. Imaginary water!",
+      "visual": "meter",
+      "phase": "payoff",
+      "beat": "MAINTENANCE REQUEST",
+      "tone": "outraged",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    }
+  ]
+}

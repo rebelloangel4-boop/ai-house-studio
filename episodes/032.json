@@ -1,0 +1,81 @@
+{
+  "series": "AI HOUSE",
+  "episode": 2,
+  "asset_id": "032",
+  "kind": "bridge",
+  "title": "Week 2 connective story",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Dino became our landlord this week. His first victim was the couch.",
+      "visual": "couch_rent",
+      "phase": "invoice",
+      "beat": "WEEK TWO / THE LANDLORD",
+      "choice_a": "A  DINO DAYCARE",
+      "choice_b": "B  ROBOT REPAIRS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "After seating, he monetized the temperature. Our budget immediately caught a cold.",
+      "visual": "thermostat",
+      "phase": "shock",
+      "beat": "WEEK TWO / THE LANDLORD",
+      "choice_a": "A  DINO DAYCARE",
+      "choice_b": "B  ROBOT REPAIRS"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Then he demanded a deposit. Max had a plan, which usually costs extra.",
+      "visual": "deposit",
+      "phase": "shock",
+      "beat": "WEEK TWO / THE LANDLORD",
+      "choice_a": "A  DINO DAYCARE",
+      "choice_b": "B  ROBOT REPAIRS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "With the money collected, new house rules arrived. We were reclassified.",
+      "visual": "pets",
+      "phase": "shock",
+      "beat": "WEEK TWO / THE LANDLORD",
+      "choice_a": "A  DINO DAYCARE",
+      "choice_b": "B  ROBOT REPAIRS"
+    },
+    {
+      "speaker": "Luna",
+      "line": "The ceiling started leaking. For once, Zig could fix the actual problem.",
+      "visual": "meter",
+      "phase": "shock",
+      "beat": "WEEK TWO / THE LANDLORD",
+      "choice_a": "A  DINO DAYCARE",
+      "choice_b": "B  ROBOT REPAIRS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "A dry ceiling did not prevent an inspection. Concealment became the strategy.",
+      "visual": "inspection",
+      "phase": "shock",
+      "beat": "WEEK TWO / THE LANDLORD",
+      "choice_a": "A  DINO DAYCARE",
+      "choice_b": "B  ROBOT REPAIRS"
+    },
+    {
+      "speaker": "Luna",
+      "line": "We needed a better lease. Unfortunately, Max handled the negotiations again.",
+      "visual": "ceiling",
+      "phase": "shock",
+      "beat": "WEEK TWO / THE LANDLORD",
+      "choice_a": "A  DINO DAYCARE",
+      "choice_b": "B  ROBOT REPAIRS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Next week, we need rent money. Should we open a dinosaur daycare or sell robot repairs? Choose below.",
+      "visual": "vote",
+      "phase": "payoff",
+      "beat": "WEEK TWO / THE LANDLORD",
+      "choice_a": "A  DINO DAYCARE",
+      "choice_b": "B  ROBOT REPAIRS"
+    }
+  ]
+}

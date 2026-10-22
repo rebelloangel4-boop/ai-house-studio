@@ -1,5 +1,6 @@
 """Original AI HOUSE vector-style art, drawn at output resolution; no external assets."""
 import math
+from landlord_art import KINDS, stage
 from functools import lru_cache
 from PIL import Image, ImageDraw, ImageFont
 INK='#232438'; CREAM='#fff4df'; COLORS={'Luna':'#8ce5d4','Max':'#ffbb8b','Zig':'#dfb7ff'}
@@ -131,7 +132,7 @@ def dinosaur(d,x,y,t,fire=False):
 def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080):
     im=room(width).copy();d=Canvas(im);kind=scene.get('visual',['rent','egg','scan','hatch','fire','vote'][min(index,5)])
     # Story action and staging change between shots, not just camera movement.
-    burned=kind!='couch_rent' and (episode>1 or (episode==1 and index>=5) or (kind=='fire' and t>1.7))
+    burned=kind not in KINDS|{'couch_rent'} and (episode>1 or (episode==1 and index>=5) or (kind=='fire' and t>1.7))
     if burned:
         d.box((35,530,508,620),'#e8c9b5');d.box((35,620,508,727),'#bc8c83')
         d.line([(35,621),(508,621)],'#9c6e6f',5)
@@ -141,7 +142,9 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
             for j in range(5):
                 yy=640-(t*22+j*33)%140;xx=110+j*65;d.oval((xx,yy,xx+21,yy+28),'#a89498')
     hero_x=185 if kind in ('egg','scan','hatch','fire') else 270
-    if kind=='couch_rent':
+    if kind in KINDS:
+        stage(d,scene,t,duration,who,mouth,energy,actor,dinosaur,INK,CREAM)
+    elif kind=='couch_rent':
         phase=scene.get('phase','invoice')
         if phase=='eviction' and t>1.1:
             # Move the existing couch artwork away, preserving its approved design.

@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 14,
+  "asset_id": "015",
+  "kind": "short",
+  "title": "Lease Renewal",
+  "production_status": "authored awaiting render and review",
+  "description": "Lease Renewal: Dino takes being a landlord far too seriously. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Max",
+      "line": "I negotiated free seating for everyone. Read that and weep.",
+      "visual": "ceiling",
+      "phase": "shock",
+      "beat": "LEASE RENEWAL",
+      "tone": "triumphant",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "Why is the furniture attached to the ceiling? Explain slowly.",
+      "visual": "ceiling",
+      "phase": "explain",
+      "beat": "LEASE RENEWAL",
+      "tone": "controlled anger",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "The contract includes seats. Gravity is an optional paid upgrade.",
+      "visual": "ceiling",
+      "phase": "escalate",
+      "beat": "LEASE RENEWAL",
+      "tone": "deadpan",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Dino is sitting up there. He brought his own gravity.",
+      "visual": "ceiling",
+      "phase": "payoff",
+      "beat": "LEASE RENEWAL",
+      "tone": "astonished",
+      "framing": "Wide established living room; all roommates remain visible. Story prop occupies upper action area; dialogue captions stay below faces.",
+      "timing_note": "Cut on verified spoken line end plus 0.14 seconds; no fixed-duration padding."
+    }
+  ]
+}

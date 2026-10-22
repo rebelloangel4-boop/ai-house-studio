@@ -1,0 +1,51 @@
+name: AI HOUSE Week 2 Review Batch
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/week2-batch.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ai-house-controlled-production
+  cancel-in-progress: false
+jobs:
+  week2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install free CPU dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r production/voice-requirements.txt
+      - name: Restore pilot and successful scenes
+        run: |
+          python production/restore_checkpoint.py
+          python production/restore_checkpoint.py --week2
+      - name: Render sequentially and verify Week 2
+        run: python production/render_week2.py
+      - name: Retain individual verified MP4s for review
+        if: always()
+        run: |
+          python production/retain_week2.py
+      - name: Keep dry voices and recovery checkpoints
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-week2-checkpoint
+          path: |
+            output/
+            .voice-cache/
+          include-hidden-files: true
+          retention-days: 8
+          if-no-files-found: warn

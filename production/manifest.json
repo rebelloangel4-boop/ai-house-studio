@@ -67,42 +67,42 @@
       "short_number": 9,
       "asset_id": "010",
       "week": 2,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 10,
       "asset_id": "011",
       "week": 2,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 11,
       "asset_id": "012",
       "week": 2,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 12,
       "asset_id": "013",
       "week": 2,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 13,
       "asset_id": "014",
       "week": 2,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 14,
       "asset_id": "015",
       "week": 2,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
@@ -227,7 +227,7 @@
     {
       "week": 2,
       "bridge_asset": "032",
-      "status": "planned"
+      "status": "bridges_authored_render_pending"
     },
     {
       "week": 3,
@@ -257,17 +257,13 @@
   },
   "limitations": [
     "Original polished local MP4s were removed by workspace maintenance; approved baseline is documented in conversation.",
-    "Week 2\u20134 bridges and remaining staged scripts are not yet authored.",
+    "Week 3\u20134 scripts and bridges remain to be authored.",
     "Technical QA is separate from listening approval."
   ],
   "current_attempt": {
-    "run_id": 39716830023,
-    "result": "success",
-    "production_attempts": 2,
-    "previous_run": 39716510725,
-    "failure": "Initial contraction ASR mismatch; five bounded synthesis retries failed",
-    "resolution": "Simplified wording; corrected run succeeded",
-    "active_jobs": 0
+    "result": "Week 2 batch prepared",
+    "active_jobs": 0,
+    "policy": "Sequential render; no automatic retries of failed episodes"
   },
   "additional_review_candidates": 1,
   "next_milestone": "Review pilot rhythm and loop; author shot-specific Shorts 9\u201314 and Week 2 bridges, then render bounded batches and compilation."
