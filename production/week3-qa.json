@@ -1,0 +1,172 @@
+{
+  "15": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 13.197,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -2.65,
+    "rms_dbfs": -20.61,
+    "motion_difference": 4.617,
+    "size_mb": 1.53,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "every_scripted_word_match": 1.0
+  },
+  "16": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 13.509,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.41,
+    "rms_dbfs": -20.67,
+    "motion_difference": 4.554,
+    "size_mb": 1.5,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "every_scripted_word_match": 1.0
+  },
+  "17": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 12.3,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.64,
+    "rms_dbfs": -19.41,
+    "motion_difference": 4.364,
+    "size_mb": 1.37,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "every_scripted_word_match": 1.0
+  },
+  "18": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 12.638,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.51,
+    "rms_dbfs": -20.47,
+    "motion_difference": 4.563,
+    "size_mb": 1.44,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "every_scripted_word_match": 1.0
+  },
+  "19": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 14.008,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.53,
+    "rms_dbfs": -20.76,
+    "motion_difference": 4.489,
+    "size_mb": 1.54,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "every_scripted_word_match": 1.0
+  },
+  "20": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 13.805,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.51,
+    "rms_dbfs": -19.65,
+    "motion_difference": 4.416,
+    "size_mb": 1.51,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "every_scripted_word_match": 1.0
+  },
+  "21": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 15.905,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.77,
+    "rms_dbfs": -19.43,
+    "motion_difference": 4.745,
+    "size_mb": 1.73,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "every_scripted_word_match": 1.0
+  },
+  "compilation": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "source_episodes": [
+      "016",
+      "017",
+      "018",
+      "019",
+      "020",
+      "021",
+      "022"
+    ],
+    "connective_scenes": 8,
+    "repeated_vote_scenes_removed": 0,
+    "duration": 138.456,
+    "resolution": "1920x1080",
+    "landscape_edit": "centered vertical composition with blurred extended background",
+    "publishing_enabled": false,
+    "sample_peak_dbfs": -1.32,
+    "rms_dbfs": -19.51,
+    "listening_approval": "PENDING",
+    "visual_review": "Representative actual frames inspected; lower captions readable and faces unobscured."
+  }
+}
