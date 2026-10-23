@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 15,
+  "asset_id": "016",
+  "kind": "short",
+  "title": "Dino Daycare",
+  "production_status": "script and staging ready",
+  "description": "Dino Daycare. The roommates try to earn rent. Dino has other plans. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Why are dinosaur eggs lined up on our couch?",
+      "visual": "daycare",
+      "phase": "shock",
+      "beat": "DINO DAYCARE",
+      "tone": "alarmed",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Max",
+      "line": "Daycare! Their parents pay us to watch them hatch.",
+      "visual": "daycare",
+      "phase": "explain",
+      "beat": "DINO DAYCARE",
+      "tone": "salesman confidence",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Zig",
+      "line": "The babies have escaped. They are supervising Max now.",
+      "visual": "daycare",
+      "phase": "escalate",
+      "beat": "DINO DAYCARE",
+      "tone": "dry concern",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Luna",
+      "line": "They put him down for a nap. Finally, professionals.",
+      "visual": "daycare",
+      "phase": "payoff",
+      "beat": "DINO DAYCARE",
+      "tone": "delighted disbelief",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    }
+  ]
+}

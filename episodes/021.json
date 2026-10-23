@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 20,
+  "asset_id": "021",
+  "kind": "short",
+  "title": "Zig Makes a Helper",
+  "production_status": "script and staging ready",
+  "description": "Zig Makes a Helper. The roommates try to earn rent. Dino has other plans. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "I built a helper robot. Our chores are solved.",
+      "visual": "clone",
+      "phase": "shock",
+      "beat": "ZIG MAKES A HELPER",
+      "tone": "proud",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Luna",
+      "line": "Why is your helper wearing a tiny manager badge?",
+      "visual": "clone",
+      "phase": "explain",
+      "beat": "ZIG MAKES A HELPER",
+      "tone": "suspicious",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Max",
+      "line": "It outsourced the chores back to us. For commission.",
+      "visual": "clone",
+      "phase": "escalate",
+      "beat": "ZIG MAKES A HELPER",
+      "tone": "annoyed",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Dino promoted the badge. The robot reports to cardboard.",
+      "visual": "clone",
+      "phase": "payoff",
+      "beat": "ZIG MAKES A HELPER",
+      "tone": "quiet horror",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    }
+  ]
+}

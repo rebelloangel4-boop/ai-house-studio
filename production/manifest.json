@@ -136,49 +136,49 @@
       "short_number": 15,
       "asset_id": "016",
       "week": 3,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 16,
       "asset_id": "017",
       "week": 3,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 17,
       "asset_id": "018",
       "week": 3,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 18,
       "asset_id": "019",
       "week": 3,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 19,
       "asset_id": "020",
       "week": 3,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 20,
       "asset_id": "021",
       "week": 3,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 21,
       "asset_id": "022",
       "week": 3,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
@@ -263,7 +263,7 @@
     {
       "week": 3,
       "bridge_asset": "033",
-      "status": "planned"
+      "status": "bridge_authored_render_pending"
     },
     {
       "week": 4,
@@ -288,20 +288,13 @@
   },
   "limitations": [
     "Original polished local MP4s were removed by workspace maintenance; approved baseline is documented in conversation.",
-    "Week 3–4 scripts and bridges remain to be authored.",
+    "Week 3\u20134 scripts and bridges remain to be authored.",
     "Technical QA is separate from listening approval."
   ],
   "current_attempt": {
-    "run_id": 39742187732,
-    "result": "success",
+    "result": "Week 3 batch prepared",
     "active_jobs": 0,
-    "previous_failed_run": 39741283214,
-    "repairs": [
-      "Short 9 warmth wording",
-      "Short 13 inspection wording",
-      "Short 11 long registration beat shortened"
-    ],
-    "retry_policy": "Successful files reused from checkpoints; no remaining failed assets"
+    "retry_policy": "One sequential batch; preserve successes and bound speech attempts"
   },
   "additional_review_candidates": 8,
   "next_milestone": "Week 2 listening/creative review; Week 3 shot-specific scripts and production. Do not duplicate Week 2 renders unless correcting a verified issue.",

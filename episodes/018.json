@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 17,
+  "asset_id": "018",
+  "kind": "short",
+  "title": "Pizza Royalties",
+  "production_status": "script and staging ready",
+  "description": "Pizza Royalties. The roommates try to earn rent. Dino has other plans. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Why does every pizza slice have a tiny crown?",
+      "visual": "pizza",
+      "phase": "shock",
+      "beat": "PIZZA ROYALTIES",
+      "tone": "bewildered",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Max",
+      "line": "Premium branding. Dino gets a royalty on every bite.",
+      "visual": "pizza",
+      "phase": "explain",
+      "beat": "PIZZA ROYALTIES",
+      "tone": "proud",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Zig",
+      "line": "He has eaten the product. Our profit is crust.",
+      "visual": "pizza",
+      "phase": "escalate",
+      "beat": "PIZZA ROYALTIES",
+      "tone": "dry alarm",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Luna",
+      "line": "He sold the empty box as luxury dinosaur housing.",
+      "visual": "pizza",
+      "phase": "payoff",
+      "beat": "PIZZA ROYALTIES",
+      "tone": "stunned",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    }
+  ]
+}

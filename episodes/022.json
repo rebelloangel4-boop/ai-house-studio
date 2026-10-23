@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 21,
+  "asset_id": "022",
+  "kind": "short",
+  "title": "The Accountant Hatches",
+  "production_status": "script and staging ready",
+  "description": "The Accountant Hatches. The roommates try to earn rent. Dino has other plans. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Our new accountant arrived inside an egg. Explain that.",
+      "visual": "accountant",
+      "phase": "shock",
+      "beat": "THE ACCOUNTANT HATCHES",
+      "tone": "disbelief",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Max",
+      "line": "Low overhead. Also, the interview was mostly enthusiastic cracking.",
+      "visual": "accountant",
+      "phase": "explain",
+      "beat": "THE ACCOUNTANT HATCHES",
+      "tone": "optimistic",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Zig",
+      "line": "It found our missing profits. Dino ate the ledger.",
+      "visual": "accountant",
+      "phase": "escalate",
+      "beat": "THE ACCOUNTANT HATCHES",
+      "tone": "dry dread",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Luna",
+      "line": "It billed him for digestion. Finally, someone understands business.",
+      "visual": "accountant",
+      "phase": "payoff",
+      "beat": "THE ACCOUNTANT HATCHES",
+      "tone": "satisfied",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    }
+  ]
+}

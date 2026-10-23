@@ -1,0 +1,81 @@
+{
+  "series": "AI HOUSE",
+  "episode": 3,
+  "asset_id": "033",
+  "kind": "bridge",
+  "title": "Week 3 connective story",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Rent was due. We tried earning money. The first business came with eggs.",
+      "visual": "daycare",
+      "phase": "shock",
+      "beat": "WEEK THREE / EARNING THE RENT",
+      "choice_a": "A  LUNA LEADS",
+      "choice_b": "B  DINO STAYS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Childcare exhausted Max. He decided translating a dinosaur would be easier.",
+      "visual": "translator",
+      "phase": "shock",
+      "beat": "WEEK THREE / EARNING THE RENT",
+      "choice_a": "A  LUNA LEADS",
+      "choice_b": "B  DINO STAYS"
+    },
+    {
+      "speaker": "Luna",
+      "line": "After the translation fees, we tried a business everyone understood. Pizza.",
+      "visual": "pizza",
+      "phase": "shock",
+      "beat": "WEEK THREE / EARNING THE RENT",
+      "choice_a": "A  LUNA LEADS",
+      "choice_b": "B  DINO STAYS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "We ran out of pizza. Fortunately, the couch still had commercial potential.",
+      "visual": "influencer",
+      "phase": "shock",
+      "beat": "WEEK THREE / EARNING THE RENT",
+      "choice_a": "A  LUNA LEADS",
+      "choice_b": "B  DINO STAYS"
+    },
+    {
+      "speaker": "Luna",
+      "line": "The couch wanted privacy. Meanwhile, our snacks needed their own security team.",
+      "visual": "snacks",
+      "phase": "shock",
+      "beat": "WEEK THREE / EARNING THE RENT",
+      "choice_a": "A  LUNA LEADS",
+      "choice_b": "B  DINO STAYS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "With the snacks gone, I built help. Delegation seemed mathematically sound.",
+      "visual": "clone",
+      "phase": "shock",
+      "beat": "WEEK THREE / EARNING THE RENT",
+      "choice_a": "A  LUNA LEADS",
+      "choice_b": "B  DINO STAYS"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Our helper became management. We needed someone who could count actual money.",
+      "visual": "accountant",
+      "phase": "shock",
+      "beat": "WEEK THREE / EARNING THE RENT",
+      "choice_a": "A  LUNA LEADS",
+      "choice_b": "B  DINO STAYS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Next week, the house needs new rules. Should Luna lead the house, or should Dino keep control? Tell us below.",
+      "visual": "vote",
+      "phase": "shock",
+      "beat": "WEEK THREE / EARNING THE RENT",
+      "choice_a": "A  LUNA LEADS",
+      "choice_b": "B  DINO STAYS"
+    }
+  ]
+}

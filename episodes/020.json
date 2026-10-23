@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 19,
+  "asset_id": "020",
+  "kind": "short",
+  "title": "The Missing Snacks",
+  "production_status": "script and staging ready",
+  "description": "The Missing Snacks. The roommates try to earn rent. Dino has other plans. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "The emergency snacks are gone. This is an emergency.",
+      "visual": "snacks",
+      "phase": "shock",
+      "beat": "THE MISSING SNACKS",
+      "tone": "furious",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Max",
+      "line": "Relax. I installed a camera to catch the thief.",
+      "visual": "snacks",
+      "phase": "explain",
+      "beat": "THE MISSING SNACKS",
+      "tone": "confident",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Zig",
+      "line": "The footage shows Dino eating the camera. Case closed.",
+      "visual": "snacks",
+      "phase": "escalate",
+      "beat": "THE MISSING SNACKS",
+      "tone": "deadpan",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Luna",
+      "line": "He is selling tickets to the crime scene. Incredible.",
+      "visual": "snacks",
+      "phase": "payoff",
+      "beat": "THE MISSING SNACKS",
+      "tone": "outraged",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    }
+  ]
+}

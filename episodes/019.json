@@ -1,0 +1,51 @@
+{
+  "series": "AI HOUSE",
+  "episode": 18,
+  "asset_id": "019",
+  "kind": "short",
+  "title": "Couch Influencer",
+  "production_status": "script and staging ready",
+  "description": "Couch Influencer. The roommates try to earn rent. Dino has other plans. #AIHOUSE #AnimatedComedy #Shorts",
+  "scenes": [
+    {
+      "speaker": "Max",
+      "line": "Our couch has a sponsor. Please respect its career.",
+      "visual": "influencer",
+      "phase": "shock",
+      "beat": "COUCH INFLUENCER",
+      "tone": "self-important",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Luna",
+      "line": "It has no face. How is it selling skincare?",
+      "visual": "influencer",
+      "phase": "explain",
+      "beat": "COUCH INFLUENCER",
+      "tone": "incredulous",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Excellent engagement. Everyone is arguing about the missing cushions.",
+      "visual": "influencer",
+      "phase": "escalate",
+      "beat": "COUCH INFLUENCER",
+      "tone": "analytical",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    },
+    {
+      "speaker": "Max",
+      "line": "Dino fired us. The couch wants a quieter family.",
+      "visual": "influencer",
+      "phase": "payoff",
+      "beat": "COUCH INFLUENCER",
+      "tone": "hurt disbelief",
+      "framing": "Established living room; action prop changes with the dialogue. The active speaker gestures, others react. Captions stay below faces.",
+      "timing_note": "Dialogue-led cut: actual aligned speech plus brief reaction; no artificial fixed-duration hold."
+    }
+  ]
+}
