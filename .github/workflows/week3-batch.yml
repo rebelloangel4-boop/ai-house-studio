@@ -48,3 +48,5 @@ jobs:
           include-hidden-files: true
           retention-days: 8
           if-no-files-found: warn
+
+# Repair nursery wording and pizza transition; reuse successful checkpoints.
