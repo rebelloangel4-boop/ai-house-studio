@@ -213,64 +213,100 @@
       "short_number": 22,
       "asset_id": "023",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 12.924,
+      "sha256": "dd685fabd06123b05893ebee66c7d11f002f2fcd80afcd41842ff74a85aa6d4b",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_6797b31485848191b380fa1aad359465"
     },
     {
       "short_number": 23,
       "asset_id": "024",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 12.609,
+      "sha256": "1d8127f4e0ac24f7244a4e4259ef289ee85d35f26aa81b678089ab679a74a6fb",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_c7129affef88819196c46bd25a30823c"
     },
     {
       "short_number": 24,
       "asset_id": "025",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 14.508,
+      "sha256": "31830e390e024bfb3b69bf976b6a17dc3ca854ca72fd35ce18c6e6306048bce3",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_18f36c2773388191aa02ec1685bad7bf"
     },
     {
       "short_number": 25,
       "asset_id": "026",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 10.94,
+      "sha256": "659c396b9514dd0e58b51a59fa3e7461b20632c0b867054bd9c6fc7c03a0d7d6",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_b81cbb741630819192103f46ff689968"
     },
     {
       "short_number": 26,
       "asset_id": "027",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 14.913,
+      "sha256": "cc47d4c15249f2785d7cdab6e65123ce973886deec2a5585caa286e45075752b",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_df96ed0e982081919fc2229f7c787786"
     },
     {
       "short_number": 27,
       "asset_id": "028",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 13.794,
+      "sha256": "67bfc5aca1ca02ceaaa50038ba8b92daaedde0c078ea24b85ad33ca94bb269b3",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_c0cbf650fd008191ab08220fb4fc9194"
     },
     {
       "short_number": 28,
       "asset_id": "029",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 13.342,
+      "sha256": "a5b5475034a950ffb2b9f0363003ec5e955cfd01389abd11de39f5ac16adaf68",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_a982431335708191aa91cbbeca6f0dab"
     },
     {
       "short_number": 29,
       "asset_id": "030",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 15.818,
+      "sha256": "badbd9adbac500906de95b970432db94f8716cd37a891b85c9682ead8397f1fd",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_83f98ea59b9c81918f536c7a5221ded3"
     },
     {
       "short_number": 30,
       "asset_id": "031",
       "week": 4,
-      "status": "script_and_staging_ready",
-      "evidence": null
+      "status": "technical_pass_review_pending",
+      "evidence": "Run 40058457701; final MP4 retrieved, full decode, actual frames and scripted-word QA inspected",
+      "duration_seconds": 15.497,
+      "sha256": "4f1fb5280fe42466acce87afd119397062cbde2532d932f2d2c4f8a3f6746df0",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_b3a0ca848a5081918e7da0f7c3b1d246"
     }
   ],
   "compilations": [
@@ -301,7 +337,12 @@
     {
       "week": 4,
       "bridge_asset": "034",
-      "status": "bridge_authored_render_pending"
+      "status": "technical_pass_review_pending",
+      "duration_seconds": 172.002,
+      "sha256": "9859f921d594dab3e85f040cb2dbcebb00e7bd593b6d37dc5334a1d895c5d31d",
+      "evidence": "Run 40058457701; full decode, actual landscape frame and sound levels verified",
+      "draft_release_tag": "week4-review-40058457701",
+      "library_file_id": "libfile_2b55297f17bc8191a740d5318ff76867"
     }
   ],
   "finished_deliverables": 8,
@@ -321,15 +362,17 @@
   },
   "limitations": [
     "Original polished local MP4s were removed by workspace maintenance; approved baseline is documented in conversation.",
-    "Week 4 scripts and bridge remain to be authored.",
     "Technical QA is separate from listening approval."
   ],
   "current_attempt": {
-    "result": "Week 4 batch prepared",
+    "result": "Week 4 complete for review",
+    "run_id": 40058457701,
+    "initial_run_id": 40057928962,
     "active_jobs": 0,
-    "policy": "Sequential production; retain successes and retry only failed assets"
+    "repair": "Short 29 Max opening word omitted by voice synthesis; reworded and targeted retry passed. Eight successful Shorts and bridge reused.",
+    "policy": "Sequential production; successful files and original dialogue preserved"
   },
-  "additional_review_candidates": 16,
-  "next_milestone": "Week 4: nine Shorts 22\u201330 (assets 023\u2013031), bridge 034 and compilation. Weeks 2\u20133 listening/creative approval pending; do not duplicate rendered outputs.",
-  "produced_technically_verified_deliverables": 24
+  "additional_review_candidates": 26,
+  "next_milestone": "User listening and creative review. Production target 30 Shorts plus 4 compilations reached; do not automatically rerender.",
+  "produced_technically_verified_deliverables": 34
 }

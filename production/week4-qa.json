@@ -1,0 +1,486 @@
+{
+  "023": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 12.924,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.5,
+    "rms_dbfs": -19.7,
+    "motion_difference": 4.487,
+    "size_mb": 1.46,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "dd685fabd06123b05893ebee66c7d11f002f2fcd80afcd41842ff74a85aa6d4b",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "12.866667",
+          "nb_read_frames": "386"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "12.924000",
+          "nb_read_frames": "608"
+        }
+      ],
+      "format": {
+        "duration": "12.924000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "024": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 12.609,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.5,
+    "rms_dbfs": -19.32,
+    "motion_difference": 4.577,
+    "size_mb": 1.44,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "1d8127f4e0ac24f7244a4e4259ef289ee85d35f26aa81b678089ab679a74a6fb",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "12.533333",
+          "nb_read_frames": "376"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "12.609000",
+          "nb_read_frames": "593"
+        }
+      ],
+      "format": {
+        "duration": "12.609000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "025": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 14.508,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.5,
+    "rms_dbfs": -19.73,
+    "motion_difference": 3.6,
+    "size_mb": 1.59,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "31830e390e024bfb3b69bf976b6a17dc3ca854ca72fd35ce18c6e6306048bce3",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "14.466667",
+          "nb_read_frames": "434"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "14.508000",
+          "nb_read_frames": "684"
+        }
+      ],
+      "format": {
+        "duration": "14.508000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "026": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 10.94,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.52,
+    "rms_dbfs": -19.62,
+    "motion_difference": 3.586,
+    "size_mb": 1.28,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "659c396b9514dd0e58b51a59fa3e7461b20632c0b867054bd9c6fc7c03a0d7d6",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "10.833333",
+          "nb_read_frames": "325"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "10.940000",
+          "nb_read_frames": "514"
+        }
+      ],
+      "format": {
+        "duration": "10.940000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "027": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 14.913,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -2.77,
+    "rms_dbfs": -21.02,
+    "motion_difference": 4.457,
+    "size_mb": 1.67,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "cc47d4c15249f2785d7cdab6e65123ce973886deec2a5585caa286e45075752b",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "14.866667",
+          "nb_read_frames": "446"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "14.913000",
+          "nb_read_frames": "702"
+        }
+      ],
+      "format": {
+        "duration": "14.913000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "028": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 13.794,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.52,
+    "rms_dbfs": -20.12,
+    "motion_difference": 5.125,
+    "size_mb": 1.55,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "67bfc5aca1ca02ceaaa50038ba8b92daaedde0c078ea24b85ad33ca94bb269b3",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "13.700000",
+          "nb_read_frames": "411"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "13.794000",
+          "nb_read_frames": "649"
+        }
+      ],
+      "format": {
+        "duration": "13.794000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "029": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 13.342,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.55,
+    "rms_dbfs": -20.38,
+    "motion_difference": 9.513,
+    "size_mb": 1.48,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "a5b5475034a950ffb2b9f0363003ec5e955cfd01389abd11de39f5ac16adaf68",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "13.200000",
+          "nb_read_frames": "396"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "13.342000",
+          "nb_read_frames": "624"
+        }
+      ],
+      "format": {
+        "duration": "13.342000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "030": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 15.818,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.5,
+    "rms_dbfs": -19.43,
+    "motion_difference": 3.589,
+    "size_mb": 1.72,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "badbd9adbac500906de95b970432db94f8716cd37a891b85c9682ead8397f1fd",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "15.766667",
+          "nb_read_frames": "473"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "15.818000",
+          "nb_read_frames": "744"
+        }
+      ],
+      "format": {
+        "duration": "15.818000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "031": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 15.497,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.45,
+    "rms_dbfs": -19.51,
+    "motion_difference": 4.332,
+    "size_mb": 1.66,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert",
+      "marius"
+    ],
+    "sha256": "4f1fb5280fe42466acce87afd119397062cbde2532d932f2d2c4f8a3f6746df0",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "30/1",
+          "duration": "15.400000",
+          "nb_read_frames": "462"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "15.497000",
+          "nb_read_frames": "728"
+        }
+      ],
+      "format": {
+        "duration": "15.497000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "every_scripted_word_match": 1.0
+  },
+  "week-004": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "source_episodes": [
+      "023",
+      "024",
+      "025",
+      "026",
+      "027",
+      "028",
+      "029",
+      "030",
+      "031"
+    ],
+    "connective_scenes": 10,
+    "repeated_vote_scenes_removed": 0,
+    "duration": 172.002,
+    "resolution": "1920x1080",
+    "landscape_edit": "centered vertical composition with blurred extended background",
+    "publishing_enabled": false,
+    "sha256": "9859f921d594dab3e85f040cb2dbcebb00e7bd593b6d37dc5334a1d895c5d31d",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30/1",
+          "duration": "171.933333",
+          "nb_read_frames": "5158"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "172.002000",
+          "nb_read_frames": "8117"
+        }
+      ],
+      "format": {
+        "duration": "172.002000"
+      }
+    },
+    "full_decode": "PASS",
+    "visual_review": "Representative actual frames inspected; lower captions clear of faces. Full creative review pending.",
+    "listening_approval": "PENDING",
+    "integrated_loudness_lufs": -16.15,
+    "true_peak_dbtp": -1.43,
+    "loudness_range_lu": 6.2
+  },
+  "bridge_034": {
+    "technical_gate": "PASS",
+    "creative_approval": "PENDING",
+    "duration_seconds": 48.34,
+    "exact_video_seconds": null,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "stereo": true,
+    "sample_peak_dbfs": -1.65,
+    "rms_dbfs": -20.26,
+    "motion_difference": 9.38,
+    "size_mb": 4.86,
+    "publishing_enabled": false,
+    "listening_approval": "PENDING",
+    "voice_identities": [
+      "alba",
+      "javert"
+    ],
+    "every_scripted_word_match": 1.0
+  }
+}

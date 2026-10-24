@@ -28,4 +28,4 @@ Compilation: nine Shorts with ten connective segments, one final choice.
 ## Format and acceptance
 Pilot: 10.000 seconds of video, 300 decoded frames, <=34 spoken words, natural timing within fixed scene windows. Preserve original voices and approved 4–8% pitch-preserving pacing only. If a line overruns, rewrite/re-record it; never truncate it. A 10-second written script is not a verified 10-second export.
 
-Other scripts remain outlines, not finished work. Do not bulk render the old generic action generator. Test this pilot before applying the format to other episodes. Weekly films retain the approved landscape presentation and sound, without stretching runtime through empty holds.
+All 30 Short scripts and four bridge scripts are now authored. Shorts 8–30 have explicit shot phases and matching story props. Render/QA status is recorded separately in production/manifest.json. The exact ten-second pilot remains a distinct format test; other episodes use natural dialogue-led durations. Weekly films retain the approved landscape presentation and sound, without stretching runtime through empty holds.
