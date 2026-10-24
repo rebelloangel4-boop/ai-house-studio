@@ -1,4 +1,4 @@
-"""Re-edit seven Shorts with original connective scenes and one closing vote."""
+"""Re-edit a weekly pack of Shorts with original connective scenes and one closing vote."""
 import argparse,json,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]

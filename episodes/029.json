@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 28,
+  "asset_id": "029",
+  "kind": "short",
+  "title": "Emergency Recount",
+  "production_status": "authored awaiting render and review",
+  "description": "Emergency Recount. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "We need another vote. Use objects Dino cannot eat.",
+      "visual": "recount",
+      "phase": "shock",
+      "beat": "EMERGENCY RECOUNT",
+      "tone": "urgent",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "I brought rocks. Democracy finally has some solid foundations.",
+      "visual": "recount",
+      "phase": "explain",
+      "beat": "EMERGENCY RECOUNT",
+      "tone": "proud",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "He traded the rocks for biscuits. The count is compromised.",
+      "visual": "recount",
+      "phase": "escalate",
+      "beat": "EMERGENCY RECOUNT",
+      "tone": "dismayed",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "The biscuits voted for milk. We have a coalition.",
+      "visual": "recount",
+      "phase": "payoff",
+      "beat": "EMERGENCY RECOUNT",
+      "tone": "weary disbelief",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

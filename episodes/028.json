@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 27,
+  "asset_id": "028",
+  "kind": "short",
+  "title": "The Ballot Lunchbox",
+  "production_status": "authored awaiting render and review",
+  "description": "The Ballot Lunchbox. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "Place your house ballot inside this clearly marked box.",
+      "visual": "ballots",
+      "phase": "shock",
+      "beat": "THE BALLOT LUNCHBOX",
+      "tone": "precise",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "I packed lunch in there. Please ignore the sandwich.",
+      "visual": "ballots",
+      "phase": "explain",
+      "beat": "THE BALLOT LUNCHBOX",
+      "tone": "casual",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "Dino swallowed every ballot. Our election is inside him.",
+      "visual": "ballots",
+      "phase": "escalate",
+      "beat": "THE BALLOT LUNCHBOX",
+      "tone": "alarmed",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "The sandwich remains. Apparently it was the independent candidate.",
+      "visual": "ballots",
+      "phase": "payoff",
+      "beat": "THE BALLOT LUNCHBOX",
+      "tone": "dry surprise",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

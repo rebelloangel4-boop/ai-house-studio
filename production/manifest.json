@@ -5,7 +5,7 @@
     "compilations": 4
   },
   "approved_style_commit": "6633ced28e38550dd6b0ba8bf44ea6a6eab64d56",
-  "last_verified_date": "2026-10-23",
+  "last_verified_date": "2026-10-24",
   "shorts": [
     {
       "short_number": 1,
@@ -213,63 +213,63 @@
       "short_number": 22,
       "asset_id": "023",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 23,
       "asset_id": "024",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 24,
       "asset_id": "025",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 25,
       "asset_id": "026",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 26,
       "asset_id": "027",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 27,
       "asset_id": "028",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 28,
       "asset_id": "029",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 29,
       "asset_id": "030",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     },
     {
       "short_number": 30,
       "asset_id": "031",
       "week": 4,
-      "status": "outline_ready_script_pending",
+      "status": "script_and_staging_ready",
       "evidence": null
     }
   ],
@@ -301,7 +301,7 @@
     {
       "week": 4,
       "bridge_asset": "034",
-      "status": "planned"
+      "status": "bridge_authored_render_pending"
     }
   ],
   "finished_deliverables": 8,
@@ -325,19 +325,11 @@
     "Technical QA is separate from listening approval."
   ],
   "current_attempt": {
-    "run_id": 39891323662,
-    "result": "success",
+    "result": "Week 4 batch prepared",
     "active_jobs": 0,
-    "previous_failed_run": 39890721494,
-    "repairs": [
-      "Short 15 nursery line",
-      "Week 3 pizza transition"
-    ],
-    "reused_completed_shorts": 6,
-    "remaining_failed_assets": 0,
-    "listening_approval": "PENDING"
+    "policy": "Sequential production; retain successes and retry only failed assets"
   },
   "additional_review_candidates": 16,
-  "next_milestone": "Week 4: nine Shorts 22–30 (assets 023–031), bridge 034 and compilation. Weeks 2–3 listening/creative approval pending; do not duplicate rendered outputs.",
+  "next_milestone": "Week 4: nine Shorts 22\u201330 (assets 023\u2013031), bridge 034 and compilation. Weeks 2\u20133 listening/creative approval pending; do not duplicate rendered outputs.",
   "produced_technically_verified_deliverables": 24
 }

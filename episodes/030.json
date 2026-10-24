@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 29,
+  "asset_id": "030",
+  "kind": "short",
+  "title": "The House Votes",
+  "production_status": "authored awaiting render and review",
+  "description": "The House Votes. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "New rule. Every roommate points at their preferred house leader.",
+      "visual": "house_vote",
+      "phase": "shock",
+      "beat": "THE HOUSE VOTES",
+      "tone": "official",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "I point at the couch. It has supported us financially.",
+      "visual": "house_vote",
+      "phase": "explain",
+      "beat": "THE HOUSE VOTES",
+      "tone": "confident",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "You mean physically. Fine. At least it never interrupts.",
+      "visual": "house_vote",
+      "phase": "escalate",
+      "beat": "THE HOUSE VOTES",
+      "tone": "reluctant",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Dino points there too. The couch has won our household vote.",
+      "visual": "house_vote",
+      "phase": "payoff",
+      "beat": "THE HOUSE VOTES",
+      "tone": "matter-of-fact",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

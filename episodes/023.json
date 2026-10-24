@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 22,
+  "asset_id": "023",
+  "kind": "short",
+  "title": "Snack Audit",
+  "production_status": "authored awaiting render and review",
+  "description": "Snack Audit. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Why does the snack budget include a golden throne?",
+      "visual": "audit",
+      "phase": "shock",
+      "beat": "SNACK AUDIT",
+      "tone": "outraged",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Dino called it essential seating. Apparently crackers require leadership.",
+      "visual": "audit",
+      "phase": "explain",
+      "beat": "SNACK AUDIT",
+      "tone": "defensive",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "The receipt lists the throne as a large biscuit.",
+      "visual": "audit",
+      "phase": "escalate",
+      "beat": "SNACK AUDIT",
+      "tone": "dry suspicion",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "He ate the evidence. Now the throne needs replacing.",
+      "visual": "audit",
+      "phase": "payoff",
+      "beat": "SNACK AUDIT",
+      "tone": "disbelief",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 25,
+  "asset_id": "026",
+  "kind": "short",
+  "title": "The Pizza Promise",
+  "production_status": "authored awaiting render and review",
+  "description": "The Pizza Promise. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Max",
+      "line": "Dino promises free pizza if we let him lead.",
+      "visual": "promise",
+      "phase": "shock",
+      "beat": "THE PIZZA PROMISE",
+      "tone": "excited",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "Ask where the funding comes from before you clap.",
+      "visual": "promise",
+      "phase": "explain",
+      "beat": "THE PIZZA PROMISE",
+      "tone": "skeptical",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "The small print says everyone must bring their own pizza.",
+      "visual": "promise",
+      "phase": "escalate",
+      "beat": "THE PIZZA PROMISE",
+      "tone": "dry realization",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "He charged me for reading the small print aloud.",
+      "visual": "promise",
+      "phase": "payoff",
+      "beat": "THE PIZZA PROMISE",
+      "tone": "deflated",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

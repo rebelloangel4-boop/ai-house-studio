@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 23,
+  "asset_id": "024",
+  "kind": "short",
+  "title": "Max Gets a Spending Ban",
+  "production_status": "authored awaiting render and review",
+  "description": "Max Gets a Spending Ban. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "I froze the house spending account. No more surprises.",
+      "visual": "ban",
+      "phase": "shock",
+      "beat": "MAX GETS A SPENDING BAN",
+      "tone": "firm",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Great. I already ordered a machine that prints money.",
+      "visual": "ban",
+      "phase": "explain",
+      "beat": "MAX GETS A SPENDING BAN",
+      "tone": "hopeful",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "That is a toaster. It prints pictures of bread.",
+      "visual": "ban",
+      "phase": "escalate",
+      "beat": "MAX GETS A SPENDING BAN",
+      "tone": "exasperated",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Dino accepted toast as rent. The economy is delicious.",
+      "visual": "ban",
+      "phase": "payoff",
+      "beat": "MAX GETS A SPENDING BAN",
+      "tone": "triumphant",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

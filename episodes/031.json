@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 30,
+  "asset_id": "031",
+  "kind": "short",
+  "title": "The Couch Takes Office",
+  "production_status": "authored awaiting render and review",
+  "description": "The Couch Takes Office. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "The couch is our leader. At last, some stability.",
+      "visual": "couch_boss",
+      "phase": "shock",
+      "beat": "THE COUCH TAKES OFFICE",
+      "tone": "relieved",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "It appointed Dino as treasurer. That feels extremely familiar.",
+      "visual": "couch_boss",
+      "phase": "explain",
+      "beat": "THE COUCH TAKES OFFICE",
+      "tone": "worried",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "A new invoice arrived. The couch now charges sitting rent.",
+      "visual": "couch_boss",
+      "phase": "escalate",
+      "beat": "THE COUCH TAKES OFFICE",
+      "tone": "dry horror",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "Dino rented it a smaller couch. Even furniture has landlords.",
+      "visual": "couch_boss",
+      "phase": "payoff",
+      "beat": "THE COUCH TAKES OFFICE",
+      "tone": "stunned",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

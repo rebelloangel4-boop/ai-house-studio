@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 26,
+  "asset_id": "027",
+  "kind": "short",
+  "title": "Debate Night",
+  "production_status": "authored awaiting render and review",
+  "description": "Debate Night. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Tonight we debate the real issue. Who ate dinner?",
+      "visual": "debate",
+      "phase": "shock",
+      "beat": "DEBATE NIGHT",
+      "tone": "accusatory",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Please respect the moderator. Zig has a tiny microphone.",
+      "visual": "debate",
+      "phase": "explain",
+      "beat": "DEBATE NIGHT",
+      "tone": "solemn",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Dino has swallowed the microphone. His stomach now has the floor.",
+      "visual": "debate",
+      "phase": "escalate",
+      "beat": "DEBATE NIGHT",
+      "tone": "deadpan",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "The stomach demanded snacks. Finally, an honest campaign speech.",
+      "visual": "debate",
+      "phase": "payoff",
+      "beat": "DEBATE NIGHT",
+      "tone": "resigned",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

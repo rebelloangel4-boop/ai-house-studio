@@ -1,0 +1,52 @@
+{
+  "series": "AI HOUSE",
+  "episode": 24,
+  "asset_id": "025",
+  "kind": "short",
+  "title": "Luna Runs the House",
+  "production_status": "authored awaiting render and review",
+  "description": "Luna Runs the House. A fictional household contest gets out of hand. #AIHOUSE #AnimatedComedy #Shorts",
+  "votes_counted": false,
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "I am running this house. My first policy: fairness.",
+      "visual": "campaign",
+      "phase": "shock",
+      "beat": "LUNA RUNS THE HOUSE",
+      "tone": "determined",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Max",
+      "line": "Your campaign poster is covering the emergency snack cupboard.",
+      "visual": "campaign",
+      "phase": "explain",
+      "beat": "LUNA RUNS THE HOUSE",
+      "tone": "concerned",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Zig",
+      "line": "Dino has launched a rival campaign. His policy is lunch.",
+      "visual": "campaign",
+      "phase": "escalate",
+      "beat": "LUNA RUNS THE HOUSE",
+      "tone": "clinical",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    },
+    {
+      "speaker": "Luna",
+      "line": "He ate my poster. Now he has absorbed my policies.",
+      "visual": "campaign",
+      "phase": "payoff",
+      "beat": "LUNA RUNS THE HOUSE",
+      "tone": "furious",
+      "framing": "Established couch ensemble with shot-specific story prop in upper action area; speaker gestures and lower-screen captions follow actual dialogue.",
+      "timing_note": "Cut after verified speech with a brief reaction; no fixed-duration padding."
+    }
+  ]
+}

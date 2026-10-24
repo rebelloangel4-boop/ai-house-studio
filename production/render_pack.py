@@ -9,7 +9,7 @@ pack=json.loads((ROOT/'packs'/f'{args.pack}.json').read_text())
 results=[]
 for ep in [*pack['episodes'],pack['bridges']]:
     folder=ROOT/'output'/ep;folder.mkdir(parents=True,exist_ok=True)
-    signature=hashlib.sha256(b''.join((ROOT/p).read_bytes() for p in [f'episodes/{ep}.json','studio/render.py','studio/art.py','studio/landlord_art.py','studio/earnings_art.py','studio/voices.py','studio/verify.py'])).hexdigest()
+    signature=hashlib.sha256(b''.join((ROOT/p).read_bytes() for p in [f'episodes/{ep}.json','studio/render.py','studio/art.py','studio/landlord_art.py','studio/earnings_art.py','studio/finale_art.py','studio/voices.py','studio/verify.py'])).hexdigest()
     stamp=folder/'final.checkpoint.json'
     try:
         if not (stamp.exists() and json.loads(stamp.read_text())['signature']==signature and (folder/f'episode_{ep}.mp4').exists()):
