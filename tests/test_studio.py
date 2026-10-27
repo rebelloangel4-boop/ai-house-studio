@@ -1,4 +1,4 @@
-import base64, datetime, importlib.util, json, threading, unittest, urllib.request, urllib.error
+import base64, datetime, io, subprocess, tempfile, zipfile, importlib.util, json, threading, unittest, urllib.request, urllib.error
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
@@ -71,5 +71,31 @@ class StudioTests(unittest.TestCase):
     def test_invalid_date_rejected(self,g):
         with self.assertRaises(urllib.error.HTTPError) as ctx:self.request('/api/schedule',True,{'enabled':True,'start_date':'tomorrow'})
         self.assertEqual(ctx.exception.code,400)
+
+    @patch.object(server,'github')
+    def test_backup_delivers_mp4_not_archive(self,g):
+        buf=io.BytesIO()
+        with zipfile.ZipFile(buf,'w') as z:z.writestr('episode_001.mp4',b'real-mp4-test-fixture')
+        g.side_effect=[{'permissions':{'push':True}},{'name':'studio-media-001','expired':False},buf.getvalue()]
+        with self.request('/api/media/artifact/123',True) as r:
+            self.assertEqual(r.headers['Content-Type'],'video/mp4');self.assertEqual(r.read(),b'real-mp4-test-fixture')
+    def test_retry_records_failed_and_successful_attempts(self):
+        with tempfile.TemporaryDirectory() as td, patch.object(job,'ROOT',Path(td)):
+            calls=[]
+            def runner(command,**kwargs):
+                calls.append(command)
+                if len(calls)==1:raise subprocess.CalledProcessError(1,command)
+                if 'studio/verify.py' in command:
+                    (Path(td)/'output/001/qa.json').write_text('{"technical_gate":"PASS"}')
+            out=job.produce('001',runner)
+            report=json.loads((out/'job_report.json').read_text())
+            self.assertEqual([a['result'] for a in report['attempts']],['FAIL','PASS'])
+            self.assertEqual(report['status'],'technical_pass_review_pending')
+    def test_retry_stops_and_preserves_failure(self):
+        with tempfile.TemporaryDirectory() as td, patch.object(job,'ROOT',Path(td)):
+            def runner(command,**kwargs):raise subprocess.CalledProcessError(1,command)
+            with self.assertRaises(RuntimeError):job.produce('001',runner)
+            report=json.loads((Path(td)/'output/001/job_report.json').read_text())
+            self.assertEqual(report['status'],'failed');self.assertEqual(len(report['attempts']),2)
 
 if __name__=='__main__':unittest.main()

@@ -48,10 +48,18 @@ jobs:
           pip install -r production/voice-requirements.txt
       - name: Render with bounded retry and actual verification
         run: python production/studio_job.py --episode "$EPISODE"
+      - name: Retain recoverable MP4 before release upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: studio-media-${{ env.EPISODE }}
+          path: output/${{ env.EPISODE }}/episode_${{ env.EPISODE }}.mp4
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: error
       - name: Retain individual MP4 for private review
         run: |
           TAG="studio-${GITHUB_RUN_ID}"
-          gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "Studio episode $EPISODE · run $GITHUB_RUN_NUMBER" --notes "Technical checks passed. Naturalness and creative review pending. Attribution: LICENSES.md. No social publishing."
+          gh release create "$TAG" --draft --target main --title "Studio episode $EPISODE · run $GITHUB_RUN_NUMBER" --notes "Technical checks passed. Naturalness and creative review pending. Attribution: LICENSES.md. No social publishing."
           gh release upload "$TAG" "output/$EPISODE/episode_$EPISODE.mp4" "output/$EPISODE/qa.json" "output/$EPISODE/voice_qa.json" "output/$EPISODE/metadata.json"
       - uses: actions/upload-artifact@v4
         if: always()

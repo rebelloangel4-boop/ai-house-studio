@@ -1,5 +1,5 @@
 """Small authenticated GitHub-backed control plane; no credentials or media persisted."""
-import base64, datetime, json, os, re, urllib.request, urllib.error
+import base64, datetime, io, json, os, re, urllib.request, urllib.error, zipfile
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -71,7 +71,21 @@ class Handler(BaseHTTPRequestHandler):
                     for page in range(1,6):
                         batch=github(f'/releases?per_page=100&page={page}',token);releases+=batch
                         if len(batch)<100: break
-                    return self.reply(200,[{'id':a['id'],'name':a['name'],'bytes':a['size'],'release':r['name'],'draft':r['draft'],'created_at':a['created_at']} for r in releases for a in r['assets'] if a['name'].endswith('.mp4')])
+                    videos=[{'id':a['id'],'name':a['name'],'bytes':a['size'],'release':r['name'],'draft':r['draft'],'created_at':a['created_at']} for r in releases for a in r['assets'] if a['name'].endswith('.mp4')]
+                    artifacts=github('/actions/artifacts?per_page=100',token)['artifacts']
+                    videos.extend({'id':'artifact/'+str(a['id']),'name':a['name']+'.mp4','bytes':a['size_in_bytes'],'release':'Workflow backup (expires '+a['expires_at']+')','draft':True,'created_at':a['created_at']} for a in artifacts if a['name'].startswith('studio-media-') and not a['expired'])
+                    return self.reply(200,videos)
+                backup=re.fullmatch(r'/api/media/artifact/(\d+)',self.path)
+                if backup:
+                    info=github('/actions/artifacts/'+backup[1],token)
+                    if not info['name'].startswith('studio-media-') or info['expired']: raise ValueError('Unavailable video backup')
+                    raw=github('/actions/artifacts/'+backup[1]+'/zip',token,binary=True)
+                    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+                        candidates=[i for i in archive.infolist() if i.filename.endswith('.mp4')]
+                        if len(candidates)!=1 or candidates[0].file_size>80_000_000: raise ValueError('Invalid video backup')
+                        body=archive.read(candidates[0])
+                    name=re.sub(r'[^a-zA-Z0-9_.-]','_',Path(candidates[0].filename).name)
+                    return self.reply(200,body,'video/mp4',{'Content-Disposition':'attachment; filename="'+name+'"'})
                 m=re.fullmatch(r'/api/media/(\d+)',self.path)
                 if m:
                     asset=github('/releases/assets/'+m[1],token)
