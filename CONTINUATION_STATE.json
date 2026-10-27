@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "updated_date_ist": "2026-10-28",
+  "repository": "rebelloangel4-boop/ai-house-studio",
+  "complete": false,
+  "implementation_commit": "ad7decd02c62c44949c83991b6daf5a6d46710e4",
+  "verified": {
+    "unit_api_tests": 23,
+    "browser_ci_run": 40590619415,
+    "browser": "Chromium 390x844 and 1280x800; authenticated UI fixtures; real unauthenticated API rejection",
+    "production_run": 40590619343,
+    "production_result": "success",
+    "video": "1080x1920, 30 fps, stereo AAC 48000Hz, 19.013s, 1729898 bytes",
+    "draft_release": "https://github.com/rebelloangel4-boop/ai-house-studio/releases/tag/untagged-14cdcd962be63e07ce77",
+    "backup_artifact": 12773218342,
+    "local_probe": "passed",
+    "local_decode": "exit status unavailable after environment disconnect",
+    "workflow_decode": "passed",
+    "naturalness": "pending listening"
+  },
+  "blockers": [
+    "Execution environment disconnected",
+    "Render requires explicit workspace selection: My Workspace, tea-dbars849v7es739ncpcg",
+    "Live dashboard integrations need privately entered repository-scoped token"
+  ],
+  "remaining": [
+    "Deploy and test live app",
+    "Live authenticated render, calendar and download tests",
+    "Naturalness listening review",
+    "General AI script generation and autonomous creative revision",
+    "Automatic weekly compilation scheduling",
+    "Authorized social publishing"
+  ],
+  "deployment": {
+    "runtime": "python",
+    "plan": "free",
+    "region": "singapore",
+    "repo": "https://github.com/rebelloangel4-boop/ai-house-studio",
+    "branch": "main",
+    "buildCommand": "python -m compileall -q production/studio_server.py",
+    "startCommand": "python production/studio_server.py"
+  },
+  "resume_instruction": "Resume rebelloangel4-boop/ai-house-studio from CONTINUATION_STATE.json, verify current Actions results, and continue unfinished acceptance criteria without rebuilding the working renderer."
+}
