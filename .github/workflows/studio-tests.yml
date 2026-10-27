@@ -1,0 +1,23 @@
+name: Studio Tests
+on:
+  push:
+    paths: ['web/**', 'studio/**', 'production/**', 'tests/**', '.github/workflows/studio-tests.yml']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install numpy scipy pillow
+          python -m unittest discover -s tests -v
+          node --check web/app.js
+          node --check web/sw.js

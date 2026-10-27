@@ -1,0 +1,64 @@
+name: AI HOUSE Studio Production
+on:
+  push:
+    paths: [production/studio-smoke.json]
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: 'Three-digit source episode; blank uses enabled calendar'
+        default: '001'
+  schedule:
+    - cron: '30 2 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: studio-production
+  cancel-in-progress: false
+jobs:
+  select:
+    runs-on: ubuntu-24.04
+    outputs:
+      episode: ${{ steps.select.outputs.episode }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: select
+        env:
+          REQUEST: ${{ inputs.episode || (github.event_name == 'push' && '001') || '' }}
+        run: python production/studio_job.py --episode "$REQUEST" --select-only
+  render:
+    needs: select
+    if: needs.select.outputs.episode != ''
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      EPISODE: ${{ needs.select.outputs.episode }}
+      GH_TOKEN: ${{ github.token }}
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install CPU rendering dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r production/voice-requirements.txt
+      - name: Render with bounded retry and actual verification
+        run: python production/studio_job.py --episode "$EPISODE"
+      - name: Retain individual MP4 for private review
+        run: |
+          TAG="studio-${GITHUB_RUN_ID}"
+          gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "Studio episode $EPISODE · run $GITHUB_RUN_NUMBER" --notes "Technical checks passed. Naturalness and creative review pending. Attribution: LICENSES.md. No social publishing."
+          gh release upload "$TAG" "output/$EPISODE/episode_$EPISODE.mp4" "output/$EPISODE/qa.json" "output/$EPISODE/voice_qa.json" "output/$EPISODE/metadata.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio-diagnostics-${{ needs.select.outputs.episode }}
+          path: |
+            output/${{ needs.select.outputs.episode }}/*.json
+            output/${{ needs.select.outputs.episode }}/*.srt
+          retention-days: 3
+          if-no-files-found: warn
