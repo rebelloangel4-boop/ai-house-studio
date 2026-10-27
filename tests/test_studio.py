@@ -1,4 +1,4 @@
-import datetime, importlib.util, json, threading, unittest, urllib.request, urllib.error
+import base64, datetime, importlib.util, json, threading, unittest, urllib.request, urllib.error
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
@@ -53,4 +53,23 @@ class StudioTests(unittest.TestCase):
         g.side_effect=[{'permissions':{'push':True}},{'name':'secrets.txt','size':12}]
         with self.assertRaises(urllib.error.HTTPError) as ctx:self.request('/api/media/123',True)
         self.assertEqual(ctx.exception.code,400)
+    @patch.object(server,'github')
+    def test_schedule_persisted_with_sha_and_put(self,g):
+        config=server.catalog()['schedule']
+        g.side_effect=[{'permissions':{'push':True}},{'sha':'old-sha','content':base64.b64encode(json.dumps(config).encode()).decode()},{}]
+        with self.request('/api/schedule',True,{'enabled':True,'start_date':'2026-11-01'}) as r:self.assertEqual(r.status,200)
+        self.assertEqual(g.call_args.kwargs,{'method':'PUT'})
+        self.assertEqual(g.call_args.args[2]['sha'],'old-sha')
+        saved=json.loads(base64.b64decode(g.call_args.args[2]['content']))
+        self.assertTrue(saved['enabled']);self.assertEqual(saved['episodes'],config['episodes'])
+    @patch.object(server,'github')
+    def test_compile_uses_existing_workflow(self,g):
+        g.side_effect=[{'permissions':{'push':True}},{}]
+        with self.request('/api/compile',True,{'week':'week-001'}) as r:self.assertEqual(r.status,202)
+        self.assertEqual(g.call_args.args[2],{'ref':'main','inputs':{'episodes':'all'}})
+    @patch.object(server,'github',return_value={'permissions':{'push':True}})
+    def test_invalid_date_rejected(self,g):
+        with self.assertRaises(urllib.error.HTTPError) as ctx:self.request('/api/schedule',True,{'enabled':True,'start_date':'tomorrow'})
+        self.assertEqual(ctx.exception.code,400)
+
 if __name__=='__main__':unittest.main()

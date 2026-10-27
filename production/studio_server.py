@@ -1,5 +1,5 @@
 """Small authenticated GitHub-backed control plane; no credentials or media persisted."""
-import json, os, re, urllib.request, urllib.error
+import base64, datetime, json, os, re, urllib.request, urllib.error
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -8,10 +8,10 @@ REPO = 'rebelloangel4-boop/ai-house-studio'
 API = 'https://api.github.com/repos/' + REPO
 STATIC = {'/': ('index.html','text/html'), '/app.js': ('app.js','text/javascript'), '/style.css': ('style.css','text/css'), '/manifest.webmanifest': ('manifest.webmanifest','application/manifest+json'), '/sw.js': ('sw.js','text/javascript'), '/icon.svg': ('icon.svg','image/svg+xml')}
 
-def github(path, token, data=None, binary=False):
+def github(path, token, data=None, binary=False, method=None):
     headers={'Authorization':'Bearer '+token, 'Accept':'application/octet-stream' if binary else 'application/vnd.github+json', 'X-GitHub-Api-Version':'2022-11-28', 'User-Agent':'AI-HOUSE-Studio'}
     if data is not None: headers['Content-Type']='application/json'
-    req=urllib.request.Request(API+path, data=None if data is None else json.dumps(data).encode(), headers=headers)
+    req=urllib.request.Request(API+path, data=None if data is None else json.dumps(data).encode(), headers=headers, method=method)
     # Prevent a GitHub storage redirect from forwarding the API credential.
     class SafeRedirect(urllib.request.HTTPRedirectHandler):
         def redirect_request(self, req, fp, code, msg, headers, newurl):
@@ -58,7 +58,11 @@ class Handler(BaseHTTPRequestHandler):
             if not self.path.startswith('/api/'): return self.reply(404,{'error':'Not found'})
             token=self.authorized()
             if not post:
-                if self.path=='/api/catalog': return self.reply(200,catalog())
+                if self.path=='/api/catalog':
+                    data=catalog()
+                    saved=github('/contents/production/studio_schedule.json?ref=main',token)
+                    data['schedule']=json.loads(base64.b64decode(saved['content']))
+                    return self.reply(200,data)
                 if self.path=='/api/runs':
                     runs=github('/actions/runs?per_page=40',token)['workflow_runs']
                     return self.reply(200,[{k:r[k] for k in ('id','name','status','conclusion','html_url','created_at','head_sha')} for r in runs])
@@ -78,6 +82,20 @@ class Handler(BaseHTTPRequestHandler):
                 length=int(self.headers.get('Content-Length','0'))
                 if not 0<length<4096: raise ValueError('Invalid request size')
                 payload=json.loads(self.rfile.read(length))
+                if self.path=='/api/schedule':
+                    start=datetime.date.fromisoformat(payload['start_date'])
+                    if type(payload.get('enabled')) is not bool: raise ValueError('Invalid enable flag')
+                    saved=github('/contents/production/studio_schedule.json?ref=main',token)
+                    config=json.loads(base64.b64decode(saved['content']))
+                    config.update(start_date=start.isoformat(),enabled=payload['enabled'])
+                    github('/contents/production/studio_schedule.json',token,{'message':'Update studio production calendar','sha':saved['sha'],'branch':'main','content':base64.b64encode((json.dumps(config,indent=2)+'\n').encode()).decode()},method='PUT')
+                    return self.reply(200,{'message':'Production calendar saved to GitHub.'})
+                if self.path=='/api/compile':
+                    week=payload.get('week')
+                    workflow={'week-001':'weekly.yml','week-002':'week2-batch.yml','week-003':'week3-batch.yml','week-004':'week4-batch.yml'}.get(week)
+                    if not workflow: raise ValueError('Unknown pack')
+                    github('/actions/workflows/'+workflow+'/dispatches',token,{'ref':'main','inputs':{'episodes':'all'} if week=='week-001' else {}})
+                    return self.reply(202,{'message':'Weekly production requested. Existing workflows verify sources before compilation.'})
                 if self.path=='/api/render':
                     ep=str(payload.get('episode',''))
                     if not re.fullmatch(r'\d{3}',ep) or not (ROOT/'episodes'/f'{ep}.json').is_file(): raise ValueError('Unknown episode')

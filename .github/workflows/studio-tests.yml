@@ -21,3 +21,14 @@ jobs:
           python -m unittest discover -s tests -v
           node --check web/app.js
           node --check web/sw.js
+      - name: Browser checks on mobile and desktop
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+          python tests/browser_smoke.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio-browser-checks
+          path: test-results/
+          retention-days: 3
