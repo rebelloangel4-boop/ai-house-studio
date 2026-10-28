@@ -5,6 +5,8 @@ from PIL import Image, ImageDraw
 def stage(d,s,t,duration,who,mouth,energy,actor,dinosaur,egg,ink,cream):
  theme=s['theme'];phase=s['phase'];progress=min(1,t/max(.1,duration));W=d.k
  def sign(text,y=270,size=22,color='#ffe18b'):
+  if close and y>=350:y=270
+  if phase in ('float','fly'):y=180
   d.box((40,y-25,500,y+25),ink,12);d.text(text,270,y,size,color)
  def cash(x,y,gold=False):
   d.box((x-27,y-12,x+27,y+12),'#ffd46f' if gold else '#95e7b5',3,ink);d.text('$',x,y,15)
@@ -37,6 +39,12 @@ def stage(d,s,t,duration,who,mouth,energy,actor,dinosaur,egg,ink,cream):
    if theme=='trial' and phase in ('float','fly'): yy-=70+math.sin(t*2+x)*32
    actor(d,person,x,yy,t+(0 if speaking else .7),mouth if speaking else 'rest',energy if speaking else 0,.78,'worried' if phase in ('door','alarm','error','countdown') else 'neutral',(.55+.4*math.sin(t*3)) if speaking else 0)
  dx=410;dy=650
+ if phase=='choice':
+  dinosaur(d,dx,dy,t)
+  d.box((35,181,505,246),ink,12);d.text(s['choice_a'],270,213,19,'#a2ead3')
+  d.box((35,260,505,325),ink,12);d.text(s['choice_b'],270,292,19,'#ffc59a')
+  d.text('COMMENT YOUR CHOICE',270,382,18,ink)
+  return
  if theme=='money':
   if phase in ('offer','cash'):
    screen('TRANSFER COMPLETE','$10,000,000')
@@ -84,7 +92,7 @@ def stage(d,s,t,duration,who,mouth,energy,actor,dinosaur,egg,ink,cream):
    d.poly([(243,270),(202,405),(340,405),(290,270)],'#53345f')
    actor(d,'Max',270,290,t,'rest',0,.45)
   elif phase=='clones':
-   for j in range(6):actor(d,'Max',65+j*81,290,t+j*.2,'rest',0,.36)
+   for j in range(12):actor(d,'Max',65+(j%6)*81,235+(j//6)*100,t+j*.2,'rest',0,.27)
   else:
    screen('MAX / PRIVATE',{'debt':'BALANCE: -$50','history':'SEARCH HISTORY','laptop':'DO NOT OPEN','steal':'TIME MACHINE'} .get(phase,'ACCESS DENIED'))
  elif theme=='egg':
@@ -109,7 +117,7 @@ def stage(d,s,t,duration,who,mouth,energy,actor,dinosaur,egg,ink,cream):
   else:globe(270,280,81);sign('OWNER: DINO' if phase in ('owned','reveal') else 'GRAVITY: OFF',405)
  elif theme=='doors':
   if phase in ('hall','rich','control','delete'):
-   for j in range(4):door(77+j*129,290,str(1+j if phase=='hall' else 96+j),True)
+   for j in range(4):door(77+j*129,290,str(1+j if phase in ('hall','rich') else 96+j),True)
    if phase=='delete':d.box((310,240,500,380),'#25233d');d.text('DELETED',405,307,22,'#ffb7b0')
   elif phase in ('dinos','offended'):
    for j in range(3):dinosaur(d,110+j*157,280,t+j)
@@ -121,7 +129,7 @@ def stage(d,s,t,duration,who,mouth,energy,actor,dinosaur,egg,ink,cream):
    for j in range(6):d.line([(210,220+j*22),(335,220+j*22)],'#5ce8b4',1)
    if phase=='error':sign('IMAGINATION: INSUFFICIENT',407,17)
   elif phase in ('screen','potato','battery'):
-   screen('SIMULATION HOST','BATTERY: 1%' if phase=='battery' else 'POTATO OS')
+   screen('SIMULATION HOST','BATTERY: 1%' if phase=='battery' else '')
    if phase!='battery':d.oval((224,270,316,320),'#b18b61',ink,3);dinosaur(d,406,320,t)
   else:cash(270,285,True);sign('MONEY CHEAT DENIED',405)
  dinosaur(d,dx,dy,t)

@@ -96,7 +96,8 @@
       "phase": "choice",
       "beat": "CHOICE",
       "choice_a": "A  PLUG IT IN",
-      "choice_b": "B  ESCAPE NOW"
+      "choice_b": "B  ESCAPE NOW",
+      "seconds": 6.0
     }
   ],
   "description": "The Dinosaur Discovers They're Living in a Simulation. A  PLUG IT IN or B  ESCAPE NOW? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",

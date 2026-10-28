@@ -96,7 +96,8 @@
       "phase": "choice",
       "beat": "CHOICE",
       "choice_a": "A  DOOR ONE HUNDRED",
-      "choice_b": "B  STEAL REMOTE"
+      "choice_b": "B  STEAL REMOTE",
+      "seconds": 6.0
     }
   ],
   "description": "The House Has 100 Doors to Other Universes. A  DOOR ONE HUNDRED or B  STEAL REMOTE? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",

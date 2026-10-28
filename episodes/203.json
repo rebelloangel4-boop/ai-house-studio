@@ -96,7 +96,8 @@
       "phase": "choice",
       "beat": "CHOICE",
       "choice_a": "A  CANCEL LAUNCH",
-      "choice_b": "B  SEND CHEESE"
+      "choice_b": "B  SEND CHEESE",
+      "seconds": 6.0
     }
   ],
   "description": "Our Dinosaur Becomes President of Earth. A  CANCEL LAUNCH or B  SEND CHEESE? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",

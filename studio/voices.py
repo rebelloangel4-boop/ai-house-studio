@@ -9,7 +9,7 @@ SR = 24000
 VOICES = {'Luna': 'alba', 'Max': 'marius', 'Zig': 'javert'}
 ENGINE = 'pocket-tts-3.3.0-v4'
 
-from alignment import normal, merge_asr_words
+from alignment import normal, merge_asr_words, expand_asr_numbers
 
 class VoicePipeline:
     def __init__(self):
@@ -54,7 +54,7 @@ class VoicePipeline:
             segments, _ = asr.transcribe(padded, language='en', beam_size=5,
                 word_timestamps=True, condition_on_previous_text=False, temperature=0)
             heard = [w for segment in segments for w in segment.words or [] if normal(w.word)]
-            heard = merge_asr_words(heard, words)
+            heard = merge_asr_words(expand_asr_numbers(heard, words), words)
             hyp = [normal(w.word) for w in heard]
             matcher = SequenceMatcher(None, ref, hyp, autojunk=False)
             matches = sum(b.size for b in matcher.get_matching_blocks())

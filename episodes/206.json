@@ -96,7 +96,8 @@
       "phase": "choice",
       "beat": "CHOICE",
       "choice_a": "A  RETURN THE EGG",
-      "choice_b": "B  BABY ACCOUNTANT"
+      "choice_b": "B  BABY ACCOUNTANT",
+      "seconds": 6.0
     }
   ],
   "description": "The Dinosaur Lays a Billion-Dollar Egg. A  RETURN THE EGG or B  BABY ACCOUNTANT? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",

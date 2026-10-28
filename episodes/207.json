@@ -96,7 +96,8 @@
       "phase": "choice",
       "beat": "CHOICE",
       "choice_a": "A  FIND ANTIDOTE",
-      "choice_b": "B  TINY LEASH"
+      "choice_b": "B  TINY LEASH",
+      "seconds": 6.0
     }
   ],
   "description": "Everyone Gets 10 Minutes to Live. A  FIND ANTIDOTE or B  TINY LEASH? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",

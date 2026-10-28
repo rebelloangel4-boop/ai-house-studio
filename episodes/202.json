@@ -96,7 +96,8 @@
       "phase": "choice",
       "beat": "CHOICE",
       "choice_a": "A  DRIVING LESSON",
-      "choice_b": "B  GRAPE BRIBE"
+      "choice_b": "B  GRAPE BRIBE",
+      "seconds": 6.0
     }
   ],
   "description": "The Dinosaur Has 24 Hours to Save the World. A  DRIVING LESSON or B  GRAPE BRIBE? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",

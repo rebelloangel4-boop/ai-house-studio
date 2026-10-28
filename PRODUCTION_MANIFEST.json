@@ -46,7 +46,7 @@
         "extended_technical_gate": "PASS"
       },
       "listening_review": "blocked: session does not support audio input",
-      "download_url": null
+      "download_url": "https://chatgpt.com/library?file_id=libfile_f1f94625494c819197764f1c0debb31e&account_id=personal"
     },
     {
       "episode": 2,
@@ -56,15 +56,34 @@
       "stages": {
         "Script": "complete",
         "Graphics": "implemented; visual review pending",
-        "Animation": "0/9 scenes rendered",
-        "Voices": "pending",
-        "Sound": "pending",
-        "Editing": "pending",
-        "Rendering": "pending",
+        "Animation": "9/9 scenes rendered",
+        "Voices": "generated",
+        "Sound": "mixed",
+        "Editing": "rendered",
+        "Rendering": "complete",
         "QA": "pending",
         "Complete": false
       },
-      "qa": {},
+      "qa": {
+        "technical_gate": "PASS",
+        "creative_approval": "PENDING",
+        "duration_seconds": 23.684,
+        "exact_video_seconds": null,
+        "resolution": "1080x1920",
+        "fps": 30,
+        "stereo": true,
+        "sample_peak_dbfs": -1.28,
+        "rms_dbfs": -17.33,
+        "motion_difference": 5.577,
+        "size_mb": 7.85,
+        "publishing_enabled": false,
+        "listening_approval": "PENDING",
+        "voice_identities": [
+          "alba",
+          "javert",
+          "marius"
+        ]
+      },
       "listening_review": "blocked: session does not support audio input",
       "download_url": null
     },
@@ -76,15 +95,34 @@
       "stages": {
         "Script": "complete",
         "Graphics": "implemented; visual review pending",
-        "Animation": "0/9 scenes rendered",
-        "Voices": "pending",
-        "Sound": "pending",
-        "Editing": "pending",
-        "Rendering": "pending",
+        "Animation": "9/9 scenes rendered",
+        "Voices": "generated",
+        "Sound": "mixed",
+        "Editing": "rendered",
+        "Rendering": "complete",
         "QA": "pending",
         "Complete": false
       },
-      "qa": {},
+      "qa": {
+        "technical_gate": "PASS",
+        "creative_approval": "PENDING",
+        "duration_seconds": 24.937,
+        "exact_video_seconds": null,
+        "resolution": "1080x1920",
+        "fps": 30,
+        "stereo": true,
+        "sample_peak_dbfs": -1.22,
+        "rms_dbfs": -17.97,
+        "motion_difference": 4.638,
+        "size_mb": 8.34,
+        "publishing_enabled": false,
+        "listening_approval": "PENDING",
+        "voice_identities": [
+          "alba",
+          "javert",
+          "marius"
+        ]
+      },
       "listening_review": "blocked: session does not support audio input",
       "download_url": null
     },
@@ -96,15 +134,40 @@
       "stages": {
         "Script": "complete",
         "Graphics": "implemented; visual review pending",
-        "Animation": "0/9 scenes rendered",
-        "Voices": "pending",
-        "Sound": "pending",
-        "Editing": "pending",
-        "Rendering": "pending",
-        "QA": "pending",
+        "Animation": "9/9 scenes rendered",
+        "Voices": "generated",
+        "Sound": "mixed",
+        "Editing": "rendered",
+        "Rendering": "complete",
+        "QA": "PASS",
         "Complete": false
       },
-      "qa": {},
+      "qa": {
+        "technical_gate": "PASS",
+        "creative_approval": "PENDING",
+        "duration_seconds": 28.984,
+        "exact_video_seconds": null,
+        "resolution": "1080x1920",
+        "fps": 30,
+        "stereo": true,
+        "sample_peak_dbfs": -1.24,
+        "rms_dbfs": -18.33,
+        "motion_difference": 5.108,
+        "size_mb": 8.91,
+        "publishing_enabled": false,
+        "listening_approval": "PENDING",
+        "voice_identities": [
+          "alba",
+          "javert",
+          "marius"
+        ],
+        "black_intervals": [],
+        "frozen_sections": [],
+        "integrated_lufs": -14.47,
+        "true_peak_dbtp": -1.25,
+        "sha256": "b4298140c8f332aa0393dbe8fe733e48f1125d405dbf8341ee4324806b7b6acb",
+        "extended_technical_gate": "PASS"
+      },
       "listening_review": "blocked: session does not support audio input",
       "download_url": null
     },
@@ -116,15 +179,40 @@
       "stages": {
         "Script": "complete",
         "Graphics": "implemented; visual review pending",
-        "Animation": "0/9 scenes rendered",
-        "Voices": "pending",
-        "Sound": "pending",
-        "Editing": "pending",
-        "Rendering": "pending",
-        "QA": "pending",
+        "Animation": "9/9 scenes rendered",
+        "Voices": "generated",
+        "Sound": "mixed",
+        "Editing": "rendered",
+        "Rendering": "complete",
+        "QA": "PASS",
         "Complete": false
       },
-      "qa": {},
+      "qa": {
+        "technical_gate": "PASS",
+        "creative_approval": "PENDING",
+        "duration_seconds": 27.166,
+        "exact_video_seconds": null,
+        "resolution": "1080x1920",
+        "fps": 30,
+        "stereo": true,
+        "sample_peak_dbfs": -1.19,
+        "rms_dbfs": -18.29,
+        "motion_difference": 6.605,
+        "size_mb": 9.02,
+        "publishing_enabled": false,
+        "listening_approval": "PENDING",
+        "voice_identities": [
+          "alba",
+          "javert",
+          "marius"
+        ],
+        "black_intervals": [],
+        "frozen_sections": [],
+        "integrated_lufs": -14.3,
+        "true_peak_dbtp": -1.2,
+        "sha256": "61c5b9abb5104a6dedb1bcea8ee81b35aa28fe5680fa4fb86e76f66ef3002050",
+        "extended_technical_gate": "PASS"
+      },
       "listening_review": "blocked: session does not support audio input",
       "download_url": null
     },

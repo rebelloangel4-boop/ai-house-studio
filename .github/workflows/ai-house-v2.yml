@@ -1,0 +1,66 @@
+name: AI HOUSE 2.0 resumable episode production
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: 'New source episode 201–210'
+        required: true
+        default: '201'
+permissions:
+  contents: write
+concurrency:
+  group: ai-house-v2-${{ inputs.episode }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      EPISODE: ${{ inputs.episode }}
+      GH_TOKEN: ${{ github.token }}
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate selection
+        run: python -c 'import os; assert os.environ["EPISODE"] in [f"2{i:02}" for i in range(1,11)]'
+      - name: Install free CPU pipeline
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r production/voice-requirements.txt
+      - name: Regression tests
+        run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Render and verify
+        run: python production/v2/run.py --episode "$EPISODE"
+      - name: Package individual files
+        run: |
+          python production/v2/package.py
+          python production/v2/checkpoint.py
+      - name: Retain complete review outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-v2-${{ inputs.episode }}
+          path: output/deliverables/
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: error
+      - name: Retain MP4 on draft release
+        run: |
+          TAG="ai-house-v2-${GITHUB_RUN_ID}"
+          gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "AI HOUSE 2.0 source $EPISODE" --notes "Technical checks passed. Creative and listening review pending. Original assets; voice attribution accompanies each upload text. No YouTube publishing."
+          gh release upload "$TAG" output/deliverables/*
+      - name: Preserve diagnostics and resumable scene cache
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-house-v2-diagnostics-${{ inputs.episode }}
+          path: |
+            output/${{ inputs.episode }}/
+            PRODUCTION_MANIFEST.json
+          retention-days: 3
+          if-no-files-found: warn

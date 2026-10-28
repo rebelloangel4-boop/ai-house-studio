@@ -96,7 +96,8 @@
       "phase": "choice",
       "beat": "CHOICE",
       "choice_a": "A  ACCEPT TERMS",
-      "choice_b": "B  RESTART EARTH"
+      "choice_b": "B  RESTART EARTH",
+      "seconds": 6.0
     }
   ],
   "description": "Earth's Free Trial Just Expired. A  ACCEPT TERMS or B  RESTART EARTH? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",

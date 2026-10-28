@@ -106,6 +106,7 @@ STORIES=[
 def write():
  for i,(title,theme,lines,choices) in enumerate(STORIES,1):
   scenes=[dict(speaker=who,line=line,visual='v2',theme=theme,phase=phase,beat=phase.upper(),choice_a=choices[0],choice_b=choices[1]) for who,line,phase in lines]
+  if i>1:scenes[-1]['seconds']=6.0
   obj=dict(series='AI HOUSE 2.0',episode=i,title=title,target_seconds=[25,40],production_status='NOT_RENDERED',scenes=scenes,description=f'{title}. {choices[0]} or {choices[1]}? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy',audio_target=dict(integrated=-14,true_peak=-1))
   (ROOT/'episodes'/f'2{i:02}.json').write_text(json.dumps(obj,indent=2)+'\n')
 if __name__=='__main__':write()

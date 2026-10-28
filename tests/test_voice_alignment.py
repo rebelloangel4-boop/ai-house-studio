@@ -2,12 +2,20 @@ import sys, unittest
 from pathlib import Path
 from types import SimpleNamespace
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'studio'))
-from alignment import merge_asr_words, normal
+from alignment import merge_asr_words, normal, expand_asr_numbers
 
 def heard(words):
     return [SimpleNamespace(word=w,start=i*.2,end=(i+1)*.2) for i,w in enumerate(words)]
 
 class AlignmentTests(unittest.TestCase):
+    def test_number_formatting_is_equivalent(self):
+        result=expand_asr_numbers(heard(['24','hours']), ['twenty','four','hours'])
+        self.assertEqual([w.word for w in result],['twenty','four','hours'])
+        self.assertEqual(result[0].start,0)
+        self.assertEqual(result[1].end,.2)
+    def test_different_number_not_accepted(self):
+        result=expand_asr_numbers(heard(['25','hours']), ['twenty','four','hours'])
+        self.assertEqual(result[0].word,'25')
     def test_wifi_split_and_timestamps(self):
         result=merge_asr_words(heard(['Vote','A','blame','Wi','-Fi','B','let','Dino','talk']), 'Vote A: blame Wi-Fi! B: let Dino talk!'.split())
         self.assertEqual([normal(w.word) for w in result], ['vote','a','blame','wifi','b','let','dino','talk'])

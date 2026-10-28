@@ -96,7 +96,8 @@
       "phase": "choice",
       "beat": "CHOICE",
       "choice_a": "A  REHIRE ZIG",
-      "choice_b": "B  TOASTER BOSS"
+      "choice_b": "B  TOASTER BOSS",
+      "seconds": 6.0
     }
   ],
   "description": "The House AI Fires All the Humans. A  REHIRE ZIG or B  TOASTER BOSS? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
