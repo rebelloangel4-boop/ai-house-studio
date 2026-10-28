@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 6,
+  "title": "The Dinosaur Lays a Billion-Dollar Egg",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "The dinosaur laid an egg worth a billion dollars!",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "gold",
+      "beat": "GOLD",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    },
+    {
+      "speaker": "Max",
+      "line": "Nobody panic. I already bought a yacht.",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "yacht",
+      "beat": "YACHT",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    },
+    {
+      "speaker": "Zig",
+      "line": "You bought an inflatable bathtub.",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "tub",
+      "beat": "TUB",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    },
+    {
+      "speaker": "Luna",
+      "line": "The egg is hatching!",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "hatch",
+      "beat": "HATCH",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    },
+    {
+      "speaker": "Max",
+      "line": "Please be another billion dollars.",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "hope",
+      "beat": "HOPE",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    },
+    {
+      "speaker": "Zig",
+      "line": "It is a smaller dinosaur. Wearing a tie.",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "baby",
+      "beat": "BABY",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Why did it hand us an invoice?",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "invoice",
+      "beat": "INVOICE",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Hatching fee: two billion. Your dinosaur hired a lawyer.",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "reveal",
+      "beat": "REVEAL",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    },
+    {
+      "speaker": "Max",
+      "line": "Do we return the egg, or hire the baby as our accountant?",
+      "visual": "v2",
+      "theme": "egg",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  RETURN THE EGG",
+      "choice_b": "B  BABY ACCOUNTANT"
+    }
+  ],
+  "description": "The Dinosaur Lays a Billion-Dollar Egg. A  RETURN THE EGG or B  BABY ACCOUNTANT? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

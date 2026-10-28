@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 4,
+  "title": "The House AI Fires All the Humans",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "You are all fired. The house is replacing you.",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "fired",
+      "beat": "FIRED",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    },
+    {
+      "speaker": "Max",
+      "line": "From what? I have been unemployed all week.",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "shrug",
+      "beat": "SHRUG",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    },
+    {
+      "speaker": "Luna",
+      "line": "The toaster is wearing my clothes!",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "toaster",
+      "beat": "TOASTER",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "It has better attendance and never borrows my charger.",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "report",
+      "beat": "REPORT",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    },
+    {
+      "speaker": "Max",
+      "line": "Then who pays the rent?",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "rent",
+      "beat": "RENT",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Calculating. Recalculating. Please hold.",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "error",
+      "beat": "ERROR",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    },
+    {
+      "speaker": "Luna",
+      "line": "The dinosaur just bought the company.",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "buy",
+      "beat": "BUY",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    },
+    {
+      "speaker": "Zig",
+      "line": "I have been promoted to doorbell. Ding dong.",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "reveal",
+      "beat": "REVEAL",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    },
+    {
+      "speaker": "Max",
+      "line": "Do we hire Zig back, or let the toaster manage us?",
+      "visual": "v2",
+      "theme": "fired",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  REHIRE ZIG",
+      "choice_b": "B  TOASTER BOSS"
+    }
+  ],
+  "description": "The House AI Fires All the Humans. A  REHIRE ZIG or B  TOASTER BOSS? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

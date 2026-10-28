@@ -1,0 +1,237 @@
+{
+  "schema": 2,
+  "project": "AI HOUSE 2.0",
+  "complete": false,
+  "episodes": [
+    {
+      "episode": 1,
+      "source": "201",
+      "title": "The House Gets $10 Million \u2014 But Nobody Can Leave",
+      "requested_filename": "AI_HOUSE_EP01_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "9/9 scenes rendered",
+        "Voices": "generated",
+        "Sound": "mixed",
+        "Editing": "rendered",
+        "Rendering": "complete",
+        "QA": "PASS",
+        "Complete": false
+      },
+      "qa": {
+        "technical_gate": "PASS",
+        "creative_approval": "PENDING",
+        "duration_seconds": 31.837,
+        "exact_video_seconds": null,
+        "resolution": "1080x1920",
+        "fps": 30,
+        "stereo": true,
+        "sample_peak_dbfs": -1.29,
+        "rms_dbfs": -17.69,
+        "motion_difference": 8.253,
+        "size_mb": 9.86,
+        "publishing_enabled": false,
+        "listening_approval": "PENDING",
+        "voice_identities": [
+          "alba",
+          "javert",
+          "marius"
+        ],
+        "black_intervals": [],
+        "frozen_sections": [],
+        "integrated_lufs": -14.03,
+        "true_peak_dbtp": -1.26,
+        "sha256": "b997d7d10712a7f34ce2440d5f48230e3e504c8e3f8df0078fa97449c2fb662f",
+        "extended_technical_gate": "PASS"
+      },
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 2,
+      "source": "202",
+      "title": "The Dinosaur Has 24 Hours to Save the World",
+      "requested_filename": "AI_HOUSE_EP02_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 3,
+      "source": "203",
+      "title": "Our Dinosaur Becomes President of Earth",
+      "requested_filename": "AI_HOUSE_EP03_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 4,
+      "source": "204",
+      "title": "The House AI Fires All the Humans",
+      "requested_filename": "AI_HOUSE_EP04_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 5,
+      "source": "205",
+      "title": "Max Meets His Evil Future Self",
+      "requested_filename": "AI_HOUSE_EP05_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 6,
+      "source": "206",
+      "title": "The Dinosaur Lays a Billion-Dollar Egg",
+      "requested_filename": "AI_HOUSE_EP06_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 7,
+      "source": "207",
+      "title": "Everyone Gets 10 Minutes to Live",
+      "requested_filename": "AI_HOUSE_EP07_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 8,
+      "source": "208",
+      "title": "Earth's Free Trial Just Expired",
+      "requested_filename": "AI_HOUSE_EP08_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 9,
+      "source": "209",
+      "title": "The House Has 100 Doors to Other Universes",
+      "requested_filename": "AI_HOUSE_EP09_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    },
+    {
+      "episode": 10,
+      "source": "210",
+      "title": "The Dinosaur Discovers They're Living in a Simulation",
+      "requested_filename": "AI_HOUSE_EP10_FINAL.mp4",
+      "stages": {
+        "Script": "complete",
+        "Graphics": "implemented; visual review pending",
+        "Animation": "0/9 scenes rendered",
+        "Voices": "pending",
+        "Sound": "pending",
+        "Editing": "pending",
+        "Rendering": "pending",
+        "QA": "pending",
+        "Complete": false
+      },
+      "qa": {},
+      "listening_review": "blocked: session does not support audio input",
+      "download_url": null
+    }
+  ],
+  "zero_budget": true,
+  "paid_services_used": false,
+  "original_repository_baseline": "ad49ab3872164036e39680158b207b0cb02874dc",
+  "resume_command": "python production/v2/run.py --episode 201",
+  "notes": "Local scene checkpoints and voice caches are reused. Technical checks do not certify cinematic quality or natural voices."
+}

@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 9,
+  "title": "The House Has 100 Doors to Other Universes",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "Our hallway has a hundred doors. None lead outside.",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "hall",
+      "beat": "HALL",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    },
+    {
+      "speaker": "Max",
+      "line": "Door one: a universe where I am rich.",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "rich",
+      "beat": "RICH",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    },
+    {
+      "speaker": "Zig",
+      "line": "You owe rich Max fifty dollars.",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "debt",
+      "beat": "DEBT",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Door two: everyone is a dinosaur!",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "dinos",
+      "beat": "DINOS",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    },
+    {
+      "speaker": "Max",
+      "line": "Our dinosaur looks offended.",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "offended",
+      "beat": "OFFENDED",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Door ninety nine contains the person controlling our house.",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "control",
+      "beat": "CONTROL",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    },
+    {
+      "speaker": "Luna",
+      "line": "It is a baby. With a remote.",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "baby",
+      "beat": "BABY",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    },
+    {
+      "speaker": "Max",
+      "line": "He just pressed delete on the kitchen!",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "delete",
+      "beat": "DELETE",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Open door one hundred, or steal the remote? Choose carefully.",
+      "visual": "v2",
+      "theme": "doors",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  DOOR ONE HUNDRED",
+      "choice_b": "B  STEAL REMOTE"
+    }
+  ],
+  "description": "The House Has 100 Doors to Other Universes. A  DOOR ONE HUNDRED or B  STEAL REMOTE? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

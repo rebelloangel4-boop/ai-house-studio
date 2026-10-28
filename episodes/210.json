@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 10,
+  "title": "The Dinosaur Discovers They're Living in a Simulation",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Luna",
+      "line": "The dinosaur just bit a hole in reality!",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "tear",
+      "beat": "TEAR",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    },
+    {
+      "speaker": "Max",
+      "line": "I told you the wallpaper tasted suspicious.",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "wall",
+      "beat": "WALL",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    },
+    {
+      "speaker": "Zig",
+      "line": "We are living in a simulation.",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "grid",
+      "beat": "GRID",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    },
+    {
+      "speaker": "Max",
+      "line": "Then give me unlimited money.",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "money",
+      "beat": "MONEY",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Your account has insufficient imagination.",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "error",
+      "beat": "ERROR",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    },
+    {
+      "speaker": "Luna",
+      "line": "He found the person playing us!",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "screen",
+      "beat": "SCREEN",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    },
+    {
+      "speaker": "Max",
+      "line": "It is another dinosaur. Playing on a potato.",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "potato",
+      "beat": "POTATO",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    },
+    {
+      "speaker": "Zig",
+      "line": "And its battery is at one percent.",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "battery",
+      "beat": "BATTERY",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Do we plug it in, or escape before the screen goes dark?",
+      "visual": "v2",
+      "theme": "simulation",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  PLUG IT IN",
+      "choice_b": "B  ESCAPE NOW"
+    }
+  ],
+  "description": "The Dinosaur Discovers They're Living in a Simulation. A  PLUG IT IN or B  ESCAPE NOW? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

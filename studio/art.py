@@ -3,6 +3,7 @@ import math
 from landlord_art import KINDS, stage
 from finale_art import KINDS as FINALE, stage as finale_stage
 from earnings_art import KINDS as EARNINGS, stage as earnings_stage
+from v2_art import stage as v2_stage
 from functools import lru_cache
 from PIL import Image, ImageDraw, ImageFont
 INK='#232438'; CREAM='#fff4df'; COLORS={'Luna':'#8ce5d4','Max':'#ffbb8b','Zig':'#dfb7ff'}
@@ -134,7 +135,7 @@ def dinosaur(d,x,y,t,fire=False):
 def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080):
     im=room(width).copy();d=Canvas(im);kind=scene.get('visual',['rent','egg','scan','hatch','fire','vote'][min(index,5)])
     # Story action and staging change between shots, not just camera movement.
-    burned=kind not in KINDS|EARNINGS|FINALE|{'couch_rent'} and (episode>1 or (episode==1 and index>=5) or (kind=='fire' and t>1.7))
+    burned=kind not in KINDS|EARNINGS|FINALE|{'couch_rent','v2'} and (episode>1 or (episode==1 and index>=5) or (kind=='fire' and t>1.7))
     if burned:
         d.box((35,530,508,620),'#e8c9b5');d.box((35,620,508,727),'#bc8c83')
         d.line([(35,621),(508,621)],'#9c6e6f',5)
@@ -144,7 +145,9 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
             for j in range(5):
                 yy=640-(t*22+j*33)%140;xx=110+j*65;d.oval((xx,yy,xx+21,yy+28),'#a89498')
     hero_x=185 if kind in ('egg','scan','hatch','fire') else 270
-    if kind in FINALE:
+    if kind=='v2':
+        v2_stage(d,scene,t,duration,who,mouth,energy,actor,dinosaur,egg,INK,CREAM)
+    elif kind in FINALE:
         finale_stage(d,scene,t,duration,who,mouth,energy,actor,dinosaur,INK,CREAM)
     elif kind in EARNINGS:
         earnings_stage(d,scene,t,duration,who,mouth,energy,actor,dinosaur,egg,INK,CREAM)
@@ -202,6 +205,11 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
             for j in range(5):d.line([(400,465+j*12),(498,460+j*12)],'#f3a5b5',2)
     elif kind=='bill':
         d.box((321,522,454,651),CREAM,8,INK);d.text(scene.get('prop_title','REPAIR BILL'),388,550,14);d.text(scene.get('prop_value','$900'),388,591,25,'#bf5c4d')
+    if kind=='v2':
+        zoom=1+.022*min(1,t/max(duration,.1))
+        nw,nh=round(im.width*zoom),round(im.height*zoom)
+        im=im.resize((nw,nh),Image.Resampling.BICUBIC).crop(((nw-width)//2,(nh-round(width*16/9))//2,(nw+width)//2,(nh+round(width*16/9))//2))
+        d=Canvas(im)
     # Clean brand safe area; captions avoid Shorts bottom and right-hand UI.
     d.box((28,43,172,78),INK,11);d.text('AI HOUSE',100,61,20,CREAM)
     d.text(f'{episode:02d} / YOU DECIDE',474,61,11,INK,'rm')
@@ -215,5 +223,13 @@ def render(scene,index,t,duration,who,mouth,energy,caption,episode=1,width=1080)
         if line:lines.append(line)
         lines=lines[:2];top=720
         d.box((36,top-12,472,top+len(lines)*29+12),INK,12)
-        for j,line in enumerate(lines):d.text(line,254,top+14+j*29,23,'#fff4df')
+        for j,line in enumerate(lines):
+            d.text(line,254,top+14+j*29,23,'#fff4df')
+            if kind=='v2':
+                words=line.split();selected=next((w for w in words if any(c.isdigit() for c in w) or w.lower().strip('.,!?') in ('million','dinosaur','billion','earth','nobody','rent','fired','expired','delete','simulation')),None)
+                if selected:
+                    total=font(46).getlength(line)/2
+                    before=line[:line.index(selected)]
+                    center=254-total/2+font(46).getlength(before)/2+font(46).getlength(selected)/4
+                    d.text(selected,center,top+14+j*29,23,'#ffe078')
     return im

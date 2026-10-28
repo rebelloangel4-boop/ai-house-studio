@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 8,
+  "title": "Earth's Free Trial Just Expired",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "Your free trial of Earth has expired.",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "expired",
+      "beat": "EXPIRED",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    },
+    {
+      "speaker": "Max",
+      "line": "Skip ad. Skip ad! Why is there no button?",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "ad",
+      "beat": "AD",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Gravity is now a premium feature!",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "float",
+      "beat": "FLOAT",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    },
+    {
+      "speaker": "Max",
+      "line": "Finally. Free flying lessons.",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "fly",
+      "beat": "FLY",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Oxygen renews in five seconds. Add payment method.",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "pay",
+      "beat": "PAY",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    },
+    {
+      "speaker": "Luna",
+      "line": "The dinosaur entered his credit card!",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "card",
+      "beat": "CARD",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Payment accepted. Earth now belongs to him.",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "owned",
+      "beat": "OWNED",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    },
+    {
+      "speaker": "Max",
+      "line": "Why are all the continents shaped like nuggets?",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "reveal",
+      "beat": "REVEAL",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Do we accept his terms, or restart Earth?",
+      "visual": "v2",
+      "theme": "trial",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  ACCEPT TERMS",
+      "choice_b": "B  RESTART EARTH"
+    }
+  ],
+  "description": "Earth's Free Trial Just Expired. A  ACCEPT TERMS or B  RESTART EARTH? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

@@ -122,7 +122,7 @@ def main():
         data,tokens,polish=polish_dialogue(data,tokens,s['speaker'])
         records[-1].update(post_processing=polish,duration=len(data)/SR)
         lead=.04 if i==0 else .06
-        tail=.45 if s.get('visual')=='vote' else .14
+        tail=.65 if s.get('visual')=='vote' or s.get('phase')=='choice' else .14
         action_min={'hatch':1.65,'fire':2.05,'chomp':2.05}.get(s.get('visual'),1.25)
         duration=max(action_min,len(data)/SR+lead+tail)
         if 'seconds' in s:
@@ -132,10 +132,16 @@ def main():
         wavwrite(out/f'dialogue_{i:02}_{s["speaker"]}.wav',data)
         count=math.ceil(duration*FPS);duration=count/FPS
         kind=s.get('visual',['rent','egg','scan','hatch','fire','vote'][min(i,5)])
-        sound=out/f'scene_{i}.wav';wavwrite(sound,mix(data,duration,kind,lead));clip=out/f'scene_{i}.mp4'
+        sound=out/f'scene_{i}.wav'
+        if kind=='v2':
+            from v2_sound import mix as v2_mix
+            mixed,cues=v2_mix(data,duration,s,lead)
+            (out/f'sound_cues_{i}.json').write_text(json.dumps(cues,indent=2))
+        else:mixed=mix(data,duration,kind,lead)
+        wavwrite(sound,mixed);clip=out/f'scene_{i}.mp4'
         command=['ffmpeg','-hide_banner','-loglevel','error','-y','-f','rawvideo','-pix_fmt','rgb24','-s','1080x1920','-r',str(FPS),'-i','pipe:0','-i',str(sound),'-map','0:v','-map','1:a','-c:v','libx264','-threads','2','-preset','veryfast','-crf','19','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-ar','48000','-t',str(duration),str(clip)]
         checkpoint=out/f'scene_{i}.checkpoint.json'
-        signature=hashlib.sha256(data.tobytes()+json.dumps([s,tokens,duration],sort_keys=True).encode()+(ROOT/'studio/art.py').read_bytes()+(ROOT/'studio/landlord_art.py').read_bytes()+(ROOT/'studio/earnings_art.py').read_bytes()+(ROOT/'studio/finale_art.py').read_bytes()+(ROOT/'studio/render.py').read_bytes()).hexdigest()
+        signature=hashlib.sha256(data.tobytes()+json.dumps([s,tokens,duration],sort_keys=True).encode()+(ROOT/'studio/art.py').read_bytes()+(ROOT/'studio/landlord_art.py').read_bytes()+(ROOT/'studio/earnings_art.py').read_bytes()+(ROOT/'studio/finale_art.py').read_bytes()+(ROOT/'studio/render.py').read_bytes()+(ROOT/'studio/v2_art.py').read_bytes()+(ROOT/'studio/v2_sound.py').read_bytes()).hexdigest()
         reusable=False
         if clip.exists() and checkpoint.exists() and json.loads(checkpoint.read_text()).get('signature')==signature:
             check=subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(clip),'-f','null','-'],capture_output=True)
@@ -168,7 +174,13 @@ def main():
     if story.get('exact_seconds'):
         # Drop accumulated AAC packet padding from the video time base; never drop frames.
         video_args=['-vf','setpts=N/(30*TB)','-c:v','libx264','-preset','veryfast','-crf','19','-threads','2','-t',str(story['exact_seconds'])]
-    ff('-i',raw,*video_args,'-af','loudnorm=I=-16:TP=-1.5:LRA=9','-ar','48000','-ac','2','-c:a','aac','-b:a','192k','-movflags','+faststart',final)
+    if story.get('audio_target'):
+        scan=subprocess.run(['ffmpeg','-hide_banner','-i',str(raw),'-af','loudnorm=I=-14:TP=-1.3:LRA=9:print_format=json','-f','null','-'],capture_output=True,text=True,check=True)
+        measured=json.loads(scan.stderr[scan.stderr.rfind('{'):])
+        (out/'loudness_first_pass.json').write_text(json.dumps(measured,indent=2))
+        filt='loudnorm=I=-14:TP=-1.3:LRA=9:linear=true:'+':'.join(f'{k}={measured[v]}' for k,v in [('measured_I','input_i'),('measured_TP','input_tp'),('measured_LRA','input_lra'),('measured_thresh','input_thresh'),('offset','target_offset')])
+    else:filt='loudnorm=I=-16:TP=-1.5:LRA=9'
+    ff('-i',raw,*video_args,'-af',filt,'-ar','48000','-ac','2','-c:a','aac','-b:a','192k','-movflags','+faststart',final)
     (out/'voice_qa.json').write_text(json.dumps({'voices':VOICES,'segments':records,'listening_approval':'PENDING'},indent=2))
     (out/'captions.srt').write_text('\n\n'.join(f'{i+1}\n{srt_time(a)} --> {srt_time(b)}\n{text}' for i,(a,b,text) in enumerate(subtitle))+'\n')
     (out/'timeline.json').write_text(json.dumps(timeline,indent=2))

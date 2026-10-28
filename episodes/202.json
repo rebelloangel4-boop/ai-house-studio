@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 2,
+  "title": "The Dinosaur Has 24 Hours to Save the World",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "Earth has twenty four hours. Our only hope is him.",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "alarm",
+      "beat": "ALARM",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    },
+    {
+      "speaker": "Max",
+      "line": "The dinosaur? He lost a fight with a grape.",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "grape",
+      "beat": "GRAPE",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    },
+    {
+      "speaker": "Luna",
+      "line": "He needs to press the giant red button!",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "button",
+      "beat": "BUTTON",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    },
+    {
+      "speaker": "Max",
+      "line": "Easy. Put a snack on it.",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "bait",
+      "beat": "BAIT",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    },
+    {
+      "speaker": "Zig",
+      "line": "He ate the button.",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "eat",
+      "beat": "EAT",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Why is the asteroid turning around?",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "reverse",
+      "beat": "REVERSE",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    },
+    {
+      "speaker": "Zig",
+      "line": "That was its remote control. He is flying it.",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "reveal",
+      "beat": "REVEAL",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    },
+    {
+      "speaker": "Max",
+      "line": "He is parking it in our driveway!",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "crash",
+      "beat": "CRASH",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Do we teach him to steer, or bribe him with grapes?",
+      "visual": "v2",
+      "theme": "meteor",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  DRIVING LESSON",
+      "choice_b": "B  GRAPE BRIBE"
+    }
+  ],
+  "description": "The Dinosaur Has 24 Hours to Save the World. A  DRIVING LESSON or B  GRAPE BRIBE? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

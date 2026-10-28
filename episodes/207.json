@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 7,
+  "title": "Everyone Gets 10 Minutes to Live",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "Ten minutes remaining. Enjoy your final moments.",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "countdown",
+      "beat": "COUNTDOWN",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Final moments? I have not even folded my laundry!",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "laundry",
+      "beat": "LAUNDRY",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    },
+    {
+      "speaker": "Max",
+      "line": "I confess. I ate your emergency chocolate.",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "confess",
+      "beat": "CONFESS",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    },
+    {
+      "speaker": "Luna",
+      "line": "That was medicine for the dinosaur.",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "medicine",
+      "beat": "MEDICINE",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    },
+    {
+      "speaker": "Max",
+      "line": "That explains the tail.",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "tail",
+      "beat": "TAIL",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Clarification. Ten minutes of free electricity remaining.",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "bill",
+      "beat": "BILL",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    },
+    {
+      "speaker": "Luna",
+      "line": "So nobody is dying?",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "relief",
+      "beat": "RELIEF",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Correct. But Max is becoming a dinosaur.",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "reveal",
+      "beat": "REVEAL",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Do we find an antidote, or buy Max a tiny leash?",
+      "visual": "v2",
+      "theme": "timer",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  FIND ANTIDOTE",
+      "choice_b": "B  TINY LEASH"
+    }
+  ],
+  "description": "Everyone Gets 10 Minutes to Live. A  FIND ANTIDOTE or B  TINY LEASH? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

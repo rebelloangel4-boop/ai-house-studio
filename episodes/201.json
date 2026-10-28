@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 1,
+  "title": "The House Gets $10 Million \u2014 But Nobody Can Leave",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "Ten million dollars. Yours, if nobody leaves this house.",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "offer",
+      "beat": "OFFER",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    },
+    {
+      "speaker": "Max",
+      "line": "Finally. My refusal to exercise has investors.",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "cash",
+      "beat": "CASH",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Max, the front door just grew teeth!",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "door",
+      "beat": "DOOR",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    },
+    {
+      "speaker": "Max",
+      "line": "Fine. We order delivery.",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "phone",
+      "beat": "PHONE",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Delivery fee: nine million, nine hundred thousand dollars.",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "invoice",
+      "beat": "INVOICE",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    },
+    {
+      "speaker": "Luna",
+      "line": "The dinosaur is eating our money!",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "eat",
+      "beat": "EAT",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    },
+    {
+      "speaker": "Max",
+      "line": "Stop! That is our retirement salad!",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "chase",
+      "beat": "CHASE",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Congratulations. He bought the house. Your rent starts now.",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "reveal",
+      "beat": "REVEAL",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Do we escape through the toilet, or negotiate with our landlord?",
+      "visual": "v2",
+      "theme": "money",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  TOILET ESCAPE",
+      "choice_b": "B  DINO LANDLORD"
+    }
+  ],
+  "description": "The House Gets $10 Million \u2014 But Nobody Can Leave. A  TOILET ESCAPE or B  DINO LANDLORD? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

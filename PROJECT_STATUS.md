@@ -1,15 +1,15 @@
-# AI HOUSE Studio — 2026-10-28 IST
+# AI HOUSE 2.0 — production checkpoint, 28 October 2026 IST
 
-Not complete or deployed. Existing character art and licensed three-voice renderer preserved.
+The ten requested new episodes are NOT complete. Original application and earlier episodes remain preserved.
 
-Implemented: authenticated stateless GitHub control plane, responsive PWA shell, script views, real run history, individual render requests, weekly workflow requests, persisted 30-day calendar controls, direct MP4 preview/download responses, private release library and internal artifact-to-MP4 fallback. Tokens are kept in tab memory only, not browser storage or source. Deployment must use HTTPS. Calendar remains disabled and social publishing is not connected.
+Recovered baseline: ad49ab3872164036e39680158b207b0cb02874dc. Original character drawings and licensed Pocket TTS presets retained: Max/marius, Luna (Goblin Friend)/alba, Zig/javert. The tiny green dinosaur retains its original nonverbal role.
 
-Verified: 23 local unit/API tests; remote tests and Chromium mobile/desktop checks passed in run 40590619415. UI authenticated tests use explicit fixtures. Fresh Episode 001 production run 40590619343 passed rendering, technical verification, backup retention and draft-release attachment. Output is 1080x1920 at 30fps, stereo AAC, 19.013 seconds, 1,729,898 bytes. Naturalness remains pending listening review.
+New source episodes 201–210 map to requested Episode 1–10. Nine authored scenes per episode, scene-specific props, character acting, word-timed subtitles, synthesized music and effects, signal-driven ducking, and two-pass loudness mastering have been implemented. No paid API, subscription, or YouTube publishing used.
 
-Initial run 40590203646 rendered successfully but release creation failed HTTP 403. Targeting existing main and retaining MP4 before release upload repaired this; full retest succeeded. Draft release: https://github.com/rebelloangel4-boop/ai-house-studio/releases/tag/untagged-14cdcd962be63e07ce77 . Backup artifact: 12773218342. Downloaded MP4 was locally probed. Local decode exit status was not received before environment disconnected; workflow decode passed.
+Episode 1 dialogue generation passed its nine automated transcript checks after bounded retries. Local full rendering is underway; check output/201 and PRODUCTION_MANIFEST.json for evidence. No other new episode is represented as finished.
 
-Existing release metadata confirms retained assets for the earlier 30 Shorts and four compilations; not all were listened to again. Existing season generator uses authored beats, not an unrestricted AI writer.
+23 existing unit/API tests passed after the changes. Preview frames were inspected for Episode 1 and the dinosaur moved above the subtitle area. Full video QA is pending.
 
-Blocked: environment disconnected; Render has no selected workspace and explicitly requires user confirmation of My Workspace (tea-dbars849v7es739ncpcg). Deployed dashboard needs a fine-grained repository token privately entered into its login field: Actions read/write and Contents read/write. ChatGPT connector authentication is not a deployed runtime credential.
+Critical limitation: this execution session explicitly reports that audio input is unsupported. Naturalness listening review cannot be honestly completed here. Automated speech transcription and signal tests are not a substitute. Keep creative/listening approval pending.
 
-Remaining: deployment and live authentication/download/dispatch tests, listening approval, genuine AI script generation/revision, automatic weekly scheduling and authorized publishing. No completion percentage claimed.
+Earlier dashboard deployment and live authentication remain separate unfinished work recorded in CONTINUATION_STATE.json. They are not prerequisites for local video production.

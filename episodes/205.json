@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 5,
+  "title": "Max Meets His Evil Future Self",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Max",
+      "line": "That is me from the future. Why is he wearing a cape?",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "portal",
+      "beat": "PORTAL",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    },
+    {
+      "speaker": "Luna",
+      "line": "He says he is here to destroy your greatest enemy.",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "double",
+      "beat": "DOUBLE",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    },
+    {
+      "speaker": "Max",
+      "line": "My student debt?",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "debt",
+      "beat": "DEBT",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Worse. Your search history.",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "history",
+      "beat": "HISTORY",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    },
+    {
+      "speaker": "Max",
+      "line": "Nobody touch that laptop!",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "laptop",
+      "beat": "LAPTOP",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    },
+    {
+      "speaker": "Luna",
+      "line": "The dinosaur stole his time machine!",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "steal",
+      "beat": "STEAL",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    },
+    {
+      "speaker": "Zig",
+      "line": "Now there are twelve future Maxes. All unemployed.",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "clones",
+      "beat": "CLONES",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    },
+    {
+      "speaker": "Max",
+      "line": "Wait. The evil one brought snacks.",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "reveal",
+      "beat": "REVEAL",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    },
+    {
+      "speaker": "Luna",
+      "line": "Do we trust cape Max, or send every Max back?",
+      "visual": "v2",
+      "theme": "future",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  TRUST CAPE MAX",
+      "choice_b": "B  RETURN ALL MAXES"
+    }
+  ],
+  "description": "Max Meets His Evil Future Self. A  TRUST CAPE MAX or B  RETURN ALL MAXES? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}

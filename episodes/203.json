@@ -1,0 +1,107 @@
+{
+  "series": "AI HOUSE 2.0",
+  "episode": 3,
+  "title": "Our Dinosaur Becomes President of Earth",
+  "target_seconds": [
+    25,
+    40
+  ],
+  "production_status": "NOT_RENDERED",
+  "scenes": [
+    {
+      "speaker": "Zig",
+      "line": "Earth elected our dinosaur. He ran on free snacks.",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "elected",
+      "beat": "ELECTED",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    },
+    {
+      "speaker": "Max",
+      "line": "Finally, a politician who eats the paperwork.",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "paper",
+      "beat": "PAPER",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    },
+    {
+      "speaker": "Luna",
+      "line": "His first law makes bedtime illegal.",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "law",
+      "beat": "LAW",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    },
+    {
+      "speaker": "Max",
+      "line": "I support this administration.",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "cheer",
+      "beat": "CHEER",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    },
+    {
+      "speaker": "Zig",
+      "line": "His second law makes you the snack minister.",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "badge",
+      "beat": "BADGE",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    },
+    {
+      "speaker": "Max",
+      "line": "My qualifications are mostly crumbs.",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "crumbs",
+      "beat": "CRUMBS",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    },
+    {
+      "speaker": "Luna",
+      "line": "He just declared war on the moon!",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "moon",
+      "beat": "MOON",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    },
+    {
+      "speaker": "Zig",
+      "line": "He thinks it is cheese. The rockets are ready.",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "rocket",
+      "beat": "ROCKET",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    },
+    {
+      "speaker": "Max",
+      "line": "Do we cancel the launch, or send him a cheese wheel?",
+      "visual": "v2",
+      "theme": "president",
+      "phase": "choice",
+      "beat": "CHOICE",
+      "choice_a": "A  CANCEL LAUNCH",
+      "choice_b": "B  SEND CHEESE"
+    }
+  ],
+  "description": "Our Dinosaur Becomes President of Earth. A  CANCEL LAUNCH or B  SEND CHEESE? Tell us your choice in the comments. Fictional animated comedy. #AIHOUSE #Shorts #AnimatedComedy",
+  "audio_target": {
+    "integrated": -14,
+    "true_peak": -1
+  }
+}
