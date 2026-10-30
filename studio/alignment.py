@@ -46,10 +46,13 @@ def expand_asr_numbers(heard, reference):
     refs=[normal(w) for w in reference];result=[]
     for word in heard:
         digits=word.word.strip().strip('.,!?;:').replace(',','')
+        dollars=digits.startswith('$')
+        if dollars: digits=digits[1:]
         percent=digits.endswith('%')
         if percent: digits=digits[:-1]
         expanded=spell(int(digits)) if digits.isdigit() and int(digits)<10**12 else None
         if expanded and percent: expanded=expanded+['percent']
+        if expanded and dollars: expanded=expanded+['dollar' if int(digits)==1 else 'dollars']
         allowed=expanded and any(refs[i:i+len(expanded)]==expanded for i in range(len(refs)))
         if allowed:
             for j,w in enumerate(expanded):

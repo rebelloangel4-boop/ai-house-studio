@@ -8,6 +8,12 @@ def heard(words):
     return [SimpleNamespace(word=w,start=i*.2,end=(i+1)*.2) for i,w in enumerate(words)]
 
 class AlignmentTests(unittest.TestCase):
+    def test_currency_formatting_is_exact(self):
+        result=expand_asr_numbers(heard(['$50.']), ['fifty','dollars'])
+        self.assertEqual([w.word for w in result],['fifty','dollars'])
+        self.assertEqual(result[-1].end,.2)
+        self.assertEqual(expand_asr_numbers(heard(['$15']),['fifty','dollars'])[0].word,'$15')
+        self.assertEqual(expand_asr_numbers(heard(['50']),['fifty','dollars'])[0].word,'fifty')
     def test_percent_formatting_preserves_exact_number_and_interval(self):
         result=expand_asr_numbers(heard(['1%.']), ['one','percent'])
         self.assertEqual([w.word for w in result],['one','percent'])
