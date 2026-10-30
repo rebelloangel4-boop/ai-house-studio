@@ -8,6 +8,15 @@ def heard(words):
     return [SimpleNamespace(word=w,start=i*.2,end=(i+1)*.2) for i,w in enumerate(words)]
 
 class AlignmentTests(unittest.TestCase):
+    def test_percent_formatting_preserves_exact_number_and_interval(self):
+        result=expand_asr_numbers(heard(['1%.']), ['one','percent'])
+        self.assertEqual([w.word for w in result],['one','percent'])
+        self.assertEqual(result[0].start,0)
+        self.assertEqual(result[-1].end,.2)
+        wrong=expand_asr_numbers(heard(['2%']), ['one','percent'])
+        self.assertEqual(wrong[0].word,'2%')
+        missing=expand_asr_numbers(heard(['1']), ['one','percent'])
+        self.assertEqual([w.word for w in missing],['one'])
     def test_number_formatting_is_equivalent(self):
         result=expand_asr_numbers(heard(['24','hours']), ['twenty','four','hours'])
         self.assertEqual([w.word for w in result],['twenty','four','hours'])
@@ -32,3 +41,4 @@ class AlignmentTests(unittest.TestCase):
         self.assertEqual(len(result),2)
 
 if __name__=='__main__': unittest.main()
+

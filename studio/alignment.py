@@ -46,10 +46,14 @@ def expand_asr_numbers(heard, reference):
     refs=[normal(w) for w in reference];result=[]
     for word in heard:
         digits=word.word.strip().strip('.,!?;:').replace(',','')
+        percent=digits.endswith('%')
+        if percent: digits=digits[:-1]
         expanded=spell(int(digits)) if digits.isdigit() and int(digits)<10**12 else None
+        if expanded and percent: expanded=expanded+['percent']
         allowed=expanded and any(refs[i:i+len(expanded)]==expanded for i in range(len(refs)))
         if allowed:
             for j,w in enumerate(expanded):
                 result.append(SimpleNamespace(word=w,start=word.start+(word.end-word.start)*j/len(expanded),end=word.start+(word.end-word.start)*(j+1)/len(expanded)))
         else:result.append(word)
     return result
+
