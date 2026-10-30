@@ -113,7 +113,8 @@ class Handler(BaseHTTPRequestHandler):
                 if self.path=='/api/render':
                     ep=str(payload.get('episode',''))
                     if not re.fullmatch(r'\d{3}',ep) or not (ROOT/'episodes'/f'{ep}.json').is_file(): raise ValueError('Unknown episode')
-                    github('/actions/workflows/studio-production.yml/dispatches',token,{'ref':'main','inputs':{'episode':ep}})
+                    workflow='ai-house-v2.yml' if 201<=int(ep)<=210 else 'studio-production.yml'
+                    github('/actions/workflows/'+workflow+'/dispatches',token,{'ref':'main','inputs':{'episode':ep}})
                     return self.reply(202,{'status':'requested','message':'GitHub accepted dispatch; refresh history to confirm start.'})
             return self.reply(404,{'error':'Not found'})
         except PermissionError as exc: self.reply(401,{'error':str(exc)})
@@ -122,3 +123,4 @@ class Handler(BaseHTTPRequestHandler):
         except Exception: self.reply(502,{'error':'Service request failed; retry or inspect deployment logs.'})
 
 if __name__=='__main__': ThreadingHTTPServer(('0.0.0.0',int(os.environ.get('PORT','8000'))),Handler).serve_forever()
+

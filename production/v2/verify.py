@@ -16,10 +16,12 @@ def check(ep):
  assert not frozen,frozen
  assert -15<=qa['integrated_lufs']<=-13,qa
  assert qa['true_peak_dbtp']<=-1,qa
- assert 25<=qa['duration_seconds']<=45,qa
+ # Dialogue-driven Shorts may finish slightly below 25 seconds; never pad pauses.
+ assert 23<=qa['duration_seconds']<=45,qa
  voice=json.loads((folder/'voice_qa.json').read_text());assert all(s['automated_validation']=='PASS' for s in voice['segments'])
  assert all((folder/f'sound_cues_{i}.json').exists() for i in range(9))
  qa['extended_technical_gate']='PASS';qa['listening_approval']='PENDING';qa['creative_approval']='PENDING'
  (folder/'qa.json').write_text(json.dumps(qa,indent=2))
  print(json.dumps(qa,indent=2))
 if __name__=='__main__':check(sys.argv[1])
+

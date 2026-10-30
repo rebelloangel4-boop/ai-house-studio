@@ -1,5 +1,5 @@
 """Prepare individual MP4 exports and original thumbnails; retain honest review flags."""
-import json,shutil,sys
+import argparse,json,shutil,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'studio'))
 from PIL import Image
@@ -27,4 +27,8 @@ def pack(n):
   shutil.copy2(out/'qa.json',dst/f'AI_HOUSE_EP{n:02}_QA.json')
   shutil.copy2(out/'captions.srt',dst/f'AI_HOUSE_EP{n:02}_CAPTIONS.srt')
 if __name__=='__main__':
- for n in range(1,11):pack(n)
+ ap=argparse.ArgumentParser()
+ ap.add_argument('--episode',choices=[f'2{i:02}' for i in range(1,11)])
+ args=ap.parse_args()
+ for n in ([int(args.episode)-200] if args.episode else range(1,11)):pack(n)
+

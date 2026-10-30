@@ -1,5 +1,7 @@
 name: AI HOUSE 2.0 resumable episode production
 on:
+  push:
+    paths: [production/v2/batch-request.json]
   workflow_dispatch:
     inputs:
       episode:
@@ -9,14 +11,39 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: ai-house-v2-${{ inputs.episode }}
+  group: ai-house-v2-${{ inputs.episode || github.sha }}
   cancel-in-progress: false
 jobs:
+  select:
+    runs-on: ubuntu-24.04
+    outputs:
+      episodes: ${{ steps.select.outputs.episodes }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: select
+        env:
+          REQUEST: ${{ inputs.episode }}
+        run: |
+          python - <<'PYTHON'
+          import json, os
+          from pathlib import Path
+          episodes = [os.environ['REQUEST']] if os.environ.get('REQUEST') else json.loads(Path('production/v2/batch-request.json').read_text())['episodes']
+          assert episodes and len(episodes) <= 10 and len(set(episodes)) == len(episodes)
+          assert all(e in [f'2{i:02}' for i in range(1,11)] for e in episodes)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write('episodes=' + json.dumps(episodes) + '\n')
+          PYTHON
   render:
+    needs: select
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        episode: ${{ fromJSON(needs.select.outputs.episodes) }}
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     env:
-      EPISODE: ${{ inputs.episode }}
+      EPISODE: ${{ matrix.episode }}
       GH_TOKEN: ${{ github.token }}
       OMP_NUM_THREADS: '2'
       MKL_NUM_THREADS: '2'
@@ -39,28 +66,30 @@ jobs:
         run: python production/v2/run.py --episode "$EPISODE"
       - name: Package individual files
         run: |
-          python production/v2/package.py
+          python production/v2/package.py --episode "$EPISODE"
           python production/v2/checkpoint.py
       - name: Retain complete review outputs
         uses: actions/upload-artifact@v4
         with:
-          name: ai-house-v2-${{ inputs.episode }}
+          name: ai-house-v2-${{ matrix.episode }}
           path: output/deliverables/
           retention-days: 3
           compression-level: 0
           if-no-files-found: error
       - name: Retain MP4 on draft release
         run: |
-          TAG="ai-house-v2-${GITHUB_RUN_ID}"
+          TAG="ai-house-v2-${EPISODE}-${GITHUB_RUN_ID}"
           gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "AI HOUSE 2.0 source $EPISODE" --notes "Technical checks passed. Creative and listening review pending. Original assets; voice attribution accompanies each upload text. No YouTube publishing."
           gh release upload "$TAG" output/deliverables/*
       - name: Preserve diagnostics and resumable scene cache
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ai-house-v2-diagnostics-${{ inputs.episode }}
+          name: ai-house-v2-diagnostics-${{ matrix.episode }}
           path: |
-            output/${{ inputs.episode }}/
+            output/${{ matrix.episode }}/*.json
+            output/${{ matrix.episode }}/*.log
             PRODUCTION_MANIFEST.json
           retention-days: 3
           if-no-files-found: warn
+
